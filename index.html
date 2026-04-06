@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travis D. Butera — IT & Cybersecurity Operations Leader</title>
+  <meta name="description" content="Travis D. Butera — U.S. Navy Senior Chief, ISSM, 18+ years DoD cybersecurity and enterprise IT leadership. Active TS/SCI. Available October 2027." />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy-darkest: #060e1a;
+      --navy-dark:    #0b1a2e;
+      --navy-mid:     #0f2544;
+      --navy-light:   #1a3560;
+      --gold:         #c9a84c;
+      --gold-light:   #e0c06a;
+      --white:        #ffffff;
+      --off-white:    #e8edf4;
+      --text-muted:   #8fa3c0;
+      --text-body:    #cdd6e3;
+      --border:       rgba(201,168,76,0.25);
+      --card-bg:      rgba(15,37,68,0.7);
+      --radius:       8px;
+      --transition:   0.25s ease;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: var(--navy-darkest);
+      color: var(--text-body);
+      line-height: 1.7;
+    }
+
+    a { color: var(--gold); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--gold-light); }
+
+    img { max-width: 100%; display: block; }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section { padding: 90px 0; }
+
+    .section-label {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    h2.section-title {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: var(--gold);
+      margin: 0 0 40px 0;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(6,14,26,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+      padding: 0 24px;
+    }
+
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 80% 40%, rgba(201,168,76,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 80% at 0% 80%, rgba(15,37,68,0.8) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Grid lines background */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .hero-eyebrow-line {
+      width: 32px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .hero-eyebrow-text {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+    }
+
+    .hero-name {
+      font-size: clamp(2.6rem, 7vw, 4.8rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-name .last { color: var(--gold); }
+
+    .hero-title {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-bottom: 36px;
+      max-width: 560px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 44px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 14px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      border: 1px solid;
+    }
+
+    .badge-ts {
+      background: rgba(201,168,76,0.12);
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+
+    .badge-navy {
+      background: rgba(26,53,96,0.6);
+      border-color: rgba(138,170,220,0.4);
+      color: #8aaade;
+    }
+
+    .badge-avail {
+      background: rgba(34,197,94,0.1);
+      border-color: rgba(34,197,94,0.4);
+      color: #4ade80;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      transition: all var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy-darkest);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      color: var(--navy-darkest);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,168,76,0.25);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.25);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    .hero-scroll svg { opacity: 0.5; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ===== STATS BAR ===== */
+    .stats-bar {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 36px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 24px;
+      text-align: center;
+    }
+
+    .stat-item {}
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    /* ===== ABOUT ===== */
+    #about { background: var(--navy-dark); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--text-body);
+      margin-bottom: 18px;
+      font-size: 1rem;
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .about-text strong { color: var(--white); }
+
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color var(--transition);
+    }
+
+    .highlight-item:hover { border-color: var(--gold); }
+
+    .highlight-icon {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      background: rgba(201,168,76,0.12);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 1rem;
+    }
+
+    .highlight-text {
+      font-size: 0.875rem;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+
+    .highlight-text strong {
+      display: block;
+      color: var(--white);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 2px;
+    }
+
+    /* ===== RESUME ===== */
+    #resume { background: var(--navy-darkest); }
+
+    .resume-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .resume-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .resume-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .resume-card:hover {
+      border-color: rgba(201,168,76,0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+
+    .resume-card:hover::before { transform: scaleX(1); }
+
+    .resume-card-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(201,168,76,0.12);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 1.4rem;
+    }
+
+    .resume-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .resume-card-subtitle {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .resume-card-desc {
+      font-size: 0.875rem;
+      color: var(--text-body);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .resume-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 50px;
+      background: rgba(138,170,220,0.1);
+      color: #8aaade;
+      border: 1px solid rgba(138,170,220,0.2);
+    }
+
+    .resume-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      background: rgba(201,168,76,0.1);
+      border: 1.5px solid var(--gold);
+      border-radius: var(--radius);
+      color: var(--gold);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all var(--transition);
+      text-align: center;
+      justify-content: center;
+    }
+
+    .resume-download:hover {
+      background: var(--gold);
+      color: var(--navy-darkest);
+    }
+
+    .resume-note {
+      text-align: center;
+      margin-top: 36px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .resume-note a { color: var(--gold); }
+
+    /* ===== CERTS ===== */
+    #certs { background: var(--navy-dark); }
+
+    .certs-table-wrap {
+      overflow-x: auto;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    thead {
+      background: var(--navy-mid);
+    }
+
+    th {
+      padding: 14px 20px;
+      text-align: left;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      font-weight: 700;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+      vertical-align: middle;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    tbody tr {
+      background: var(--card-bg);
+      transition: background var(--transition);
+    }
+
+    tbody tr:hover { background: rgba(26,53,96,0.6); }
+
+    .cert-name {
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .cert-issuer {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 11px;
+      border-radius: 50px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .status-active {
+      background: rgba(34,197,94,0.12);
+      color: #4ade80;
+      border: 1px solid rgba(34,197,94,0.3);
+    }
+
+    .status-progress {
+      background: rgba(251,191,36,0.1);
+      color: #fbbf24;
+      border: 1px solid rgba(251,191,36,0.3);
+    }
+
+    .status-planned {
+      background: rgba(99,102,241,0.1);
+      color: #a5b4fc;
+      border: 1px solid rgba(99,102,241,0.3);
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .status-active .status-dot { animation: pulse 2s infinite; }
+
+    .target-date {
+      color: var(--text-body);
+      font-size: 0.85rem;
+    }
+
+    .priority-badge {
+      display: inline-block;
+      background: rgba(201,168,76,0.15);
+      color: var(--gold);
+      font-size: 0.68rem;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-left: 6px;
+      font-weight: 700;
+      border: 1px solid rgba(201,168,76,0.3);
+    }
+
+    /* Progress bar visual for in-progress certs */
+    .cert-progress-bar {
+      height: 4px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 8px;
+      width: 120px;
+    }
+
+    .cert-progress-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    }
+
+    .nec-note {
+      margin-top: 36px;
+      padding: 20px 24px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .nec-note strong { color: var(--white); }
+
+    .nec-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .nec-pill {
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: rgba(26,53,96,0.8);
+      border: 1px solid rgba(138,170,220,0.25);
+      color: #8aaade;
+      font-weight: 600;
+    }
+
+    /* ===== CONTACT ===== */
+    #contact {
+      background: var(--navy-darkest);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #contact::before {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .contact-intro {
+      font-size: 1.05rem;
+      color: var(--text-body);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .contact-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all var(--transition);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .contact-card:hover {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.06);
+      transform: translateX(4px);
+    }
+
+    .contact-card-icon {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      background: rgba(201,168,76,0.12);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
+
+    .contact-card-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .contact-card-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .contact-clearance-box {
+      margin-top: 36px;
+      padding: 24px;
+      background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.03));
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+    }
+
+    .clearance-title {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .clearance-value {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .clearance-detail {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .avail-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 20px;
+      background: rgba(34,197,94,0.07);
+      border: 1px solid rgba(34,197,94,0.25);
+      border-radius: var(--radius);
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: #86efac;
+    }
+
+    .avail-banner svg { flex-shrink: 0; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-name {
+      font-weight: 700;
+      color: var(--white);
+      font-size: 0.9rem;
+    }
+
+    .footer-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== MOBILE NAV ===== */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px; left: 0; right: 0;
+      background: rgba(6,14,26,0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 99;
+      flex-direction: column;
+      padding: 20px 24px;
+      gap: 4px;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      padding: 12px 0;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-body);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--gold); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      section { padding: 64px 0; }
+
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .hero-name { font-size: clamp(2.2rem, 10vw, 3.2rem); }
+
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .resume-grid { grid-template-columns: 1fr; }
+
+      th, td { padding: 12px 14px; }
+
+      .contact-clearance-box { margin-top: 24px; }
+    }
+
+    @media (max-width: 480px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-badges { gap: 7px; }
+      .badge { font-size: 0.72rem; padding: 6px 11px; }
+    }
+
+    /* ===== SCROLL FADE-IN ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Travis<span>.</span>Butera</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#certs">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#resume" onclick="closeMobile()">Resume</a>
+  <a href="#certs" onclick="closeMobile()">Certifications</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <div class="hero-eyebrow-text">U.S. Navy Senior Chief · E-8 · Pearl City, Hawaii</div>
+      </div>
+
+      <h1 class="hero-name">
+        Travis D.<br><span class="last">Butera</span>
+      </h1>
+
+      <p class="hero-title">
+        IT &amp; Cybersecurity Operations Leader &nbsp;·&nbsp; ISSM &nbsp;·&nbsp; 18+ Years DoD
+      </p>
+
+      <div class="hero-badges">
+        <span class="badge badge-ts">
+          <span class="badge-dot"></span>
+          Top Secret / SCI Eligible
+        </span>
+        <span class="badge badge-navy">
+          ⚓ &nbsp;U.S. Navy · 18+ Years
+        </span>
+        <span class="badge badge-avail">
+          <span class="badge-dot"></span>
+          Available: Oct 2027
+        </span>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          Get In Touch
+        </a>
+        <a href="#resume" class="btn btn-outline">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          View Resumes
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item fade-in">
+        <div class="stat-number">18+</div>
+        <div class="stat-label">Years DoD Service</div>
+      </div>
+      <div class="stat-item fade-in">
+        <div class="stat-number">7</div>
+        <div class="stat-label">Submarines Managed</div>
+      </div>
+      <div class="stat-item fade-in">
+        <div class="stat-number">32+</div>
+        <div class="stat-label">Technical Personnel Developed</div>
+      </div>
+      <div class="stat-item fade-in">
+        <div class="stat-number">$5.1M</div>
+        <div class="stat-label">IT Assets Managed</div>
+      </div>
+      <div class="stat-item fade-in">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Major Inspections in One Year</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <span class="section-label">About</span>
+    <h2 class="section-title">Experience That Translates</h2>
+    <div class="divider"></div>
+
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <p>
+          I'm a U.S. Navy Senior Chief (E-8) with <strong>18+ years managing mission-critical enterprise IT and cybersecurity programs</strong> in support of submarine forces — one of the most demanding operational environments in the DoD. I currently serve as Cyber Assistant, ISSM, and Cyberspace Workforce Program Manager at <strong>Commander, Submarine Squadron ONE (COMSUBRON ONE)</strong>, responsible for cybersecurity posture across seven operational fast-attack submarines.
+        </p>
+        <p>
+          My record is built on turning around failing programs, executing high-stakes inspections under pressure, and developing technical teams that perform when it matters. I contributed to <strong>the highest-scoring Fleet Cyber Command cyber inspection in submarine history</strong> — recognized with a Navy and Marine Corps Commendation Medal from the Commodore.
+        </p>
+        <p>
+          In a single year, I executed three cyber inspections and one KMI inspection — all satisfactory or better. I've also co-authored occupational standards at the CNO level for the ITN rate.
+        </p>
+        <p>
+          I hold a <strong>B.S. in Information Technology from Purdue Global, Summa Cum Laude</strong> (December 2025), and I'm on a deliberate path toward CISM and CISSP certification as I transition to the civilian sector. My planned retirement is <strong>October 2027</strong>.
+        </p>
+      </div>
+
+      <div class="about-highlights fade-in">
+        <div class="highlight-item">
+          <div class="highlight-icon">🛡️</div>
+          <div class="highlight-text">
+            <strong>ISSM / RMF / ATO Lifecycle</strong>
+            Full RMF/ATO lifecycle authority. eMASS, ACAS/Tenable, VRAM, STIG compliance, eMASS package management across operational submarined platforms.
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">🌐</div>
+          <div class="highlight-text">
+            <strong>Enterprise Infrastructure at Scale</strong>
+            Multi-site IT ops across 7 operational submarines. $5.1M in managed assets. 100% operational uptime requirements in forward-deployed environments.
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">👥</div>
+          <div class="highlight-text">
+            <strong>Team Development & Workforce Programs</strong>
+            Developed 32+ technical personnel across 5 paygrades. Cyberspace Workforce Program Manager. Co-authored ITN rate occupational standards at CNO level.
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">🔍</div>
+          <div class="highlight-text">
+            <strong>Inspection & Compliance Execution</strong>
+            ISIC Cyber Inspector qualified. Executed 4 major inspections in a single year — all satisfactory or better, including one record-breaking FCC cyber inspection.
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">🎓</div>
+          <div class="highlight-text">
+            <strong>Education & Credentials</strong>
+            B.S. Information Technology, Purdue Global, Summa Cum Laude, Dec 2025. Active TS clearance / SCI Eligible. Pursuing CISM → CISSP.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="container">
+    <span class="section-label">Resume</span>
+    <h2 class="section-title">Role-Targeted Versions</h2>
+    <div class="divider"></div>
+
+    <div class="resume-grid">
+
+      <!-- Card 1: ISSM / Cleared Contractor -->
+      <div class="resume-card fade-in">
+        <div class="resume-card-icon">🔐</div>
+        <div>
+          <div class="resume-card-subtitle">Cleared Contractor</div>
+          <div class="resume-card-title">ISSM / Defense Contractor</div>
+        </div>
+        <p class="resume-card-desc">
+          Targeted at cleared defense firms — Leidos, SAIC, Booz Allen Hamilton, GDIT, Peraton. Emphasizes TS/SCI handling, full RMF/ATO lifecycle, ACAS/VRAM compliance, eMASS, inspection leadership, and ISSM authority across multiple platforms.
+        </p>
+        <div class="resume-tags">
+          <span class="tag">TS/SCI</span>
+          <span class="tag">RMF / ATO</span>
+          <span class="tag">ACAS / VRAM</span>
+          <span class="tag">eMASS</span>
+          <span class="tag">ISSM</span>
+        </div>
+        <a href="butera_issm_contractor.pdf" download class="resume-download">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download — butera_issm_contractor.pdf
+        </a>
+      </div>
+
+      <!-- Card 2: IT Director -->
+      <div class="resume-card fade-in">
+        <div class="resume-card-icon">🏢</div>
+        <div>
+          <div class="resume-card-subtitle">Private & Defense-Adjacent Sector</div>
+          <div class="resume-card-title">IT Director / Operations Manager</div>
+        </div>
+        <p class="resume-card-desc">
+          Built for corporate, healthcare, finance, and defense-adjacent roles. Leads with enterprise infrastructure scope: 7-site operations, $5.1M in managed assets, 100% uptime performance, and a 32-person technical development track record.
+        </p>
+        <div class="resume-tags">
+          <span class="tag">Enterprise IT</span>
+          <span class="tag">Multi-Site Ops</span>
+          <span class="tag">$5.1M Assets</span>
+          <span class="tag">Team Development</span>
+        </div>
+        <a href="butera_it_director.pdf" download class="resume-download">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download — butera_it_director.pdf
+        </a>
+      </div>
+
+      <!-- Card 3: Federal -->
+      <div class="resume-card fade-in">
+        <div class="resume-card-icon">🏛️</div>
+        <div>
+          <div class="resume-card-subtitle">NSA · CYBERCOM · DIA · DHS · DISA</div>
+          <div class="resume-card-title">Federal GS-13/14 (2210 Series)</div>
+        </div>
+        <p class="resume-card-desc">
+          Full USAJobs-format resume optimized for federal hiring. Includes veterans' preference documentation, KSA language, and complete career history formatted for 2210 IT series positions at NSA, CYBERCOM, DIA, DHS, DISA, and Navy civilian billets.
+        </p>
+        <div class="resume-tags">
+          <span class="tag">USAJobs Format</span>
+          <span class="tag">GS-13/14</span>
+          <span class="tag">2210 Series</span>
+          <span class="tag">Vet's Preference</span>
+        </div>
+        <a href="butera_federal_resume.pdf" download class="resume-download">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download — butera_federal_resume.pdf
+        </a>
+      </div>
+
+    </div>
+
+    <p class="resume-note">
+      Don't see what you need? <a href="mailto:tdbutera@proton.me?subject=Resume Request — Travis Butera">Email me directly</a> and I'll send the right version.
+    </p>
+  </div>
+</section>
+
+<!-- CERTS -->
+<section id="certs">
+  <div class="container">
+    <span class="section-label">Certification Tracker</span>
+    <h2 class="section-title">Credentials & Development Path</h2>
+    <div class="divider"></div>
+
+    <div class="certs-table-wrap fade-in">
+      <table>
+        <thead>
+          <tr>
+            <th>Certification</th>
+            <th>Issuer</th>
+            <th>Status</th>
+            <th>Target / Earned</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="cert-name">CompTIA Security+ CE</div>
+              <div class="cert-issuer">DoD 8570 Baseline · IAT Level II</div>
+            </td>
+            <td>CompTIA</td>
+            <td>
+              <span class="status-pill status-progress">
+                <span class="status-dot"></span>
+                In Progress
+              </span>
+              <div class="cert-progress-bar"><div class="cert-progress-fill" style="width:75%"></div></div>
+            </td>
+            <td class="target-date">
+              Renewal · Priority #1
+              <span class="priority-badge">Priority</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="cert-name">CISM</div>
+              <div class="cert-issuer">Certified Information Security Manager</div>
+            </td>
+            <td>ISACA</td>
+            <td>
+              <span class="status-pill status-progress">
+                <span class="status-dot"></span>
+                In Progress
+              </span>
+              <div class="cert-progress-bar"><div class="cert-progress-fill" style="width:35%"></div></div>
+            </td>
+            <td class="target-date">Target: Q4 2027</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="cert-name">PMP</div>
+              <div class="cert-issuer">Project Management Professional</div>
+            </td>
+            <td>PMI</td>
+            <td>
+              <span class="status-pill status-planned">
+                <span class="status-dot"></span>
+                Planned
+              </span>
+            </td>
+            <td class="target-date">Target: 2028</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="cert-name">CISSP</div>
+              <div class="cert-issuer">Certified Information Systems Security Professional</div>
+            </td>
+            <td>(ISC)²</td>
+            <td>
+              <span class="status-pill status-planned">
+                <span class="status-dot"></span>
+                Planned
+              </span>
+            </td>
+            <td class="target-date">Target: 2029</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="cert-name">KMI KOAM</div>
+              <div class="cert-issuer">Key Management Infrastructure — Operator</div>
+            </td>
+            <td>DoD / Navy</td>
+            <td>
+              <span class="status-pill status-active">
+                <span class="status-dot"></span>
+                Active
+              </span>
+            </td>
+            <td class="target-date">Earned: March 2022</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="cert-name">CANES Administrator SW3/SW4</div>
+              <div class="cert-issuer">Consolidated Afloat Networks &amp; Enterprise Services</div>
+            </td>
+            <td>Navy (NEC 735A)</td>
+            <td>
+              <span class="status-pill status-active">
+                <span class="status-dot"></span>
+                Active
+              </span>
+            </td>
+            <td class="target-date">Earned: August 2024</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="cert-name">ISSM</div>
+              <div class="cert-issuer">Information Systems Security Manager</div>
+            </td>
+            <td>Navy (NEC 741A)</td>
+            <td>
+              <span class="status-pill status-active">
+                <span class="status-dot"></span>
+                Active
+              </span>
+            </td>
+            <td class="target-date">Earned: December 2020</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="nec-note fade-in">
+      <strong>Navy Enlisted Classifications (NECs)</strong>
+      <div class="nec-pills">
+        <span class="nec-pill">741A — ISSM</span>
+        <span class="nec-pill">742A — NSVT</span>
+        <span class="nec-pill">735A — CANES Admin</span>
+        <span class="nec-pill">T47A — SUBLAN</span>
+        <span class="nec-pill">T32A — Sub Comms LCPO</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <span class="section-label">Contact</span>
+    <h2 class="section-title">Let's Connect</h2>
+    <div class="divider"></div>
+
+    <div class="contact-grid">
+      <div class="fade-in">
+        <p class="contact-intro">
+          My planned retirement is <strong style="color:var(--white)">October 2027</strong>. If you're a hiring manager, recruiter, or senior contact who's told me to reach out — this is the page I'll keep current. The certification tracker above reflects exactly where I am in my professional development path.
+        </p>
+        <p class="contact-intro" style="font-size:0.9rem;">
+          Open to cleared contractor, federal civilian, and corporate IT/cyber leadership roles. Preference for Tennessee post-retirement — open CONUS.
+        </p>
+      </div>
+
+      <div class="fade-in">
+        <div class="contact-cards">
+          <a href="mailto:tdbutera@proton.me" class="contact-card">
+            <div class="contact-card-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-label">Email</div>
+              <div class="contact-card-value">tdbutera@proton.me</div>
+            </div>
+          </a>
+
+          <a href="tel:+18123049813" class="contact-card">
+            <div class="contact-card-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6 6l1.08-1.08a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-label">Phone</div>
+              <div class="contact-card-value">(812) 304-9813</div>
+            </div>
+          </a>
+
+          <a href="https://linkedin.com/in/travis-butera" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-card-icon">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-label">LinkedIn</div>
+              <div class="contact-card-value">linkedin.com/in/travis-butera</div>
+            </div>
+          </a>
+
+          <div class="contact-card" style="cursor:default;">
+            <div class="contact-card-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-label">Location</div>
+              <div class="contact-card-value">Pearl City, Hawaii</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-clearance-box">
+          <div class="clearance-title">Security Clearance</div>
+          <div class="clearance-value">Top Secret (Active) &nbsp;/&nbsp; SCI Eligible</div>
+          <div class="clearance-detail">Adjudicated and current. Available for cleared roles at separation.</div>
+        </div>
+
+        <div class="avail-banner">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Available for transition: <strong style="margin-left:4px;">October 2027</strong> &nbsp;·&nbsp; Open CONUS · Preference: Tennessee
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-name">Travis D. Butera</div>
+    <div class="footer-meta">IT &amp; Cybersecurity Operations Leader &nbsp;·&nbsp; ISSM &nbsp;·&nbsp; U.S. Navy Senior Chief</div>
+    <div class="footer-meta" style="margin-top:4px;">Active TS Clearance &nbsp;·&nbsp; Available October 2027</div>
+  </div>
+</footer>
+
+<script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  function closeMobile() { mobileMenu.classList.remove('open'); }
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) closeMobile();
+  });
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Active nav link highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      if (window.scrollY >= section.offsetTop - 100) current = section.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.style.color = link.getAttribute('href') === '#' + current
+        ? 'var(--gold)'
+        : '';
+    });
+  }, { passive: true });
+</script>
+
+</body>
+</html>
