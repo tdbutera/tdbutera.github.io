@@ -838,6 +838,86 @@
 
     .avail-banner svg { flex-shrink: 0; }
 
+    /* ===== CONTACT FORM ===== */
+    .contact-form { margin-top: 32px; }
+
+    .contact-form h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .form-group { margin-bottom: 16px; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      color: var(--white);
+      font-size: 0.9rem;
+      font-family: inherit;
+      transition: border-color var(--transition);
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--text-muted); opacity: 0.7; }
+
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--gold);
+      color: var(--navy-darkest);
+      border: none;
+      border-radius: var(--radius);
+      padding: 14px 28px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .form-submit:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,168,76,0.25);
+    }
+
+    .form-success {
+      display: none;
+      padding: 16px 20px;
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.3);
+      border-radius: var(--radius);
+      color: #4ade80;
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 16px;
+    }
+
     /* ===== FOOTER ===== */
     footer {
       background: var(--navy-mid);
@@ -936,6 +1016,10 @@
       transform: translateY(0);
     }
   </style>
+
+  <!-- Cloudflare Web Analytics — replace token after enabling in Cloudflare dashboard:
+       Analytics & Logs → Web Analytics → Add a site → copy your token here -->
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "REPLACE_WITH_YOUR_CF_TOKEN"}'></script>
 </head>
 <body>
 
@@ -1138,7 +1222,7 @@
       <div class="resume-card fade-in">
         <div class="resume-card-icon">🏢</div>
         <div>
-          <div class="resume-card-subtitle">Private & Defense-Adjacent Sector</div>
+          <div class="resume-card-subtitle">Private &amp; Defense-Adjacent Sector</div>
           <div class="resume-card-title">IT Director / Operations Manager</div>
         </div>
         <p class="resume-card-desc">
@@ -1178,44 +1262,45 @@
         </a>
       </div>
 
-        <!-- Card 4: Private Sector -->
-        <div class="resume-card fade-in">
-          <div class="resume-card-icon">💼</div>
-          <div>
-            <div class="resume-card-subtitle">Corporate &amp; Private Sector</div>
-            <div class="resume-card-title">Private Sector Resume</div>
-          </div>
-          <p class="resume-card-desc">Tailored for private sector opportunities in technology leadership, cybersecurity, and enterprise IT. Translates military experience into civilian business impact and strategic value.</p>
-          <div class="resume-tags">
-            <span class="tag">IT Leadership</span>
-            <span class="tag">Cybersecurity</span>
-            <span class="tag">Consulting</span>
-            <span class="tag">Operations</span>
-          </div>
-          <a href="butera_private_resume.pdf" download class="resume-download">
-            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download — butera_private_resume.pdf
-          </a>
+      <!-- Card 4: Private Sector -->
+      <div class="resume-card fade-in">
+        <div class="resume-card-icon">💼</div>
+        <div>
+          <div class="resume-card-subtitle">Corporate &amp; Private Sector</div>
+          <div class="resume-card-title">Private Sector Resume</div>
         </div>
+        <p class="resume-card-desc">Tailored for private sector opportunities in technology leadership, cybersecurity, and enterprise IT. Translates military experience into civilian business impact and strategic value.</p>
+        <div class="resume-tags">
+          <span class="tag">IT Leadership</span>
+          <span class="tag">Cybersecurity</span>
+          <span class="tag">Consulting</span>
+          <span class="tag">Operations</span>
+        </div>
+        <a href="butera_private_resume.pdf" download class="resume-download">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download — butera_private_resume.pdf
+        </a>
+      </div>
 
-        <!-- Card 5: LinkedIn Guide -->
-        <div class="resume-card fade-in">
-          <div class="resume-card-icon">🔗</div>
-          <div>
-            <div class="resume-card-subtitle">Networking &amp; Profile</div>
-            <div class="resume-card-title">LinkedIn Profile Guide</div>
-          </div>
-          <p class="resume-card-desc">A formatted overview of my LinkedIn profile and professional narrative — useful for recruiters and hiring managers wanting a quick-reference summary of background and career goals.</p>
-          <div class="resume-tags">
-            <span class="tag">LinkedIn</span>
-            <span class="tag">Networking</span>
-            <span class="tag">Profile Summary</span>
-          </div>
-          <a href="butera_linkedin_guide.pdf" download class="resume-download">
-            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download — butera_linkedin_guide.pdf
-          </a>
+      <!-- Card 5: LinkedIn Guide -->
+      <div class="resume-card fade-in">
+        <div class="resume-card-icon">🔗</div>
+        <div>
+          <div class="resume-card-subtitle">Networking &amp; Profile</div>
+          <div class="resume-card-title">LinkedIn Profile Guide</div>
         </div>
+        <p class="resume-card-desc">A formatted overview of my LinkedIn profile and professional narrative — useful for recruiters and hiring managers wanting a quick-reference summary of background and career goals.</p>
+        <div class="resume-tags">
+          <span class="tag">LinkedIn</span>
+          <span class="tag">Networking</span>
+          <span class="tag">Profile Summary</span>
+        </div>
+        <a href="butera_linkedin_guide.pdf" download class="resume-download">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download — butera_linkedin_guide.pdf
+        </a>
+      </div>
+
     </div>
 
     <p class="resume-note">
@@ -1253,7 +1338,7 @@
                 <span class="status-dot"></span>
                 In Progress
               </span>
-              <div class="cert-progress-bar"><div class="cert-progress-fill" style="width:75%"></div></div>
+              <div class="cert-progress-bar"><div class="cert-progress-fill" id="cert-secplus"></div></div>
             </td>
             <td class="target-date">
               Renewal · Priority #1
@@ -1271,7 +1356,7 @@
                 <span class="status-dot"></span>
                 In Progress
               </span>
-              <div class="cert-progress-bar"><div class="cert-progress-fill" style="width:35%"></div></div>
+              <div class="cert-progress-bar"><div class="cert-progress-fill" id="cert-cism"></div></div>
             </td>
             <td class="target-date">Target: Q4 2027</td>
           </tr>
@@ -1377,6 +1462,37 @@
         <p class="contact-intro" style="font-size:0.9rem;">
           Open to cleared contractor, federal civilian, and corporate IT/cyber leadership roles. Preference for Tennessee post-retirement — open CONUS.
         </p>
+
+        <div class="contact-form fade-in">
+          <h3>Send a Message</h3>
+          <!-- Formspree — replace YOUR_FORM_ID after signing up at formspree.io/register
+               Takes ~2 minutes: create account → New Form → copy the ID from the action URL -->
+          <form id="contactForm" action="https://formspree.io/f/xrerkkoe" method="POST">
+            <div class="form-group">
+              <label for="cf-name">Name</label>
+              <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="cf-email">Email</label>
+              <input type="email" id="cf-email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="cf-subject">Subject</label>
+              <input type="text" id="cf-subject" name="subject" placeholder="e.g. Cybersecurity role — Q4 2027">
+            </div>
+            <div class="form-group">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" placeholder="Tell me about the opportunity or how I can help..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Send Message
+            </button>
+          </form>
+          <div class="form-success" id="formSuccess">
+            ✓ Message sent — I'll get back to you shortly.
+          </div>
+        </div>
       </div>
 
       <div class="fade-in">
@@ -1443,10 +1559,27 @@
     <div class="footer-name">Travis D. Butera</div>
     <div class="footer-meta">IT &amp; Cybersecurity Operations Leader &nbsp;·&nbsp; ISSM &nbsp;·&nbsp; U.S. Navy Senior Chief</div>
     <div class="footer-meta" style="margin-top:4px;">Active TS Clearance &nbsp;·&nbsp; Available October 2027</div>
+    <div class="footer-meta" style="margin-top:8px; opacity:0.55; font-size:0.68rem; letter-spacing:0.06em;">Last updated: April 2026</div>
   </div>
 </footer>
 
 <script>
+  // ================================================================
+  // CERT TRACKER CONFIG
+  // Edit the numbers below to update progress bar percentages.
+  // Valid range: 0 to 100. Only "In Progress" certs need a value.
+  // ================================================================
+  const CERT_PROGRESS = {
+    'secplus': 75,   // CompTIA Security+ CE renewal   (0–100)
+    'cism':    35,   // CISM                            (0–100)
+  };
+  // Apply percentages to progress bars (no need to edit below)
+  Object.entries(CERT_PROGRESS).forEach(([id, pct]) => {
+    const el = document.getElementById('cert-' + id);
+    if (el) el.style.width = Math.min(100, Math.max(0, pct)) + '%';
+  });
+  // ================================================================
+
   // Hamburger menu
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -1467,6 +1600,35 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Contact form — Formspree AJAX submit
+  const contactForm = document.getElementById('contactForm');
+  const formSuccess = document.getElementById('formSuccess');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = contactForm.querySelector('.form-submit');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      try {
+        const res = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          contactForm.style.display = 'none';
+          formSuccess.style.display = 'block';
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      } catch {
+        alert('There was a problem sending your message. Please email me directly at tdbutera@proton.me');
+        btn.disabled = false;
+        btn.textContent = 'Send Message';
+      }
+    });
+  }
 
   // Active nav link highlight on scroll
   const sections = document.querySelectorAll('section[id]');
