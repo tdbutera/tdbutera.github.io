@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Travis D. Butera — IT & Cybersecurity Operations Leader</title>
-  <meta name="description" content="Travis D. Butera — U.S. Navy Senior Chief, ISSM, 18+ years DoD cybersecurity and enterprise IT leadership. Active TS/SCI. Available October 2027." />
+  <title>Travis D. Butera â IT & Cybersecurity Operations Leader</title>
+  <meta name="description" content="Travis D. Butera â U.S. Navy Senior Chief, ISSM, 18+ years DoD cybersecurity and enterprise IT leadership. Active TS/SCI. Available October 2027." />
   <style>
     /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -918,6 +918,19 @@
       margin-top: 16px;
     }
 
+
+    /* ===== RESUME CARD WEB LINK ===== */
+    .resume-card-web {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: -8px;
+    }
+    .resume-card-web a { color: var(--text-muted); transition: color var(--transition); }
+    .resume-card-web a:hover { color: var(--gold); }
+
     /* ===== FOOTER ===== */
     footer {
       background: var(--navy-mid);
@@ -1017,9 +1030,33 @@
     }
   </style>
 
-  <!-- Cloudflare Web Analytics — replace token after enabling in Cloudflare dashboard:
-       Analytics & Logs → Web Analytics → Add a site → copy your token here -->
-  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "REPLACE_WITH_YOUR_CF_TOKEN"}'></script>
+  <!-- Cloudflare Web Analytics is injected automatically by Cloudflare Workers.
+       Token setup: dash.cloudflare.com â Analytics & Logs â Web Analytics â buteranet.com -->
+
+  <!--
+  ================================================================
+  PHASE 3 â PLANNED FEATURES (no code yet â design notes only)
+  ================================================================
+
+  7. AI-POWERED RESUME TAILORING TOOL
+     - Visitor pastes a job description into a textarea
+     - Client-side JS sends it to a Cloudflare Worker (edge function)
+     - Worker calls Claude API with Travis's background as context
+     - Returns a tailored match summary: skills alignment, gaps, suggested
+       talking points â displayed inline on the page
+     - Implementation: Workers AI or Claude API (claude-haiku-4-5)
+     - Auth: none needed (read-only, no sensitive data sent)
+
+  8. PASSWORD-PROTECTED EMPLOYER PORTAL
+     - Specific contacts receive a private URL (e.g. /for/company-name)
+     - Cloudflare Access or simple token-based auth (query param + KV store)
+     - Custom profile page: tailored intro, specific resume version,
+       clearance details, availability timeline
+     - Implementation: Cloudflare Workers + KV for token validation
+     - Each portal page generated server-side from a JSON config per employer
+
+  ================================================================
+  -->
 </head>
 <body>
 
@@ -1051,7 +1088,7 @@
     <div class="hero-content">
       <div class="hero-eyebrow">
         <div class="hero-eyebrow-line"></div>
-        <div class="hero-eyebrow-text">U.S. Navy Senior Chief · E-8 · Pearl City, Hawaii</div>
+        <div class="hero-eyebrow-text">U.S. Navy Senior Chief Â· E-8 Â· Pearl City, Hawaii</div>
       </div>
 
       <h1 class="hero-name">
@@ -1059,7 +1096,7 @@
       </h1>
 
       <p class="hero-title">
-        IT &amp; Cybersecurity Operations Leader &nbsp;·&nbsp; ISSM &nbsp;·&nbsp; 18+ Years DoD
+        IT &amp; Cybersecurity Operations Leader &nbsp;Â·&nbsp; ISSM &nbsp;Â·&nbsp; 18+ Years DoD
       </p>
 
       <div class="hero-badges">
@@ -1068,7 +1105,7 @@
           Top Secret / SCI Eligible
         </span>
         <span class="badge badge-navy">
-          ⚓ &nbsp;U.S. Navy · 18+ Years
+          â &nbsp;U.S. Navy Â· 18+ Years
         </span>
         <span class="badge badge-avail">
           <span class="badge-dot"></span>
@@ -1132,13 +1169,13 @@
     <div class="about-grid">
       <div class="about-text fade-in">
         <p>
-          I'm a U.S. Navy Senior Chief (E-8) with <strong>18+ years managing mission-critical enterprise IT and cybersecurity programs</strong> in support of submarine forces — one of the most demanding operational environments in the DoD. I currently serve as Cyber Assistant, ISSM, and Cyberspace Workforce Program Manager at <strong>Commander, Submarine Squadron ONE (COMSUBRON ONE)</strong>, responsible for cybersecurity posture across seven operational fast-attack submarines.
+          I'm a U.S. Navy Senior Chief (E-8) with <strong>18+ years managing mission-critical enterprise IT and cybersecurity programs</strong> in support of submarine forces â one of the most demanding operational environments in the DoD. I currently serve as Cyber Assistant, ISSM, and Cyberspace Workforce Program Manager at <strong>Commander, Submarine Squadron ONE (COMSUBRON ONE)</strong>, responsible for cybersecurity posture across seven operational fast-attack submarines.
         </p>
         <p>
-          My record is built on turning around failing programs, executing high-stakes inspections under pressure, and developing technical teams that perform when it matters. I contributed to <strong>the highest-scoring Fleet Cyber Command cyber inspection in submarine history</strong> — recognized with a Navy and Marine Corps Commendation Medal from the Commodore.
+          My record is built on turning around failing programs, executing high-stakes inspections under pressure, and developing technical teams that perform when it matters. I contributed to <strong>the highest-scoring Fleet Cyber Command cyber inspection in submarine history</strong> â recognized with a Navy and Marine Corps Commendation Medal from the Commodore.
         </p>
         <p>
-          In a single year, I executed three cyber inspections and one KMI inspection — all satisfactory or better. I've also co-authored occupational standards at the CNO level for the ITN rate.
+          In a single year, I executed three cyber inspections and one KMI inspection â all satisfactory or better. I've also co-authored occupational standards at the CNO level for the ITN rate.
         </p>
         <p>
           I hold a <strong>B.S. in Information Technology from Purdue Global, Summa Cum Laude</strong> (December 2025), and I'm on a deliberate path toward CISM and CISSP certification as I transition to the civilian sector. My planned retirement is <strong>October 2027</strong>.
@@ -1147,38 +1184,38 @@
 
       <div class="about-highlights fade-in">
         <div class="highlight-item">
-          <div class="highlight-icon">🛡️</div>
+          <div class="highlight-icon">ð¡ï¸</div>
           <div class="highlight-text">
             <strong>ISSM / RMF / ATO Lifecycle</strong>
             Full RMF/ATO lifecycle authority. eMASS, ACAS/Tenable, VRAM, STIG compliance, eMASS package management across operational submarine platforms.
           </div>
         </div>
         <div class="highlight-item">
-          <div class="highlight-icon">🌐</div>
+          <div class="highlight-icon">ð</div>
           <div class="highlight-text">
             <strong>Enterprise Infrastructure at Scale</strong>
             Multi-site IT ops across 7 operational submarines. $5.1M in managed assets. 100% operational uptime requirements in forward-deployed environments.
           </div>
         </div>
         <div class="highlight-item">
-          <div class="highlight-icon">👥</div>
+          <div class="highlight-icon">ð¥</div>
           <div class="highlight-text">
             <strong>Team Development & Workforce Programs</strong>
             Developed 32+ technical personnel across 5 paygrades. Cyberspace Workforce Program Manager. Co-authored ITN rate occupational standards at CNO level.
           </div>
         </div>
         <div class="highlight-item">
-          <div class="highlight-icon">🔍</div>
+          <div class="highlight-icon">ð</div>
           <div class="highlight-text">
             <strong>Inspection & Compliance Execution</strong>
-            ISIC Cyber Inspector qualified. Executed 4 major inspections in a single year — all satisfactory or better, including one record-breaking FCC cyber inspection.
+            ISIC Cyber Inspector qualified. Executed 4 major inspections in a single year â all satisfactory or better, including one record-breaking FCC cyber inspection.
           </div>
         </div>
         <div class="highlight-item">
-          <div class="highlight-icon">🎓</div>
+          <div class="highlight-icon">ð</div>
           <div class="highlight-text">
             <strong>Education & Credentials</strong>
-            B.S. Information Technology, Purdue Global, Summa Cum Laude, Dec 2025. Active TS clearance / SCI Eligible. Pursuing CISM → CISSP.
+            B.S. Information Technology, Purdue Global, Summa Cum Laude, Dec 2025. Active TS clearance / SCI Eligible. Pursuing CISM â CISSP.
           </div>
         </div>
       </div>
@@ -1197,13 +1234,13 @@
 
       <!-- Card 1: ISSM / Cleared Contractor -->
       <div class="resume-card fade-in">
-        <div class="resume-card-icon">🔐</div>
+        <div class="resume-card-icon">ð</div>
         <div>
           <div class="resume-card-subtitle">Cleared Contractor</div>
           <div class="resume-card-title">ISSM / Defense Contractor</div>
         </div>
         <p class="resume-card-desc">
-          Targeted at cleared defense firms — Leidos, SAIC, Booz Allen Hamilton, GDIT, Peraton. Emphasizes TS/SCI handling, full RMF/ATO lifecycle, ACAS/VRAM compliance, eMASS, inspection leadership, and ISSM authority across multiple platforms.
+          Targeted at cleared defense firms â Leidos, SAIC, Booz Allen Hamilton, GDIT, Peraton. Emphasizes TS/SCI handling, full RMF/ATO lifecycle, ACAS/VRAM compliance, eMASS, inspection leadership, and ISSM authority across multiple platforms.
         </p>
         <div class="resume-tags">
           <span class="tag">TS/SCI</span>
@@ -1214,13 +1251,17 @@
         </div>
         <a href="butera_issm_v2.pdf" download class="resume-download">
           <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download — butera_issm_v2.pdf
+          Download â butera_issm_v2.pdf
         </a>
+        <div class="resume-card-web">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <a href="https://buteranet.com" target="_blank" rel="noopener">buteranet.com</a>
+        </div>
       </div>
 
       <!-- Card 2: IT Director -->
       <div class="resume-card fade-in">
-        <div class="resume-card-icon">🏢</div>
+        <div class="resume-card-icon">ð¢</div>
         <div>
           <div class="resume-card-subtitle">Private &amp; Defense-Adjacent Sector</div>
           <div class="resume-card-title">IT Director / Operations Manager</div>
@@ -1236,15 +1277,19 @@
         </div>
         <a href="butera_itdirector_v2.pdf" download class="resume-download">
           <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download — butera_itdirector_v2.pdf
+          Download â butera_itdirector_v2.pdf
         </a>
+        <div class="resume-card-web">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <a href="https://buteranet.com" target="_blank" rel="noopener">buteranet.com</a>
+        </div>
       </div>
 
       <!-- Card 3: Federal -->
       <div class="resume-card fade-in">
-        <div class="resume-card-icon">🏛️</div>
+        <div class="resume-card-icon">ðï¸</div>
         <div>
-          <div class="resume-card-subtitle">NSA · CYBERCOM · DIA · DHS · DISA</div>
+          <div class="resume-card-subtitle">NSA Â· CYBERCOM Â· DIA Â· DHS Â· DISA</div>
           <div class="resume-card-title">Federal GS-13/14 (2210 Series)</div>
         </div>
         <p class="resume-card-desc">
@@ -1258,13 +1303,17 @@
         </div>
         <a href="butera_federal_2page.pdf" download class="resume-download">
           <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download — butera_federal_2page.pdf
+          Download â butera_federal_2page.pdf
         </a>
+        <div class="resume-card-web">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <a href="https://buteranet.com" target="_blank" rel="noopener">buteranet.com</a>
+        </div>
       </div>
 
       <!-- Card 4: Private Sector -->
       <div class="resume-card fade-in">
-        <div class="resume-card-icon">💼</div>
+        <div class="resume-card-icon">ð¼</div>
         <div>
           <div class="resume-card-subtitle">Corporate &amp; Private Sector</div>
           <div class="resume-card-title">Private Sector Resume</div>
@@ -1278,18 +1327,22 @@
         </div>
         <a href="butera_private_resume.pdf" download class="resume-download">
           <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download — butera_private_resume.pdf
+          Download â butera_private_resume.pdf
         </a>
+        <div class="resume-card-web">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <a href="https://buteranet.com" target="_blank" rel="noopener">buteranet.com</a>
+        </div>
       </div>
 
       <!-- Card 5: LinkedIn Guide -->
       <div class="resume-card fade-in">
-        <div class="resume-card-icon">🔗</div>
+        <div class="resume-card-icon">ð</div>
         <div>
           <div class="resume-card-subtitle">Networking &amp; Profile</div>
           <div class="resume-card-title">LinkedIn Profile Guide</div>
         </div>
-        <p class="resume-card-desc">A formatted overview of my LinkedIn profile and professional narrative — useful for recruiters and hiring managers wanting a quick-reference summary of background and career goals.</p>
+        <p class="resume-card-desc">A formatted overview of my LinkedIn profile and professional narrative â useful for recruiters and hiring managers wanting a quick-reference summary of background and career goals.</p>
         <div class="resume-tags">
           <span class="tag">LinkedIn</span>
           <span class="tag">Networking</span>
@@ -1297,14 +1350,18 @@
         </div>
         <a href="butera_linkedin_guide.pdf" download class="resume-download">
           <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download — butera_linkedin_guide.pdf
+          Download â butera_linkedin_guide.pdf
         </a>
+        <div class="resume-card-web">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <a href="https://buteranet.com" target="_blank" rel="noopener">buteranet.com</a>
+        </div>
       </div>
 
     </div>
 
     <p class="resume-note">
-      Don't see what you need? <a href="mailto:tdbutera@proton.me?subject=Resume Request — Travis Butera">Email me directly</a> and I'll send the right version.
+      Don't see what you need? <a href="mailto:tdbutera@proton.me?subject=Resume Request â Travis Butera">Email me directly</a> and I'll send the right version.
     </p>
   </div>
 </section>
@@ -1330,7 +1387,7 @@
           <tr>
             <td>
               <div class="cert-name">CompTIA Security+ CE</div>
-              <div class="cert-issuer">DoD 8570 Baseline · IAT Level II</div>
+              <div class="cert-issuer">DoD 8570 Baseline Â· IAT Level II</div>
             </td>
             <td>CompTIA</td>
             <td>
@@ -1341,7 +1398,7 @@
               <div class="cert-progress-bar"><div class="cert-progress-fill" id="cert-secplus"></div></div>
             </td>
             <td class="target-date">
-              Renewal · Priority #1
+              Renewal Â· Priority #1
               <span class="priority-badge">Priority</span>
             </td>
           </tr>
@@ -1379,7 +1436,7 @@
               <div class="cert-name">CISSP</div>
               <div class="cert-issuer">Certified Information Systems Security Professional</div>
             </td>
-            <td>(ISC)²</td>
+            <td>(ISC)Â²</td>
             <td>
               <span class="status-pill status-planned">
                 <span class="status-dot"></span>
@@ -1391,7 +1448,7 @@
           <tr>
             <td>
               <div class="cert-name">KMI KOAM</div>
-              <div class="cert-issuer">Key Management Infrastructure — Operator</div>
+              <div class="cert-issuer">Key Management Infrastructure â Operator</div>
             </td>
             <td>DoD / Navy</td>
             <td>
@@ -1437,11 +1494,11 @@
     <div class="nec-note fade-in">
       <strong>Navy Enlisted Classifications (NECs)</strong>
       <div class="nec-pills">
-        <span class="nec-pill">741A — ISSM</span>
-        <span class="nec-pill">742A — NSVT</span>
-        <span class="nec-pill">735A — CANES Admin</span>
-        <span class="nec-pill">T47A — SUBLAN</span>
-        <span class="nec-pill">T32A — Sub Comms LCPO</span>
+        <span class="nec-pill">741A â ISSM</span>
+        <span class="nec-pill">742A â NSUT</span>
+        <span class="nec-pill">735A â CANES Admin</span>
+        <span class="nec-pill">T47A â SUBLAN</span>
+        <span class="nec-pill">T32A â Sub Comms LCPO</span>
       </div>
     </div>
   </div>
@@ -1457,16 +1514,16 @@
     <div class="contact-grid">
       <div class="fade-in">
         <p class="contact-intro">
-          My planned retirement is <strong style="color:var(--white)">October 2027</strong>. If you're a hiring manager, recruiter, or senior contact who's told me to reach out — this is the page I'll keep current. The certification tracker above reflects exactly where I am in my professional development path.
+          My planned retirement is <strong style="color:var(--white)">October 2027</strong>. If you're a hiring manager, recruiter, or senior contact who's told me to reach out â this is the page I'll keep current. The certification tracker above reflects exactly where I am in my professional development path.
         </p>
         <p class="contact-intro" style="font-size:0.9rem;">
-          Open to cleared contractor, federal civilian, and corporate IT/cyber leadership roles. Preference for Tennessee post-retirement — open CONUS.
+          Open to cleared contractor, federal civilian, and corporate IT/cyber leadership roles. Preference for Tennessee post-retirement â open CONUS.
         </p>
 
         <div class="contact-form fade-in">
           <h3>Send a Message</h3>
-          <!-- Formspree — replace YOUR_FORM_ID after signing up at formspree.io/register
-               Takes ~2 minutes: create account → New Form → copy the ID from the action URL -->
+          <!-- Formspree â replace YOUR_FORM_ID after signing up at formspree.io/register
+               Takes ~2 minutes: create account â New Form â copy the ID from the action URL -->
           <form id="contactForm" action="https://formspree.io/f/xrerkkoe" method="POST">
             <div class="form-group">
               <label for="cf-name">Name</label>
@@ -1478,7 +1535,7 @@
             </div>
             <div class="form-group">
               <label for="cf-subject">Subject</label>
-              <input type="text" id="cf-subject" name="subject" placeholder="e.g. Cybersecurity role — Q4 2027">
+              <input type="text" id="cf-subject" name="subject" placeholder="e.g. Cybersecurity role â Q4 2027">
             </div>
             <div class="form-group">
               <label for="cf-message">Message</label>
@@ -1490,7 +1547,7 @@
             </button>
           </form>
           <div class="form-success" id="formSuccess">
-            ✓ Message sent — I'll get back to you shortly.
+            â Message sent â I'll get back to you shortly.
           </div>
         </div>
       </div>
@@ -1546,32 +1603,129 @@
 
         <div class="avail-banner">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          Available for transition: <strong style="margin-left:4px;">October 2027</strong> &nbsp;·&nbsp; Open CONUS · Preference: Tennessee
+          Available for transition: <strong style="margin-left:4px;">October 2027</strong> &nbsp;Â·&nbsp; Open CONUS Â· Preference: Tennessee
         </div>
       </div>
     </div>
   </div>
 </section>
 
+
+
+<!-- ============================================================
+     PHASE 2 â BLOG / INSIGHTS SECTION
+     TODO: Add 3â5 short posts. Suggested topics:
+       - DoD RMF in practice: what contractors get wrong
+       - Submarine network security: unique constraints at depth
+       - Transitioning IT veterans: translating military ops to the enterprise
+     Card layout is stubbed below â add real content when ready.
+     ============================================================ -->
+<!-- <section id="blog">
+  <div class="container">
+    <span class="section-label">Insights</span>
+    <h2 class="section-title">From the Field</h2>
+    <div class="divider"></div>
+    <div class="blog-grid">
+
+      <!-- TODO: Blog Card 1 -->
+      <article class="blog-card fade-in">
+        <div class="blog-date">TODO: Date</div>
+        <h3 class="blog-title">TODO: Post Title</h3>
+        <p class="blog-excerpt">TODO: 2â3 sentence summary of the post.</p>
+        <a href="#" class="blog-read-more">Read more â</a>
+      </article>
+
+      <!-- TODO: Blog Card 2 -->
+      <article class="blog-card fade-in">
+        <div class="blog-date">TODO: Date</div>
+        <h3 class="blog-title">TODO: Post Title</h3>
+        <p class="blog-excerpt">TODO: 2â3 sentence summary of the post.</p>
+        <a href="#" class="blog-read-more">Read more â</a>
+      </article>
+
+      <!-- TODO: Blog Card 3 -->
+      <article class="blog-card fade-in">
+        <div class="blog-date">TODO: Date</div>
+        <h3 class="blog-title">TODO: Post Title</h3>
+        <p class="blog-excerpt">TODO: 2â3 sentence summary of the post.</p>
+        <a href="#" class="blog-read-more">Read more â</a>
+      </article>
+
+    </div>
+  </div>
+</section> -->
+
+<!-- ============================================================
+     PHASE 2 â ENDORSEMENTS SECTION
+     TODO: Pull 3â4 quotes from military evaluation narratives.
+     Format: quote text, reporting senior name/title, date.
+     Uncomment and populate when ready.
+     ============================================================ -->
+<!-- <section id="endorsements">
+  <div class="container">
+    <span class="section-label">Endorsements</span>
+    <h2 class="section-title">What Leaders Say</h2>
+    <div class="divider"></div>
+    <div class="endorsements-grid">
+
+      <!-- TODO: Endorsement 1 -->
+      <blockquote class="endorsement-card fade-in">
+        <p class="endorsement-quote">"TODO: Quote text from EVAL narrative."</p>
+        <footer class="endorsement-attribution">
+          <strong>TODO: Name, Rank/Title</strong>
+          <span>TODO: Command Â· TODO: Date</span>
+        </footer>
+      </blockquote>
+
+      <!-- TODO: Endorsement 2 -->
+      <blockquote class="endorsement-card fade-in">
+        <p class="endorsement-quote">"TODO: Quote text from EVAL narrative."</p>
+        <footer class="endorsement-attribution">
+          <strong>TODO: Name, Rank/Title</strong>
+          <span>TODO: Command Â· TODO: Date</span>
+        </footer>
+      </blockquote>
+
+      <!-- TODO: Endorsement 3 -->
+      <blockquote class="endorsement-card fade-in">
+        <p class="endorsement-quote">"TODO: Quote text from EVAL narrative."</p>
+        <footer class="endorsement-attribution">
+          <strong>TODO: Name, Rank/Title</strong>
+          <span>TODO: Command Â· TODO: Date</span>
+        </footer>
+      </blockquote>
+
+    </div>
+  </div>
+</section> -->
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-name">Travis D. Butera</div>
-    <div class="footer-meta">IT &amp; Cybersecurity Operations Leader &nbsp;·&nbsp; ISSM &nbsp;·&nbsp; U.S. Navy Senior Chief</div>
-    <div class="footer-meta" style="margin-top:4px;">Active TS Clearance &nbsp;·&nbsp; Available October 2027</div>
-    <div class="footer-meta" style="margin-top:8px; opacity:0.55; font-size:0.68rem; letter-spacing:0.06em;">Last updated: April 2026</div>
+    <div class="footer-meta">IT &amp; Cybersecurity Operations Leader &nbsp;Â·&nbsp; ISSM &nbsp;Â·&nbsp; U.S. Navy Senior Chief</div>
+    <div class="footer-meta" style="margin-top:4px;">Active TS Clearance &nbsp;Â·&nbsp; Available October 2027</div>
+    <div class="footer-meta" id="footerLastUpdated" style="margin-top:8px; opacity:0.55; font-size:0.68rem; letter-spacing:0.06em;"></div>
   </div>
 </footer>
 
 <script>
+  // ================================================================
+  // SITE CONFIG â Edit these values for routine updates.
+  // ================================================================
+  const SITE_CONFIG = {
+    lastUpdated: 'April 2026',   // Footer date â update when you push changes
+  };
+  // ================================================================
+
   // ================================================================
   // CERT TRACKER CONFIG
   // Edit the numbers below to update progress bar percentages.
   // Valid range: 0 to 100. Only "In Progress" certs need a value.
   // ================================================================
   const CERT_PROGRESS = {
-    'secplus': 75,   // CompTIA Security+ CE renewal   (0–100)
-    'cism':    35,   // CISM                            (0–100)
+    'secplus': 75,   // CompTIA Security+ CE renewal   (0â100)
+    'cism':    35,   // CISM                            (0â100)
   };
   // Apply percentages to progress bars (no need to edit below)
   Object.entries(CERT_PROGRESS).forEach(([id, pct]) => {
@@ -1601,7 +1755,7 @@
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  // Contact form — Formspree AJAX submit
+  // Contact form â Formspree AJAX submit
   const contactForm = document.getElementById('contactForm');
   const formSuccess = document.getElementById('formSuccess');
   if (contactForm) {
@@ -1609,7 +1763,7 @@
       e.preventDefault();
       const btn = contactForm.querySelector('.form-submit');
       btn.disabled = true;
-      btn.textContent = 'Sending…';
+      btn.textContent = 'Sendingâ¦';
       try {
         const res = await fetch(contactForm.action, {
           method: 'POST',
@@ -1638,13 +1792,7 @@
     sections.forEach(section => {
       if (window.scrollY >= section.offsetTop - 100) current = section.getAttribute('id');
     });
-    navLinks.forEach(link => {
-      link.style.color = link.getAttribute('href') === '#' + current
-        ? 'var(--gold)'
-        : '';
-    });
-  }, { passive: true });
-</script>
-
-</body>
-</html>
+    navLinks.forEach(¡±¥¹¬ôøì(±¥¹¬¹ÍÑå±¹½±½Èô±¥¹¬¹ÑÑÑÉ¥ÕÑ ¡É¤ôôô¬ÕÉÉ¹Ð(üÙÈ ´µ½±¤(èì(ô¤ì(ô°ìÁÍÍ¥ÙèÑÉÕô¤ì((¼¼MÐ±ÍÐµÕÁÑÑÉ½´M%Q}
+=9%(½¹ÍÐ±ÍÑUÁ°ô½Õµ¹Ð¹Ñ±µ¹Ñ	å% ½½ÑÉ1ÍÑUÁÑ¤ì(¥¡±ÍÑUÁ°¤±ÍÑUÁ°¹ÑáÑ
+½¹Ñ¹Ðô1ÍÐÕÁÑè¬M%Q}
+=9%¹±ÍÑUÁÑì(ð½ÍÉ¥ÁÐø((ð½½äø(ð½¡Ñµ°ø
