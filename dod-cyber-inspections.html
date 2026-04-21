@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Most DoD Cyber Inspections Fail Before They Start | Travis D. Butera</title>
+  <meta name="description" content="Most commands fail cybersecurity inspections not because of technical gaps — but because of preparation failures that happen weeks before the inspector arrives." />
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://buteranet.com/dod-cyber-inspections.html" />
+  <meta property="og:title"       content="Why Most DoD Cyber Inspections Fail Before They Start" />
+  <meta property="og:description" content="Most commands fail cybersecurity inspections not because of technical gaps — but because of preparation failures that happen weeks before the inspector arrives." />
+  <meta property="og:image"       content="https://buteranet.com/og-preview.png" />
+  <link rel="canonical" href="https://buteranet.com/dod-cyber-inspections.html" />
+  <style>
+    :root {
+      --navy-darkest: #060e1a;
+      --navy-dark:    #0b1a2e;
+      --navy-mid:     #0f2544;
+      --navy-light:   #1a3560;
+      --gold:         #c9a84c;
+      --gold-light:   #e0c06a;
+      --white:        #ffffff;
+      --off-white:    #e8edf4;
+      --text-muted:   #8fa3c0;
+      --text-body:    #cdd6e3;
+      --border:       rgba(201,168,76,0.25);
+      --card-bg:      rgba(15,37,68,0.7);
+      --radius:       8px;
+      --transition:   0.25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: var(--navy-darkest);
+      color: var(--text-body);
+      line-height: 1.75;
+    }
+    a { color: var(--gold); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--gold-light); }
+
+    .site-header {
+      background: var(--navy-dark);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .site-header .logo { font-weight: 700; color: var(--white); font-size: 1.1rem; }
+    .site-header .logo span { color: var(--gold); }
+    .site-header nav a { color: var(--text-muted); font-size: 0.9rem; margin-left: 24px; }
+    .site-header nav a:hover { color: var(--gold); }
+
+    .article-hero {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-mid) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px 48px;
+      text-align: center;
+    }
+    .article-hero .category {
+      display: inline-block;
+      background: rgba(201,168,76,0.15);
+      color: var(--gold);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      margin-bottom: 20px;
+    }
+    .article-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--white);
+      max-width: 780px;
+      margin: 0 auto 20px;
+      line-height: 1.25;
+    }
+    .article-hero .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto 28px;
+    }
+    .meta-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+    .meta-row span { display: flex; align-items: center; gap: 6px; }
+
+    .article-wrap {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+    .article-wrap h2 {
+      font-size: 1.5rem;
+      color: var(--white);
+      margin: 48px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-wrap h3 {
+      font-size: 1.1rem;
+      color: var(--gold);
+      margin: 32px 0 10px;
+    }
+    .article-wrap p { margin-bottom: 20px; }
+    .article-wrap ul, .article-wrap ol { margin: 0 0 20px 24px; }
+    .article-wrap li { margin-bottom: 10px; }
+    .article-wrap strong { color: var(--off-white); }
+
+    .callout {
+      background: var(--card-bg);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 24px;
+      margin: 32px 0;
+      font-style: italic;
+      color: var(--off-white);
+    }
+
+    .failure-list {
+      counter-reset: fail-counter;
+      list-style: none;
+      margin: 0 0 32px 0;
+    }
+    .failure-list li {
+      counter-increment: fail-counter;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 20px 20px 64px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .failure-list li::before {
+      content: counter(fail-counter);
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.9rem;
+      line-height: 32px;
+      text-align: center;
+    }
+    .failure-list li strong { display: block; color: var(--white); margin-bottom: 6px; }
+    .failure-list li span { font-size: 0.92rem; color: var(--text-body); }
+
+    .checklist {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin: 32px 0;
+    }
+    .checklist h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .checklist ul { list-style: none; margin: 0; }
+    .checklist li {
+      padding: 8px 0 8px 28px;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.92rem;
+      margin: 0;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist li::before {
+      content: '□';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 1rem;
+    }
+
+    .author-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-top: 56px;
+    }
+    .author-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--navy-light);
+      border: 2px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; color: var(--gold); font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .author-name { font-weight: 700; color: var(--white); margin-bottom: 4px; }
+    .author-bio  { font-size: 0.88rem; color: var(--text-muted); }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 40px;
+    }
+    .back-link:hover { color: var(--gold); }
+
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">Travis D. <span>Butera</span></div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/#blog">More Posts</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="article-hero">
+    <div class="category">DoD Cybersecurity</div>
+    <h1>Why Most DoD Cyber Inspections Fail Before They Start</h1>
+    <p class="subtitle">The technical controls are usually fine. The failures happen in the weeks before the inspector walks in — and they're almost always preventable.</p>
+    <div class="meta-row">
+      <span>
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        April 2026
+      </span>
+      <span>
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        8 min read
+      </span>
+      <span>Travis D. Butera</span>
+    </div>
+  </div>
+
+  <article class="article-wrap">
+
+    <a href="/" class="back-link">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to buteranet.com
+    </a>
+
+    <p>
+      In 18 years of DoD cybersecurity work — including multiple inspection cycles as an ISSM — I've watched commands fail assessments that they should have passed. Not because their technical controls were weak. Not because their people were incompetent. But because of process failures that had nothing to do with technology.
+    </p>
+    <p>
+      The pattern is almost always the same. The command spends months hardening systems and patching vulnerabilities. They run ACAS scans, close findings, update STIGs. Then the inspector arrives and within two hours has identified a dozen discrepancies that no one had thought to check — artifacts from human behavior and process, not technical configuration.
+    </p>
+    <p>
+      Here's what I've seen cause these failures, and what actually prevents them.
+    </p>
+
+    <h2>The Six Pre-Inspection Failure Modes</h2>
+
+    <ol class="failure-list">
+      <li>
+        <strong>The Stale Authorization Package</strong>
+        <span>The System Security Plan and its supporting artifacts — POA&amp;M, hardware inventory, software inventory, network diagrams — reflect the system as it was, not as it is. Every undocumented change since the last assessment is a finding waiting to be discovered. ISSMs who don't maintain continuous documentation treat ATO as a finish line rather than a posture.</span>
+      </li>
+      <li>
+        <strong>User Behavior That Slipped Through</strong>
+        <span>Someone has local admin rights they shouldn't have. A contractor's account is still active 60 days after they separated. A shared service account password hasn't rotated in 14 months. None of these are configuration failures — they're governance failures. ACAS doesn't catch them. Only a disciplined review process does.</span>
+      </li>
+      <li>
+        <strong>Physical and Environmental Controls</strong>
+        <span>The server room badge log hasn't been reviewed in six months. The media destruction log has a three-week gap. The visitor log for the SCIF doesn't match the access control system. Inspectors love these because they're easy to find and hard to explain away. They also indicate broader process decay.</span>
+      </li>
+      <li>
+        <strong>Training Currency Gaps</strong>
+        <span>Twenty percent of system users are past their annual cyber awareness training due date. The ISSO completed their initial training but not the follow-on required for their current role. The CO hasn't signed the updated Acceptable Use Policy. These findings are always embarrassing because they're entirely preventable with a calendar.</span>
+      </li>
+      <li>
+        <strong>Inherited Controls Without Evidence</strong>
+        <span>The authorization package claims reliance on inherited controls from a parent organization. But when the inspector asks for evidence that those controls are functioning — configuration baselines, audit logs, test results — there's nothing. Inherited doesn't mean free. It means someone else is doing the work, and you're accountable for verifying they did.</span>
+      </li>
+      <li>
+        <strong>The 72-Hour Panic Preparation</strong>
+        <span>The worst thing a command can do is treat inspection preparation as a surge activity. When you patch 40 vulnerabilities in the week before the inspector arrives, your audit logs tell a story. Inspectors know exactly what fresh patches look like. Deferred maintenance compressed into a sprint is itself a finding — it reveals that continuous monitoring was not actually continuous.</span>
+      </li>
+    </ol>
+
+    <div class="callout">
+      <p>Inspectors aren't primarily looking for misconfigured systems. They're looking for evidence of whether your security program is real — or whether it exists only when someone is watching.</p>
+    </div>
+
+    <h2>What Passing Inspections Actually Looks Like</h2>
+
+    <p>
+      Commands that consistently pass inspections share one characteristic: they treat their security posture as an operational condition rather than a compliance event. The documentation is maintained because it's useful, not because an inspector might ask for it. The user accounts are reviewed monthly because an unmonitored account is a real risk, not because it appears on a checklist.
+    </p>
+    <p>
+      Concretely, the commands I've seen perform best do these things routinely:
+    </p>
+    <ul>
+      <li><strong>Monthly ACAS scans with immediate remediation tracking.</strong> Not quarterly. Not "when we get to it." Monthly, with findings triaged and assigned owners within 48 hours.</li>
+      <li><strong>Quarterly account reviews.</strong> Every privileged account, every service account, every contractor account verified against current access requirements. Exceptions documented, not hand-waved.</li>
+      <li><strong>Continuous documentation updates.</strong> Every change to the system — new hardware, software installs, network changes — reflected in the authorization package within 30 days. The SSP is a living document, not a snapshot.</li>
+      <li><strong>Training dashboards visible to leadership.</strong> The CO should be able to see training currency rates at a glance. When the number drops below 95%, someone calls it out. This is not a burden — it's a five-minute monthly review.</li>
+      <li><strong>Tabletop exercises.</strong> Walking through "what would happen if an inspector asked about X" before an inspector asks about X reveals gaps you didn't know existed.</li>
+    </ul>
+
+    <h2>The ISSM's Real Job</h2>
+
+    <p>
+      There's a version of the ISSM role that's fundamentally reactive — responding to findings, closing tickets, processing requests. That version of the job produces commands that squeak through inspections.
+    </p>
+    <p>
+      The more effective version is proactive ownership: knowing the system's security posture at all times, anticipating where gaps will develop before they develop, and building the organizational habits that make continuous compliance automatic rather than effortful.
+    </p>
+    <p>
+      That second version is harder. It requires credibility with leadership — the ability to say "this is a real risk, not just a checklist item" and be believed. It requires access to information about system changes before they happen, not after. And it requires a certain willingness to be the person who raises uncomfortable issues before they become inspection findings.
+    </p>
+
+    <h3>The senior leader piece</h3>
+    <p>
+      Most inspection failures ultimately trace back to a senior leader who either didn't understand the security program well enough to prioritize it, or understood it and chose not to. The ISSM can build the best security program in the world — if the CO doesn't enforce training requirements or allow undocumented changes because "we're too busy right now," the program fails.
+    </p>
+    <p>
+      Part of the ISSM's job is educating leadership continuously — not just when there's a crisis or an inspection looming, but as part of normal operations. The commander who understands what an authorization boundary is, why account hygiene matters, and what a POA&amp;M represents will make better decisions throughout the year. The one who hears about it for the first time from an inspector is already behind.
+    </p>
+
+    <h2>A Pre-Inspection Checklist That Actually Works</h2>
+
+    <p>
+      Six weeks before any scheduled assessment — and honestly, as a standing monthly review — work through this:
+    </p>
+
+    <div class="checklist">
+      <h4>Pre-Inspection Review Checklist</h4>
+      <ul>
+        <li>SSP reflects current system configuration (hardware, software, network topology)</li>
+        <li>All hardware on the inventory physically present and accounted for</li>
+        <li>POA&amp;M entries have current status updates and realistic closure dates</li>
+        <li>ACAS scan results from last 30 days with remediation evidence for closed findings</li>
+        <li>All user accounts verified active and with appropriate access levels</li>
+        <li>Privileged and service accounts reviewed with justification documented</li>
+        <li>Separated/transferred user accounts disabled within required timeframe</li>
+        <li>Training currency at 100% (or documented exceptions with remediation plan)</li>
+        <li>AUP current version signed by all users and CO</li>
+        <li>Physical access logs current and reviewed</li>
+        <li>Media destruction log current with no gaps</li>
+        <li>Inherited controls verified with supporting evidence in package</li>
+        <li>Incident response procedures current and tested within last 12 months</li>
+        <li>Continuous monitoring artifacts (audit logs, SIEM alerts) accessible and current</li>
+      </ul>
+    </div>
+
+    <p>
+      None of these items require a week of sprint preparation. Each one represents work that should already be done as part of normal security operations. If working through this list reveals gaps, that's useful — but the right response is to fix the underlying process, not patch the specific finding.
+    </p>
+
+    <div class="callout">
+      <p>The goal isn't to pass the inspection. The goal is to have a security program good enough that passing the inspection is the natural consequence of doing the job right every day.</p>
+    </div>
+
+    <p>
+      Inspections are a proxy measurement. They're designed to provide a snapshot of whether a security program is real. Commands that treat the inspection as the objective tend to fail it. Commands that treat the inspection as an audit of their ongoing program tend to pass — and more importantly, they actually are more secure.
+    </p>
+    <p>
+      — <strong>Travis D. Butera</strong>
+    </p>
+
+    <div class="author-box">
+      <div class="author-icon">TB</div>
+      <div>
+        <div class="author-name">Travis D. Butera</div>
+        <div class="author-bio">
+          U.S. Navy Senior Chief &amp; ISSM with 18+ years executing DoD cybersecurity, RMF/ATO lifecycles, and enterprise IT operations. TS/SCI cleared. Available for transition.
+          <br/>
+          <a href="mailto:travis@buteranet.com">travis@buteranet.com</a> &nbsp;·&nbsp; <a href="/">buteranet.com</a>
+        </div>
+      </div>
+    </div>
+
+  </article>
+
+  <footer>
+    &copy; Travis D. Butera &nbsp;·&nbsp; <a href="/">buteranet.com</a>
+  </footer>
+
+</body>
+</html>
