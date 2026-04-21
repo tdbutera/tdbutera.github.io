@@ -1495,7 +1495,7 @@
       <strong>Navy Enlisted Classifications (NECs)</strong>
       <div class="nec-pills">
         <span class="nec-pill">741A â ISSM</span>
-        <span class="nec-pill">742A â NSUT</span>
+        <span class="nec-pill">742A â NSVT</span>
         <span class="nec-pill">735A â CANES Admin</span>
         <span class="nec-pill">T47A â SUBLAN</span>
         <span class="nec-pill">T32A â Sub Comms LCPO</span>
@@ -1792,7 +1792,17 @@
     sections.forEach(section => {
       if (window.scrollY >= section.offsetTop - 100) current = section.getAttribute('id');
     });
-    navLinks.forEach(¡±¥¹¬ôøì(±¥¹¬¹ÍÑå±¹½±½Èô±¥¹¬¹ÑÑÑÉ¥ÕÑ ¡É¤ôôô¬ÕÉÉ¹Ð(üÙÈ ´µ½±¤(èì(ô¤ì(ô°ìÁÍÍ¥ÙèÑÉÕô¤ì((¼¼MÐ±ÍÐµÕÁÑÑÉ½´M%Q}
-=9%(½¹ÍÐ±ÍÑUÁ°ô½Õµ¹Ð¹Ñ±µ¹Ñ	å% ½½ÑÉ1ÍÑUÁÑ¤ì(¥¡±ÍÑUÁ°¤±ÍÑUÁ°¹ÑáÑ
-½¹Ñ¹Ðô1ÍÐÕÁÑè¬M%Q}
-=9%¹±ÍÑUÁÑì(ð½ÍÉ¥ÁÐø((ð½½äø(ð½¡Ñµ°ø
+    navLinks.forEach(link => {
+      link.style.color = link.getAttribute('href') === '#' + current
+        ? 'var(--gold)'
+        : '';
+    });
+  }, { passive: true });
+
+  // Set last-updated date from SITE_CONFIG
+  const lastUpdEl = document.getElementById('footerLastUpdated');
+  if (lastUpdEl) lastUpdEl.textContent = 'Last updated: ' + SITE_CONFIG.lastUpdated;
+</script>
+
+</body>
+</html>
