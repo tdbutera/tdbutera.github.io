@@ -919,7 +919,7 @@
     }
 
 
-    /* ===== RESUME CARD WEB LINK ===== */
+    /* ===== RESUME CARD PLI LINK ===== */
     .resume-card-web {
       display: flex;
       align-items: center;
@@ -1412,7 +1412,7 @@
       </h1>
 
       <p class="hero-title">
-        IT &amp; Cybersecurity Operations Leader &nbsp;&middot;&nbsp; ISSM &nbsp;&middot;&nbsp; 18+ Years DoD
+        IT &amp; Cybersecurity Operations Leader &nbsp;&middot;&nbsp; ISSM &nbsp;&middot;&nbsp; 18+ Years DoC
       </p>
 
       <p class="hero-contact-line">
@@ -1942,7 +1942,7 @@
         <div class="blog-date">Coming Soon</div>
         <h3 class="blog-title">RMF in Practice &mdash; What the Checklist Doesn&#39;t Tell You</h3>
         <p class="blog-excerpt">
-          After executing full RMF/ATO lifecycles across seven operational submarines, I've learned that the frameworj's
+          After executing full RMF/ATO lifecycles across seven operational submarines, I've learned that the framework's
           biggest gaps aren't technical â they're organizational. Here's what most contractors get wrong before the
           package even hits the ISSM's desk.
         </p>
@@ -2036,13 +2036,13 @@
      ============================================================ -->
 <section id="ai-matcher">
   <div class="container">
-    <span class="section-label">Phase 3 &mdash; Coming Soon</span>
+    <span class="section-label">Intelligence Layer</span>
     <h2 class="section-title">AI Resume Matcher</h2>
     <div class="divider"></div>
 
     <div class="matcher-wrap fade-in">
       <span class="matcher-phase-badge">
-        &#9679; Intelligence Layer &mdash; In Development
+        &#9679; Claude AI &mdash; Live Analysis
       </span>
 
       <p class="matcher-label">
@@ -2061,15 +2061,10 @@
         </button>
       </div>
 
-      <!-- Placeholder result â TODO Phase 3: Replace with real API response rendering -->
-      <div class="matcher-result" id="matcherResult">
-        <div class="matcher-result-title">&#9654; Match Analysis &mdash; Demo Preview</div>
-        <p><strong style="color:var(--white)">Strong alignment detected.</strong> Your background matches 8 of 10 listed requirements.</p>
-        <p style="margin-top:12px;"><strong style="color:var(--gold)">Top matches:</strong> Active TS/SCI clearance &middot; RMF/ATO lifecycle experience &middot; ISSM authority &middot; 18+ years DoD IT leadership &middot; Enterprise infrastructure at scale</p>
-        <p style="margin-top:12px;"><strong style="color:var(--gold)">Suggested talking points:</strong> Led highest-scoring FCC cyber inspection in submarine history. Managed cybersecurity posture across 7 operational platforms concurrently. Executed 4 major inspections in a single year &mdash; all satisfactory or better.</p>
-        <p style="margin-top:12px; font-size:0.8rem; color:var(--text-muted);">
-          <em>This is a placeholder preview. Full AI matching will be live in Phase 3 &mdash; wired to Claude API via Cloudflare Workers.</em>
-        </p>
+      <!-- Live AI result â streams from /api/match Cloudflare Worker -->
+      <div class="matcher-result" id="matcherResult" style="display:none;">
+        <div class="matcher-result-title">&#9654; Match Analysis &mdash; Powered by Claude AI</div>
+        <div id="matcherResultBody" style="color:var(--text-body);line-height:1.7;"></div>
       </div>
     </div>
   </div>
@@ -2292,26 +2287,85 @@
   if (lastUpdEl) lastUpdEl.textContent = 'Last updated: ' + SITE_CONFIG.lastUpdated;
 
   // ================================================================
-  // PHASE 3: AI RESUME MATCHER â placeholder demo
-  // TODO Phase 3: Replace runMatcher() with real fetch() to Cloudflare Worker
+  // PHASE 3: AI RESUME MATCHER â live Cloudflare Worker + Claude Haiku
+  // Worker: workers/match-worker.js  |  Route: buteranet.com/api/match
   // ================================================================
-  function runMatcher() {
+  async function runMatcher() {
     const input = document.getElementById('matcherInput').value.trim();
     const result = document.getElementById('matcherResult');
+    const resultBody = document.getElementById('matcherResultBody');
     const btn = document.getElementById('matchBtn');
+
     if (!input) { alert('Please paste a job description first.'); return; }
+    if (input.length < 30) { alert('Please paste more of the job description â that looks too short.'); return; }
+
     btn.disabled = true;
-    btn.textContent = 'Analyzing\u2026';
-    setTimeout(() => {
-      result.style.display = 'block';
-      result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    btn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Analyzing\u2026';
+
+    result.style.display = 'block';
+    resultBody.innerHTML = '<span style="color:var(--text-muted);font-style:italic;">Running match analysis\u2026</span>';
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    try {
+      const res = await fetch('/api/match', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ jd: input }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({ error: 'Unknown error' }));
+        resultBody.innerHTML = '<span style="color:#f87171;">Error: ' + (err.error || res.statusText) + '</span>';
+        return;
+      }
+
+      // Stream SSE chunks
+      const reader = res.body.getReader();
+      const dec = new TextDecoder();
+      let buf = '', md = '';
+
+      resultBody.innerHTML = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buf += dec.decode(value, { stream: true });
+        const lines = buf.split('\n');
+        buf = lines.pop();
+
+        for (const line of lines) {
+          if (!line.startsWith('data: ')) continue;
+          const raw = line.slice(6).trim();
+          if (raw === '[DONE]') { buf = ''; break; }
+          try {
+            const chunk = JSON.parse(raw);
+            md += chunk;
+            resultBody.innerHTML = mdToHtml(md);
+          } catch { /* skip */ }
+        }
+      }
+
+      // Final render
+      resultBody.innerHTML = mdToHtml(md);
+
+    } catch (e) {
+      resultBody.innerHTML = '<span style="color:#f87171;">Network error â is the Worker deployed? (' + e.message + ')</span>';
+    } finally {
       btn.disabled = false;
       btn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Match My Background';
-    }, 1200);
-    // TODO Phase 3: Replace timeout above with:
-    // const res = await fetch('/api/match', { method:'POST', body: JSON.stringify({jd: input}), headers:{'Content-Type':'application/json'} });
-    // const data = await res.json();
-    // result.innerHTML = data.html;
+    }
+  }
+
+  // Minimal markdown â HTML (bold, headers, bullets, line breaks)
+  function mdToHtml(md) {
+    return md
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/\*\*(.+?)\*\*/g, '<strong style="color:var(--white)">$1</strong>')
+      .replace(/^#{1,2}\s+(.+)$/gm, '<h4 style="color:var(--gold);margin:18px 0 6px;font-size:0.88rem;text-transform:uppercase;letter-spacing:0.08em;">$1</h4>')
+      .replace(/^- (.+)$/gm, '<li>$1</li>')
+      .replace(/(<li>[\s\S]*?<\/li>)/g, '<ul style="margin:6px 0 12px 18px;color:var(--text-body)">$1</ul>')
+      .replace(/\n\n/g, '</p><p style="margin-top:10px">')
+      .replace(/\n/g, '<br>');
   }
 
   // ================================================================
