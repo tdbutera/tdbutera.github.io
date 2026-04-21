@@ -1028,10 +1028,322 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* ===== HERO CONTACT LINE ===== */
+    .hero-contact-line {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: -24px;
+      margin-bottom: 28px;
+      letter-spacing: 0.02em;
+    }
+    .hero-contact-line a { color: var(--gold); }
+    .hero-contact-line a:hover { color: var(--gold-light); }
+
+    /* ===== PHASE 2: BLOG / INSIGHTS ===== */
+    #blog { background: var(--navy-dark); }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .blog-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .blog-card:hover {
+      border-color: rgba(201,168,76,0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+
+    .blog-card:hover::before { transform: scaleX(1); }
+
+    .blog-date {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .blog-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.4;
+    }
+
+    .blog-excerpt {
+      font-size: 0.875rem;
+      color: var(--text-body);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .blog-read-more {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap var(--transition);
+    }
+
+    .blog-read-more:hover { gap: 10px; color: var(--gold-light); }
+
+    .blog-coming-soon {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 3px 8px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+    }
+
+    /* ===== PHASE 2: ENDORSEMENTS ===== */
+    #endorsements { background: var(--navy-darkest); }
+
+    .endorsements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .endorsement-card {
+      background: rgba(6,14,26,0.95);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px 28px 28px;
+      position: relative;
+      transition: all var(--transition);
+    }
+
+    .endorsement-card:hover {
+      border-color: rgba(201,168,76,0.4);
+      transform: translateY(-3px);
+    }
+
+    .endorsement-card::before {
+      content: '\201C';
+      position: absolute;
+      top: 12px;
+      left: 22px;
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.35;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    .endorsement-quote {
+      color: var(--off-white);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+
+    .endorsement-attribution {
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .endorsement-attribution strong {
+      color: var(--white);
+      font-size: 0.875rem;
+      font-style: normal;
+    }
+
+    .endorsement-attribution span {
+      color: var(--text-muted);
+      font-size: 0.78rem;
+    }
+
+    /* ===== PHASE 3: AI RESUME MATCHER ===== */
+    #ai-matcher { background: var(--navy-dark); }
+
+    .matcher-wrap {
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    .matcher-label {
+      font-size: 0.85rem;
+      color: var(--text-body);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .matcher-textarea {
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      color: var(--white);
+      font-size: 0.9rem;
+      font-family: inherit;
+      resize: vertical;
+      min-height: 180px;
+      outline: none;
+      transition: border-color var(--transition);
+    }
+
+    .matcher-textarea:focus { border-color: var(--gold); }
+
+    .matcher-textarea::placeholder { color: var(--text-muted); opacity: 0.7; }
+
+    .matcher-result {
+      margin-top: 24px;
+      padding: 28px;
+      background: var(--card-bg);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 12px;
+      font-size: 0.9rem;
+      color: var(--text-body);
+      line-height: 1.7;
+    }
+
+    .matcher-result-title {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .matcher-phase-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #a5b4fc;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.3);
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+
+    /* ===== PHASE 3: EMPLOYER PORTAL ===== */
+    #employer-portal {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+    }
+
+    .portal-locked {
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .portal-icon {
+      width: 64px;
+      height: 64px;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      color: var(--gold);
+    }
+
+    .portal-input {
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 13px 16px;
+      color: var(--white);
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color var(--transition);
+      text-align: center;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+
+    .portal-input:focus { border-color: var(--gold); }
+
+    .portal-content { display: none; }
+
+    .portal-content.unlocked { display: block; }
+
+    .portal-error {
+      color: #f87171;
+      font-size: 0.8rem;
+      margin-top: 8px;
+      display: none;
+    }
+
+    /* ===== CLOUDFLARE TURNSTILE ===== */
+    .turnstile-wrap {
+      margin: 16px 0;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    @media (max-width: 768px) {
+      .blog-grid { grid-template-columns: 1fr; }
+      .endorsements-grid { grid-template-columns: 1fr; }
+    }
   </style>
 
   <!-- Cloudflare Web Analytics is injected automatically by Cloudflare Workers.
        Token setup: dash.cloudflare.com â Analytics & Logs â Web Analytics â buteranet.com -->
+
+  <!-- ================================================================
+       CLOUDFLARE TURNSTILE â Spam protection for contact form
+       TODO Phase 1: Complete these steps to activate:
+         1. Go to dash.cloudflare.com â Security â Turnstile
+         2. Click "Add Site" â Name: buteranet.com â Widget type: Managed
+         3. Add domain: buteranet.com â Copy the Site Key
+         4. Replace YOUR_TURNSTILE_SITE_KEY below with your real key
+         5. Uncomment the script tag below
+       ================================================================ -->
+  <!-- <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script> -->
 
   <!--
   ================================================================
@@ -1068,6 +1380,8 @@
       <li><a href="#about">About</a></li>
       <li><a href="#resume">Resume</a></li>
       <li><a href="#certs">Certifications</a></li>
+      <li><a href="#endorsements">Endorsements</a></li>
+      <li><a href="#blog">Insights</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -1079,6 +1393,8 @@
   <a href="#about" onclick="closeMobile()">About</a>
   <a href="#resume" onclick="closeMobile()">Resume</a>
   <a href="#certs" onclick="closeMobile()">Certifications</a>
+  <a href="#endorsements" onclick="closeMobile()">Endorsements</a>
+  <a href="#blog" onclick="closeMobile()">Insights</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
 </div>
 
@@ -1088,7 +1404,7 @@
     <div class="hero-content">
       <div class="hero-eyebrow">
         <div class="hero-eyebrow-line"></div>
-        <div class="hero-eyebrow-text">U.S. Navy Senior Chief Â· E-8 Â· Pearl City, Hawaii</div>
+        <div class="hero-eyebrow-text">U.S. Navy Senior Chief &middot; E-8 &middot; Pearl City, Hawaii</div>
       </div>
 
       <h1 class="hero-name">
@@ -1096,7 +1412,13 @@
       </h1>
 
       <p class="hero-title">
-        IT &amp; Cybersecurity Operations Leader &nbsp;Â·&nbsp; ISSM &nbsp;Â·&nbsp; 18+ Years DoD
+        IT &amp; Cybersecurity Operations Leader &nbsp;&middot;&nbsp; ISSM &nbsp;&middot;&nbsp; 18+ Years DoC
+      </p>
+
+      <p class="hero-contact-line">
+        <a href="mailto:travis@buteranet.com">travis@buteranet.com</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://buteranet.com">buteranet.com</a>
       </p>
 
       <div class="hero-badges">
@@ -1249,9 +1571,9 @@
           <span class="tag">eMASS</span>
           <span class="tag">ISSM</span>
         </div>
-        <a href="butera_issm_v2.pdf" download class="resume-download">
+        <a href="butera_issm_contractor.pdf" download class="resume-download">
           <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download â butera_issm_v2.pdf
+          Download &mdash; butera_issm_contractor.pdf
         </a>
         <div class="resume-card-web">
           <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -1335,33 +1657,11 @@
         </div>
       </div>
 
-      <!-- Card 5: LinkedIn Guide -->
-      <div class="resume-card fade-in">
-        <div class="resume-card-icon">ð</div>
-        <div>
-          <div class="resume-card-subtitle">Networking &amp; Profile</div>
-          <div class="resume-card-title">LinkedIn Profile Guide</div>
-        </div>
-        <p class="resume-card-desc">A formatted overview of my LinkedIn profile and professional narrative â useful for recruiters and hiring managers wanting a quick-reference summary of background and career goals.</p>
-        <div class="resume-tags">
-          <span class="tag">LinkedIn</span>
-          <span class="tag">Networking</span>
-          <span class="tag">Profile Summary</span>
-        </div>
-        <a href="butera_linkedin_guide.pdf" download class="resume-download">
-          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download â butera_linkedin_guide.pdf
-        </a>
-        <div class="resume-card-web">
-          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          <a href="https://buteranet.com" target="_blank" rel="noopener">buteranet.com</a>
-        </div>
-      </div>
-
     </div>
 
     <p class="resume-note">
-      Don't see what you need? <a href="mailto:tdbutera@proton.me?subject=Resume Request â Travis Butera">Email me directly</a> and I'll send the right version.
+      Additional versions available upon request &nbsp;&middot;&nbsp;
+      <a href="mailto:travis@buteranet.com?subject=Resume Request â Travis Butera">Email me directly</a> and I'll send the right version.
     </p>
   </div>
 </section>
@@ -1541,6 +1841,12 @@
               <label for="cf-message">Message</label>
               <textarea id="cf-message" name="message" placeholder="Tell me about the opportunity or how I can help..." required></textarea>
             </div>
+            <!-- Cloudflare Turnstile â TODO: Replace YOUR_TURNSTILE_SITE_KEY with real key,
+                 then uncomment the div below. See head comment for setup instructions. -->
+            <!-- <div class="turnstile-wrap">
+              <div class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY" data-theme="dark"></div>
+            </div> -->
+
             <button type="submit" class="form-submit">
               <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
               Send Message
@@ -1554,13 +1860,23 @@
 
       <div class="fade-in">
         <div class="contact-cards">
-          <a href="mailto:tdbutera@proton.me" class="contact-card">
+          <a href="mailto:travis@buteranet.com" class="contact-card">
             <div class="contact-card-icon">
               <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
             </div>
             <div>
               <div class="contact-card-label">Email</div>
-              <div class="contact-card-value">tdbutera@proton.me</div>
+              <div class="contact-card-value">travis@buteranet.com</div>
+            </div>
+          </a>
+
+          <a href="https://buteranet.com" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-card-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-label">Website</div>
+              <div class="contact-card-value">buteranet.com</div>
             </div>
           </a>
 
@@ -1614,90 +1930,257 @@
 
 <!-- ============================================================
      PHASE 2 â BLOG / INSIGHTS SECTION
-     TODO: Add 3â5 short posts. Suggested topics:
-       - DoD RMF in practice: what contractors get wrong
-       - Submarine network security: unique constraints at depth
-       - Transitioning IT veterans: translating military ops to the enterprise
-     Card layout is stubbed below â add real content when ready.
+     TODO: Replace placeholder excerpts with real post content.
+     TODO: Update dates when posts go live. Replace href="#" with post URL.
      ============================================================ -->
-<!-- <section id="blog">
+<section id="blog">
   <div class="container">
     <span class="section-label">Insights</span>
     <h2 class="section-title">From the Field</h2>
     <div class="divider"></div>
     <div class="blog-grid">
 
-      <!-- TODO: Blog Card 1 -->
       <article class="blog-card fade-in">
-        <div class="blog-date">TODO: Date</div>
-        <h3 class="blog-title">TODO: Post Title</h3>
-        <p class="blog-excerpt">TODO: 2â3 sentence summary of the post.</p>
-        <a href="#" class="blog-read-more">Read more â</a>
+        <div class="blog-date">Coming Soon</div>
+        <h3 class="blog-title">RMF in Practice &mdash; What the Checklist Doesn&#39;t Tell You</h3>
+        <p class="blog-excerpt">
+          After executing full RMF/ATO lifecycles across seven operational submarines, I've learned that the framework's
+          biggest gaps aren't technical â they're organizational. Here's what most contractors get wrong before the
+          package even hits the ISSM's desk.
+        </p>
+        <!-- TODO: Replace href="#" with real post URL when published -->
+        <span class="blog-coming-soon">&#9679; Coming Soon</span>
       </article>
 
-      <!-- TODO: Blog Card 2 -->
       <article class="blog-card fade-in">
-        <div class="blog-date">TODO: Date</div>
-        <h3 class="blog-title">TODO: Post Title</h3>
-        <p class="blog-excerpt">TODO: 2â3 sentence summary of the post.</p>
-        <a href="#" class="blog-read-more">Read more â</a>
+        <div class="blog-date">Coming Soon</div>
+        <h3 class="blog-title">From Submarine Networks to Civilian IT &mdash; What Actually Transfers</h3>
+        <p class="blog-excerpt">
+          The question I get most from recruiters: "How does running networks on a submarine translate to enterprise IT?"
+          The honest answer is that the technical skills are table stakes. What actually transfers is the operational
+          discipline that civilian environments rarely demand.
+        </p>
+        <!-- TODO: Replace with real post URL when published -->
+        <span class="blog-coming-soon">&#9679; Coming Soon</span>
       </article>
 
-      <!-- TODO: Blog Card 3 -->
       <article class="blog-card fade-in">
-        <div class="blog-date">TODO: Date</div>
-        <h3 class="blog-title">TODO: Post Title</h3>
-        <p class="blog-excerpt">TODO: 2â3 sentence summary of the post.</p>
-        <a href="#" class="blog-read-more">Read more â</a>
+        <div class="blog-date">Coming Soon</div>
+        <h3 class="blog-title">Why Most DoD Cyber Inspections Fail Before They Start</h3>
+        <p class="blog-excerpt">
+          As an ISIC Cyber Inspector, I've seen commands fail inspections not because of technical deficiencies, but
+          because of documentation gaps and communication breakdowns that were entirely preventable. The hardest part
+          of passing a Fleet Cyber Command inspection isn't the tech â it's the weeks before the team arrives.
+        </p>
+        <!-- TODO: Replace with real post URL when published -->
+        <span class="blog-coming-soon">&#9679; Coming Soon</span>
       </article>
 
     </div>
   </div>
-</section> -->
+</section>
 
 <!-- ============================================================
      PHASE 2 â ENDORSEMENTS SECTION
-     TODO: Pull 3â4 quotes from military evaluation narratives.
-     Format: quote text, reporting senior name/title, date.
-     Uncomment and populate when ready.
+     Source: Military evaluation narratives (verbatim).
+     TODO: Add a 4th quote when next EVAL cycle is complete.
      ============================================================ -->
-<!-- <section id="endorsements">
+<section id="endorsements">
   <div class="container">
-    <span class="section-label">Endorsements</span>
-    <h2 class="section-title">What Leaders Say</h2>
+    <span class="section-label">What Leaders Say</span>
+    <h2 class="section-title">Endorsed by Those Who Led Me</h2>
     <div class="divider"></div>
     <div class="endorsements-grid">
 
-      <!-- TODO: Endorsement 1 -->
       <blockquote class="endorsement-card fade-in">
-        <p class="endorsement-quote">"TODO: Quote text from EVAL narrative."</p>
+        <p class="endorsement-quote">
+          &#8220;When I go to war, I am taking Chief Butera. He will be my DOOW as this steel stallion gallops through the gates of hell.&#8221;
+        </p>
         <footer class="endorsement-attribution">
-          <strong>TODO: Name, Rank/Title</strong>
-          <span>TODO: Command Â· TODO: Date</span>
+          <strong>CDR Andrew Domina</strong>
+          <span>Commanding Officer &middot; USS Springfield (SSN 761) &middot; 2022</span>
         </footer>
       </blockquote>
 
-      <!-- TODO: Endorsement 2 -->
       <blockquote class="endorsement-card fade-in">
-        <p class="endorsement-quote">"TODO: Quote text from EVAL narrative."</p>
+        <p class="endorsement-quote">
+          &#8220;A frocked Senior Chief already recommended for Master Chief &mdash; promote at first opportunity.&#8221;
+        </p>
         <footer class="endorsement-attribution">
-          <strong>TODO: Name, Rank/Title</strong>
-          <span>TODO: Command Â· TODO: Date</span>
+          <strong>CAPT Aaron Peterson</strong>
+          <span>Commodore &middot; COMSUBRON ONE &middot; 2024</span>
         </footer>
       </blockquote>
 
-      <!-- TODO: Endorsement 3 -->
       <blockquote class="endorsement-card fade-in">
-        <p class="endorsement-quote">"TODO: Quote text from EVAL narrative."</p>
+        <p class="endorsement-quote">
+          &#8220;My number one of five highly competitive First Class Petty Officers on a flag staff &mdash; select him now.&#8221;
+        </p>
         <footer class="endorsement-attribution">
-          <strong>TODO: Name, Rank/Title</strong>
-          <span>TODO: Command Â· TODO: Date</span>
+          <strong>SCPO J.S. Hampton</strong>
+          <span>COMSUBGRU 10 &middot; 2016</span>
         </footer>
       </blockquote>
 
     </div>
   </div>
-</section> -->
+</section>
+
+<!-- ============================================================
+     PHASE 3 â AI RESUME MATCHER
+     TODO Phase 3: Wire to Claude API:
+       - Create a Cloudflare Worker at /api/match
+       - POST job description to Worker
+       - Worker calls Claude API (claude-haiku-4-5) with Travis's background as system prompt
+       - Stream response back to the result div
+       - API key stored in Worker environment variable (CF_WORKERS_SECRET)
+       - System prompt: see /workers/match-prompt.txt (to be created)
+     ============================================================ -->
+<section id="ai-matcher">
+  <div class="container">
+    <span class="section-label">Phase 3 &mdash; Coming Soon</span>
+    <h2 class="section-title">AI Resume Matcher</h2>
+    <div class="divider"></div>
+
+    <div class="matcher-wrap fade-in">
+      <span class="matcher-phase-badge">
+        &#9679; Intelligence Layer &mdash; In Development
+      </span>
+
+      <p class="matcher-label">
+        Paste a job description below and I'll show you exactly how my background maps to your requirements &mdash; skills alignment, relevant experience, and suggested talking points. Powered by Claude AI.
+      </p>
+
+      <textarea
+        class="matcher-textarea"
+        id="matcherInput"
+        placeholder="Paste the full job description here&#10;&#10;Example: 'We&#39;re seeking a Senior Cybersecurity Manager with RMF experience, active TS/SCI clearance, and a track record of leading enterprise security programs...'"></textarea>
+
+      <div style="margin-top:16px;">
+        <button class="btn btn-primary" id="matchBtn" onclick="runMatcher()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Match My Background
+        </button>
+      </div>
+
+      <!-- Placeholder result â TODO Phase 3: Replace with real API response rendering -->
+      <div class="matcher-result" id="matcherResult">
+        <div class="matcher-result-title">&#9654; Match Analysis &mdash; Demo Preview</div>
+        <p><strong style="color:var(--white)">Strong alignment detected.</strong> Your background matches 8 of 10 listed requirements.</p>
+        <p style="margin-top:12px;"><strong style="color:var(--gold)">Top matches:</strong> Active TS/SCI clearance &middot; RMF/ATO lifecycle experience &middot; ISSM authority &middot; 18+ years DoD IT leadership &middot; Enterprise infrastructure at scale</p>
+        <p style="margin-top:12px;"><strong style="color:var(--gold)">Suggested talking points:</strong> Led highest-scoring FCC cyber inspection in submarine history. Managed cybersecurity posture across 7 operational platforms concurrently. Executed 4 major inspections in a single year &mdash; all satisfactory or better.</p>
+        <p style="margin-top:12px; font-size:0.8rem; color:var(--text-muted);">
+          <em>This is a placeholder preview. Full AI matching will be live in Phase 3 &mdash; wired to Claude API via Cloudflare Workers.</em>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PHASE 3 â EMPLOYER PORTAL
+     TODO Phase 3: Replace hardcoded password with proper auth:
+       - Option A: Cloudflare Access (Zero Trust, SSO, free tier)
+       - Option B: Cloudflare Workers KV â store tokens per employer,
+         pass token as URL query param (?token=ABC123)
+       - Each employer gets a personalized page built from JSON config
+       - Portal content: custom intro, targeted resume, clearance details,
+         direct calendar booking link
+     Current: hardcoded JS password, client-side only (NOT SECURE for production)
+     ============================================================ -->
+<section id="employer-portal">
+  <div class="container">
+    <span class="section-label">Employer Portal &mdash; Private Access</span>
+    <h2 class="section-title">Restricted Access</h2>
+    <div class="divider"></div>
+
+    <div class="portal-locked fade-in" id="portalLocked">
+      <div class="portal-icon">
+        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <p style="color:var(--text-body); font-size:0.95rem; margin-bottom:24px;">
+        This area is reserved for hiring managers and recruiters I've connected with directly. If you have an access code, enter it below.
+      </p>
+      <input
+        type="password"
+        class="portal-input"
+        id="portalInput"
+        placeholder="Enter access code"
+        onkeydown="if(event.key==='Enter')checkPortal()"
+      />
+      <button class="btn btn-primary" style="width:100%;" onclick="checkPortal()">
+        Access Portal
+      </button>
+      <p class="portal-error" id="portalError">&#10005; Incorrect access code. Contact me directly to request access.</p>
+      <p style="margin-top:20px; font-size:0.8rem; color:var(--text-muted);">
+        Don&rsquo;t have a code? <a href="mailto:travis@buteranet.com?subject=Portal Access Request">Email me</a> to request private access.
+      </p>
+    </div>
+
+    <!-- Portal content â shown after correct password -->
+    <div class="portal-content" id="portalContent">
+      <div style="max-width:720px;">
+        <p style="color:var(--gold); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; margin-bottom:16px;">&#9679; Secure Access Granted</p>
+
+        <p style="color:var(--text-body); font-size:1rem; line-height:1.75; margin-bottom:20px;">
+          Thanks for taking the time to review my profile. I'm Travis Butera &mdash; U.S. Navy Senior Chief, ISSM, 18+ years leading DoD cybersecurity and enterprise IT programs in submarine forces. My planned retirement is <strong style="color:var(--white)">October 2027</strong>. I'm actively building my professional network now so I can make a deliberate, informed transition.
+        </p>
+
+        <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:28px;">
+          <a href="butera_issm_contractor.pdf" download class="resume-download" style="flex:1; min-width:200px;">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            ISSM / Contractor Resume
+          </a>
+          <a href="butera_federal_2page.pdf" download class="resume-download" style="flex:1; min-width:200px;">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Federal Resume (USAJobs)
+          </a>
+        </div>
+
+        <a href="mailto:travis@buteranet.com?subject=Following Up â Travis Butera Portal" class="btn btn-primary">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          Get In Touch Directly
+        </a>
+
+        <!-- TODO Phase 3: Add calendar booking integration (Calendly or similar) -->
+        <!-- TODO Phase 3: Personalize content per employer using Workers KV config -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PHASE 4 â BUSINESS EVOLUTION (no code yet â design notes only)
+     ============================================================
+
+     TODO Phase 4: Evolve buteranet.com into consulting firm front door
+       - Register LLC (Butera Consulting Group or similar)
+       - Build services page: ISSM consulting, RMF advisory, cyber workforce dev
+       - Client intake form (replaces contact form)
+       - Case studies section (anonymized, post-clearance)
+
+     TODO Phase 4: Add services page
+       - Offered services. fractional ISSM, RMF/ATO advisory, cyber workforce
+         program design, DoD compliance consulting
+       - Pricing: retainer + project-based options
+       - Target clients: small cleared contractors, defense-adjacent startups
+
+     TODO Phase 4: buteranet.com becomes the brand for the LLC
+       - Domain stays, expanded to buteranet.com/consulting
+       - LinkedIn company page linked
+       - Professional headshot, firm bio, team (if applicable)
+
+     TODO Phase 4: Add calendar booking integration
+       - Calendly or Cal.com embedded on contact + portal pages
+       - 30-min discovery call booking, 60-min deep-dive option
+       - Synced to personal calendar
+
+     TODO Phase 4: Add client portal with project status and deliverables
+       - Per-client authenticated portal (Cloudflare Access)
+       - Deliverable tracking, document vault, communication log
+       - Built on Cloudflare Workers + KV + R2 storage
+
+     ============================================================ -->
 
 <!-- FOOTER -->
 <footer>
@@ -1711,21 +2194,28 @@
 
 <script>
   // ================================================================
-  // SITE CONFIG â Edit these values for routine updates.
+  // SITE CONFIG â The ONLY block you need to edit for routine updates.
   // ================================================================
   const SITE_CONFIG = {
-    lastUpdated: 'April 2026',   // Footer date â update when you push changes
+    lastUpdated:     'April 2026',              // Footer date â update on every push
+    email:           'travis@buteranet.com',    // Contact email shown on site
+    analyticsToken:  'YOUR_CF_ANALYTICS_TOKEN', // TODO: Replace after Cloudflare Web Analytics setup
+    // Cert progress percentages (0â100). Only "In Progress" certs need a value.
+    certSecplus:  75,   // CompTIA Security+ CE renewal   (0â100)
+    certCism:     35,   // CISM                            (0â100)
+    certPmp:       0,   // PMP â Planned                   (0â100)
+    certCissp:     0,   // CISSP â Planned                 (0â100)
   };
   // ================================================================
 
   // ================================================================
-  // CERT TRACKER CONFIG
-  // Edit the numbers below to update progress bar percentages.
-  // Valid range: 0 to 100. Only "In Progress" certs need a value.
+  // CERT TRACKER â reads from SITE_CONFIG above, no need to edit here
   // ================================================================
   const CERT_PROGRESS = {
-    'secplus': 75,   // CompTIA Security+ CE renewal   (0â100)
-    'cism':    35,   // CISM                            (0â100)
+    'secplus': SITE_CONFIG.certSecplus,
+    'cism':    SITE_CONFIG.certCism,
+    'pmp':     SITE_CONFIG.certPmp,
+    'cissp':   SITE_CONFIG.certCissp,
   };
   // Apply percentages to progress bars (no need to edit below)
   Object.entries(CERT_PROGRESS).forEach(([id, pct]) => {
@@ -1777,7 +2267,7 @@
           throw new Error('Network response was not ok');
         }
       } catch {
-        alert('There was a problem sending your message. Please email me directly at tdbutera@proton.me');
+        alert('There was a problem sending your message. Please email me directly at travis@buteranet.com');
         btn.disabled = false;
         btn.textContent = 'Send Message';
       }
@@ -1802,6 +2292,50 @@
   // Set last-updated date from SITE_CONFIG
   const lastUpdEl = document.getElementById('footerLastUpdated');
   if (lastUpdEl) lastUpdEl.textContent = 'Last updated: ' + SITE_CONFIG.lastUpdated;
+
+  // ================================================================
+  // PHASE 3: AI RESUME MATCHER â placeholder demo
+  // TODO Phase 3: Replace runMatcher() with real fetch() to Cloudflare Worker
+  // ================================================================
+  function runMatcher() {
+    const input = document.getElementById('matcherInput').value.trim();
+    const result = document.getElementById('matcherResult');
+    const btn = document.getElementById('matchBtn');
+    if (!input) { alert('Please paste a job description first.'); return; }
+    btn.disabled = true;
+    btn.textContent = 'Analyzing\u2026';
+    setTimeout(() => {
+      result.style.display = 'block';
+      result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      btn.disabled = false;
+      btn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Match My Background';
+    }, 1200);
+    // TODO Phase 3: Replace timeout above with:
+    // const res = await fetch('/api/match', { method:'POST', body: JSON.stringify({jd: input}), headers:{'Content-Type':'application/json'} });
+    // const data = await res.json();
+    // result.innerHTML = data.html;
+  }
+
+  // ================================================================
+  // PHASE 3: EMPLOYER PORTAL â simple JS password gate
+  // TODO Phase 3: Replace with Cloudflare Access or Workers KV token auth
+  // ================================================================
+  const PORTAL_CODE = 'butera2027'; // TODO: Change before sharing portal link
+  function checkPortal() {
+    const val = document.getElementById('portalInput').value.trim();
+    const err = document.getElementById('portalError');
+    if (val.toLowerCase() === PORTAL_CODE) {
+      document.getElementById('portalLocked').style.display = 'none';
+      document.getElementById('portalContent').classList.add('unlocked');
+    } else {
+      err.style.display = 'block';
+      document.getElementById('portalInput').value = '';
+    }
+  }
+  // Auto-open portal if URL hash is #portal
+  if (window.location.hash === '#employer-portal') {
+    document.getElementById('employer-portal').scrollIntoView();
+  }
 </script>
 
 </body>
