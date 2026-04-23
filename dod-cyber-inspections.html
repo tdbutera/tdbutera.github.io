@@ -189,7 +189,7 @@
     }
     .checklist li:last-child { border-bottom: none; }
     .checklist li::before {
-      content: '&#9633;';
+      content: '\25A1';
       position: absolute;
       left: 0;
       color: var(--gold);
@@ -290,7 +290,7 @@
       </li>
       <li>
         <strong>User Behavior That Slipped Through</strong>
-        <span>Someone has local admin rights they should not have. A contractor’s account is still active 60 days after they separated. A shared service account password has not rotated in 14 months. None of these are configuration failures &mdash; they are governance failures. ACAS does not catch them. Only a disciplined review process does.</span>
+        <span>Someone has local admin rights they should not have. A contractor&#8217;s account is still active 60 days after they separated. A shared service account password has not rotated in 14 months. None of these are configuration failures &mdash; they are governance failures. ACAS does not catch them. Only a disciplined review process does.</span>
       </li>
       <li>
         <strong>Physical and Environmental Controls</strong>
@@ -347,7 +347,7 @@
       Most inspection failures ultimately trace back to a senior leader who either did not understand the security program well enough to prioritize it, or understood it and chose not to. The ISSM can build the best security program in the world &mdash; if the CO does not enforce training requirements or allows undocumented changes because "we are too busy right now," the program fails.
     </p>
     <p>
-      Part of the ISSM’s job is educating leadership continuously &mdash; not just when there is a crisis or an inspection looming, but as part of normal operations. The commander who understands what an authorization boundary is, why account hygiene matters, and what a POA&amp;M represents will make better decisions throughout the year. The one who hears about it for the first time from an inspector is already behind.
+      Part of the ISSM&#8217;s job is educating leadership continuously &mdash; not just when there is a crisis or an inspection looming, but as part of normal operations. The commander who understands what an authorization boundary is, why account hygiene matters, and what a POA&amp;M represents will make better decisions throughout the year. The one who hears about it for the first time from an inspector is already behind.
     </p>
 
     <h2>A Pre-Inspection Checklist That Actually Works</h2>
@@ -385,13 +385,33 @@
     </div>
 
     <p>
-      Inspections are a proxy measurement. They're designed to provide a snapshot of whether a security program is real. Commands that treat the inspection as the objective tend to fail it. Commands that treat the inspection as an audit of their ongoing program tend to pass &mdash; and more importantly, they actually are more secure.
+      Inspections are a proxy measurement. They are designed to provide a snapshot of whether a security program is real. Commands that treat the inspection as the objective tend to fail it. Commands that treat the inspection as an audit of their ongoing program tend to pass &mdash; and more importantly, they actually are more secure.
     </p>
     <p>
       &mdash; <strong>Travis D. Butera</strong>
     </p>
 
-    <div class="author-box">
+  
+  <!-- Related Posts -->
+  <div style="border-top:1px solid var(--border);padding-top:40px;margin-top:52px;">
+    <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;color:var(--text-muted);margin-bottom:20px;">&#9679; Related Posts</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+      <a href="/rmf-in-practice.html" style="background:var(--navy-mid);border:1px solid var(--border);border-radius:8px;padding:16px 18px;text-decoration:none;display:block;transition:border-color 0.25s ease;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.25)'">
+        <div style="font-size:0.88rem;font-weight:600;color:#fff;line-height:1.4;margin-bottom:6px;">RMF in Practice &mdash; What the Checklist Does Not Tell You</div>
+        <span style="font-size:0.78rem;color:var(--gold);font-weight:600;">Read &rarr;</span>
+      </a>
+      <a href="/submarine-to-civilian-it.html" style="background:var(--navy-mid);border:1px solid var(--border);border-radius:8px;padding:16px 18px;text-decoration:none;display:block;transition:border-color 0.25s ease;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.25)'">
+        <div style="font-size:0.88rem;font-weight:600;color:#fff;line-height:1.4;margin-bottom:6px;">From Submarine Networks to Civilian IT &mdash; What Actually Transfers</div>
+        <span style="font-size:0.78rem;color:var(--gold);font-weight:600;">Read &rarr;</span>
+      </a>
+      <a href="/issm-test-building-system-i-audit.html" style="background:var(--navy-mid);border:1px solid var(--border);border-radius:8px;padding:16px 18px;text-decoration:none;display:block;transition:border-color 0.25s ease;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.25)'">
+        <div style="font-size:0.88rem;font-weight:600;color:#fff;line-height:1.4;margin-bottom:6px;">The ISSM Test &mdash; Building a System I Would Have to Audit</div>
+        <span style="font-size:0.78rem;color:var(--gold);font-weight:600;">Read &rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="author-box">
       <div class="author-icon">TB</div>
       <div>
         <div class="author-name">Travis D. Butera</div>
