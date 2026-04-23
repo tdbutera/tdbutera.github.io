@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why I Let My Security+ Expire &mdash; And What Renewing It Taught Me | Travis D. Butera</title>
+  <meta name="description" content="My CompTIA Security+ CE expired in 2018. Every recruiter who sees my resume notices. Here is the honest explanation, what it took to come back to it, and what studying again after eight years in the field taught me about the gap between certification knowledge and operational reality." />
+
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://buteranet.com/security-plus-renewal" />
+  <meta property="og:title"       content="Why I Let My Security+ Expire &mdash; And What Renewing It Taught Me" />
+  <meta property="og:description" content="My Security+ expired in 2018. Every recruiter notices. Here is the honest explanation and what studying again after eight years taught me." />
+  <meta property="og:image"       content="https://buteranet.com/og-preview.png" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <link rel="canonical"           href="https://buteranet.com/security-plus-renewal" />
+  <meta name="author"             content="Travis D. Butera" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy-darkest: #060e1a; --navy-dark: #0b1a2e; --navy-mid: #0f2544;
+      --navy-light: #1a3560; --gold: #c9a84c; --gold-light: #e0c06a;
+      --white: #ffffff; --off-white: #e8edf4; --text-muted: #8fa3c0;
+      --text-body: #cdd6e3; --border: rgba(201,168,76,0.25); --radius: 8px; --transition: 0.25s ease;
+    }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--navy-darkest); color: var(--text-body); line-height: 1.75; }
+    a { color: var(--gold); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--gold-light); }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(6,14,26,0.97); border-bottom: 1px solid var(--border); backdrop-filter: blur(12px); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { color: var(--white); font-weight: 700; font-size: 0.95rem; letter-spacing: 0.04em; }
+    .nav-back { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--gold); font-weight: 600; }
+    .post-hero { padding: 72px 24px 48px; max-width: 760px; margin: 0 auto; border-bottom: 1px solid var(--border); }
+    .post-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--gold); margin-bottom: 16px; }
+    .post-title { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; color: var(--white); line-height: 1.2; margin-bottom: 20px; }
+    .post-meta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; font-size: 0.83rem; color: var(--text-muted); }
+    .post-meta strong { color: var(--off-white); }
+    .post-tag { background: var(--navy-mid); border: 1px solid var(--border); padding: 3px 10px; border-radius: 20px; font-size: 0.75rem; color: var(--gold); font-weight: 600; }
+    .post-body { max-width: 760px; margin: 0 auto; padding: 52px 24px 80px; }
+    .post-body p { margin-bottom: 1.4em; font-size: 1.05rem; }
+    .post-body h2 { font-size: 1.25rem; font-weight: 700; color: var(--white); margin: 2.4em 0 0.8em; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .post-body h3 { font-size: 1.05rem; font-weight: 700; color: var(--gold); margin: 1.8em 0 0.6em; }
+    .post-body strong { color: var(--white); }
+    .callout { background: var(--navy-mid); border-left: 3px solid var(--gold); border-radius: 0 var(--radius) var(--radius) 0; padding: 18px 22px; margin: 1.8em 0; font-size: 0.97rem; }
+    .callout p { margin: 0; }
+    .related-posts { border-top: 1px solid var(--border); padding-top: 40px; margin-top: 52px; }
+    .related-posts-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--text-muted); margin-bottom: 20px; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .related-card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; transition: border-color var(--transition); }
+    .related-card:hover { border-color: var(--gold); }
+    .related-card-title { font-size: 0.88rem; font-weight: 600; color: var(--white); line-height: 1.4; margin-bottom: 6px; }
+    .related-card-link { font-size: 0.78rem; color: var(--gold); font-weight: 600; }
+    .author-box { border-top: 1px solid var(--border); padding-top: 40px; margin-top: 52px; display: flex; gap: 20px; align-items: flex-start; }
+    .author-icon { width: 52px; height: 52px; border-radius: 50%; background: var(--navy-mid); border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.3rem; color: var(--gold); font-weight: 800; }
+    .author-name { font-weight: 700; color: var(--white); font-size: 0.95rem; margin-bottom: 4px; }
+    .author-bio { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+    footer { border-top: 1px solid var(--border); padding: 28px 24px; text-align: center; font-size: 0.8rem; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">Travis D. Butera</span>
+  <a href="/" class="nav-back">
+    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Back to buteranet.com
+  </a>
+</nav>
+
+<header class="post-hero">
+  <div class="post-label">&#9679; Professional Development</div>
+  <h1 class="post-title">Why I Let My Security+ Expire &mdash; And What Renewing It Taught Me</h1>
+  <div class="post-meta">
+    <span><strong>Travis D. Butera</strong> &nbsp;&middot;&nbsp; ISSM, U.S. Navy Senior Chief</span>
+    <span class="post-tag">Certifications</span>
+    <span class="post-tag">Career</span>
+    <span class="post-tag">Discipline</span>
+  </div>
+</header>
+
+<article class="post-body">
+
+  <p>
+    My CompTIA Security+ CE expired in September 2018. Every recruiter who reviews my resume notices it. It is listed under certifications with the note &ldquo;expired Sep 2018; renewal priority #1&rdquo; &mdash; which is honest, but which also raises an obvious question: why did an active Information System Security Manager (ISSM) let his foundational DoD 8570/8140 certification lapse for seven years?
+  </p>
+  <p>
+    The answer is not flattering. And I think it is worth writing down, because the same failure pattern I let happen to my own certification is the same one I identify and correct in every command I assess.
+  </p>
+
+  <h2>How It Happened</h2>
+  <p>
+    In 2018, I was a few months into a new assignment on USS Annapolis. The ship was going through a homeport change &mdash; Groton to San Diego, then San Diego to Pearl Harbor. The Systems Administrator workload was significant. I had a renewal window, I knew about it, I meant to schedule the exam, and then one operational priority after another pushed it back until the window closed.
+  </p>
+  <p>
+    That is it. No dramatic reason. <strong>I let a deadline slide because the operational work was always more urgent.</strong>
+  </p>
+  <p>
+    What happened next is the part that matters: nothing. My command did not flag it immediately. My annual review did not center on it. The DoD 8570/8140 workforce compliance tracking at my level was managed by the command I was assigned to, and the transition period created enough administrative confusion that the gap was not caught until I caught it myself months later &mdash; by which point the practical cost of renewal had already escalated.
+  </p>
+
+  <div class="callout">
+    <p><strong>This is the exact failure mode I identify in every workforce compliance audit I run.</strong> The tracking exists. The deadline was known. The responsible party had every intention of complying. Operational tempo provided a steady supply of reasons to defer. Nobody caught it until it was a problem.</p>
+  </div>
+
+  <h2>Why I Did Not Just Renew It Then</h2>
+  <p>
+    Once the certification expired, I had a choice: re-test immediately at the standard rate, or submit for continuing education credits through the existing eMASS and workforce tracking systems to demonstrate equivalent knowledge.
+  </p>
+  <p>
+    The honest answer is that I deprioritized it. I was holding an ISSM billet without the certification because my command needed me in that role and granted a temporary authorization pending renewal. That authorization kept getting extended. The operational need was real, the renewal kept sliding, and I fell into the same trap I identify in every shop that has a Plan of Action and Milestones (POA&amp;M) entry with a scheduled completion date that has passed two quarters in a row.
+  </p>
+  <p>
+    I was the engineer with the unsatisfactory security finding who had been marking it &ldquo;in progress&rdquo; for longer than I should have.
+  </p>
+
+  <h2>Coming Back to It</h2>
+  <p>
+    In 2025, I enrolled in the Purdue Global B.S. Information Technology program. Finishing that degree &mdash; Summa Cum Laude, December 2025 &mdash; gave me a structured academic environment for the first time in years, and reactivated learning habits that operational assignments had pushed to the background.
+  </p>
+  <p>
+    Starting Security+ renewal alongside the degree made sense. The academic framework and the certification framework reinforce each other &mdash; the theoretical models in the courseware matched the operational experience I already had, and studying for the exam has been faster and more coherent than I expected.
+  </p>
+  <p>
+    What surprised me was how much I did not know I knew, and how much had changed.
+  </p>
+
+  <h3>What Eight Years in the Field Taught Me That the Exam Does Not Cover</h3>
+  <p>
+    The Security+ examination measures whether you can apply frameworks correctly on paper. It does not measure whether you can get a command to care about them. It does not measure how to brief a Commanding Officer on risk acceptance when his operational timeline conflicts with your remediation schedule. It does not measure how to write a POA&amp;M entry that an Authorizing Official will actually act on rather than defer.
+  </p>
+  <p>
+    Eight years of holding ISSM billets taught me all of that. The examination is the floor. Operational experience is everything above it.
+  </p>
+
+  <h3>What the Exam Covers That I Had Drifted From</h3>
+  <p>
+    The Security+ examination covers a broader attack surface than my daily operational focus. Submarine network environments are classified, air-gapped, highly controlled, and relatively stable compared to enterprise environments. The threats I assess daily are insider risk, configuration drift, and maintenance of accreditation &mdash; not external phishing, cloud misconfigurations, or zero-day exploitation chains.
+  </p>
+  <p>
+    Studying for the renewal reminded me that the commercial cybersecurity landscape had continued evolving while I was focused on a specific operational domain. That recalibration is valuable precisely because I am preparing for a transition to civilian employment &mdash; where the threat models, compliance frameworks, and tool ecosystems will be different from what I have managed for the past decade.
+  </p>
+
+  <div class="callout">
+    <p>The certification is not the point. The discipline of returning to foundational material after years of specialization &mdash; and honestly assessing where you have drifted &mdash; is the point.</p>
+  </div>
+
+  <h2>What This Actually Means for Hiring Managers</h2>
+  <p>
+    If you are reading this because you reviewed my resume and wondered about the expired certification: I understand the concern. DoD 8570/8140 compliance is a hard requirement for many ISSM billets, and a gap in the ISSM&rsquo;s own certification record is a reasonable thing to question.
+  </p>
+  <p>
+    What I can tell you is this: the lapse was a failure of personal discipline, not a failure of technical knowledge. I have held ISSM billets continuously since 2012. I have executed full RMF/ATO lifecycles across seven operational submarines. I have led commands to the highest cyber inspection scores in Fleet Cyber Command history. The certification expired. The competency did not.
+  </p>
+  <p>
+    And I am correcting the lapse before transition, not after &mdash; because the discipline of finishing what I started matters more than it would if I were renewing under pressure from an employer.
+  </p>
+  <p>
+    Target completion: Q4 2026. I will update this page when it is done.
+  </p>
+  <p>
+    &mdash; <strong>Travis D. Butera</strong>
+  </p>
+
+  <div class="related-posts">
+    <div class="related-posts-label">&#9679; Related Posts</div>
+    <div class="related-grid">
+      <a href="/rmf-in-practice.html" class="related-card" style="text-decoration:none;">
+        <div class="related-card-title">RMF in Practice &mdash; What the Checklist Does Not Tell You</div>
+        <span class="related-card-link">Read &rarr;</span>
+      </a>
+      <a href="/issm-test-building-system-i-audit.html" class="related-card" style="text-decoration:none;">
+        <div class="related-card-title">The ISSM Test &mdash; Building a System I Would Have to Audit</div>
+        <span class="related-card-link">Read &rarr;</span>
+      </a>
+      <a href="/submarine-to-civilian-it.html" class="related-card" style="text-decoration:none;">
+        <div class="related-card-title">From Submarine Networks to Civilian IT &mdash; What Actually Transfers</div>
+        <span class="related-card-link">Read &rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="author-box">
+    <div class="author-icon">TB</div>
+    <div>
+      <div class="author-name">Travis D. Butera</div>
+      <div class="author-bio">
+        U.S. Navy Senior Chief &amp; ISSM with 18+ years executing DoD cybersecurity, RMF/ATO lifecycles, and enterprise IT programs across seven operational submarines. NEC 741A (ISSM), NEC 742A (NSVT). Active TS/SCI. Available October 2027.<br><br>
+        <a href="mailto:travis@buteranet.com">travis@buteranet.com</a> &nbsp;&middot;&nbsp; <a href="/">buteranet.com</a>
+      </div>
+    </div>
+  </div>
+
+</article>
+
+<footer>&copy; Travis D. Butera &nbsp;&middot;&nbsp; <a href="/">buteranet.com</a></footer>
+
+</body>
+</html>

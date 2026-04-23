@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Travis D. Butera</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy-darkest: #060e1a; --navy-dark: #0b1a2e; --navy-mid: #0f2544;
+      --gold: #c9a84c; --gold-light: #e0c06a; --white: #ffffff;
+      --text-muted: #8fa3c0; --text-body: #cdd6e3; --border: rgba(201,168,76,0.25);
+    }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--navy-darkest); color: var(--text-body);
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; padding: 40px 24px;
+    }
+    .code {
+      font-size: 6rem; font-weight: 900; color: var(--navy-mid);
+      line-height: 1; margin-bottom: 8px; letter-spacing: -4px;
+    }
+    .label {
+      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em;
+      font-weight: 700; color: var(--gold); margin-bottom: 24px;
+    }
+    h1 { font-size: 1.5rem; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+    p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 36px; max-width: 420px; text-align: center; }
+    .links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    a {
+      padding: 10px 22px; border-radius: 6px; font-size: 0.88rem;
+      font-weight: 600; text-decoration: none; transition: all 0.2s ease;
+    }
+    .btn-primary {
+      background: var(--gold); color: #060e1a;
+    }
+    .btn-primary:hover { background: var(--gold-light); }
+    .btn-outline {
+      border: 1px solid var(--border); color: var(--gold);
+    }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); }
+  </style>
+</head>
+<body>
+  <div class="code">404</div>
+  <div class="label">&#9679; Page Not Found</div>
+  <h1>That page does not exist.</h1>
+  <p>You may have followed an outdated link. Everything on buteranet.com is still here &mdash; just one click below.</p>
+  <div class="links">
+    <a href="/" class="btn-primary">Back to buteranet.com</a>
+    <a href="/#blog" class="btn-outline">Read the Blog</a>
+    <a href="/#contact" class="btn-outline">Get In Touch</a>
+  </div>
+</body>
+</html>
