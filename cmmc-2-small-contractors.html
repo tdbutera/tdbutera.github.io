@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMMC 2.0 From the Field: What Small Contractors Actually Need to Do | Travis D. Butera</title>
+  <meta name="description" content="Most small defense contractors are preparing for Cybersecurity Maturity Model Certification (CMMC) 2.0 the wrong way. Here is what Level 2 actually requires, where the compliance machine oversells complexity, and what your first 90 days should actually look like." />
+
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://buteranet.com/cmmc-2-small-contractors.html" />
+  <meta property="og:title"       content="CMMC 2.0 From the Field: What Small Contractors Actually Need to Do" />
+  <meta property="og:description" content="Most small defense contractors are preparing for CMMC 2.0 the wrong way. Here is what Level 2 actually requires and what your first 90 days should look like." />
+  <meta property="og:image"       content="https://buteranet.com/og-preview.png" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <link rel="canonical"           href="https://buteranet.com/cmmc-2-small-contractors.html" />
+  <meta name="author"             content="Travis D. Butera" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "CMMC 2.0 From the Field: What Small Contractors Actually Need to Do",
+    "description": "Most small defense contractors are preparing for Cybersecurity Maturity Model Certification (CMMC) 2.0 the wrong way. Here is what Level 2 actually requires, where the compliance machine oversells complexity, and what your first 90 days should actually look like.",
+    "author": {
+      "@type": "Person",
+      "name": "Travis D. Butera",
+      "url": "https://buteranet.com"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Travis D. Butera",
+      "url": "https://buteranet.com"
+    },
+    "datePublished": "2026-05-24",
+    "dateModified": "2026-05-24",
+    "url": "https://buteranet.com/cmmc-2-small-contractors.html",
+    "mainEntityOfPage": "https://buteranet.com/cmmc-2-small-contractors.html",
+    "keywords": ["CMMC", "CMMC 2.0", "defense contractors", "DoD cybersecurity", "NIST 800-171", "small business compliance"]
+  }
+  </script>
+
+  <style>
+    :root {
+      --navy-darkest: #060e1a;
+      --navy-dark:    #0b1a2e;
+      --navy-mid:     #0f2544;
+      --navy-light:   #1a3560;
+      --gold:         #c9a84c;
+      --gold-light:   #e0c06a;
+      --white:        #ffffff;
+      --off-white:    #e8edf4;
+      --text-muted:   #8fa3c0;
+      --text-body:    #cdd6e3;
+      --border:       rgba(201,168,76,0.25);
+      --card-bg:      rgba(15,37,68,0.7);
+      --radius:       8px;
+      --transition:   0.25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: var(--navy-darkest);
+      color: var(--text-body);
+      line-height: 1.75;
+    }
+    a { color: var(--gold); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--gold-light); }
+
+    .site-header {
+      background: var(--navy-dark);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .site-header .logo { font-weight: 700; color: var(--white); font-size: 1.1rem; }
+    .site-header .logo span { color: var(--gold); }
+    .site-header nav a { color: var(--text-muted); font-size: 0.9rem; margin-left: 24px; }
+    .site-header nav a:hover { color: var(--gold); }
+
+    .article-hero {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-mid) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px 48px;
+      text-align: center;
+    }
+    .article-category {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .article-title {
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      max-width: 780px;
+      margin: 0 auto 20px;
+    }
+    .article-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .article-meta strong { color: var(--off-white); }
+
+    .article-container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 52px 24px 80px;
+    }
+    .article-container p {
+      margin-bottom: 1.4em;
+      font-size: 1.05rem;
+    }
+    .article-container h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      margin: 2.8em 0 0.8em;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-container h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 2em 0 0.6em;
+    }
+    .article-container strong { color: var(--white); }
+    .article-container ul {
+      margin: 0 0 1.4em 1.4em;
+      font-size: 1.05rem;
+    }
+    .article-container li { margin-bottom: 0.5em; }
+
+    .callout {
+      background: var(--navy-mid);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px;
+      margin: 2em 0;
+      font-size: 0.97rem;
+    }
+    .callout p { margin: 0; }
+
+    .level-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2em 0;
+      font-size: 0.9rem;
+    }
+    .level-table th {
+      background: var(--navy-light);
+      color: var(--gold);
+      font-weight: 700;
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 2px solid var(--border);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .level-table td {
+      padding: 11px 14px;
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      vertical-align: top;
+      color: var(--text-body);
+    }
+    .level-table tr:last-child td { border-bottom: none; }
+    .level-table tr:nth-child(even) td { background: rgba(15,37,68,0.4); }
+    .level-badge {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .level-badge.l1 { background: rgba(201,168,76,0.15); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+    .level-badge.l2 { background: rgba(201,168,76,0.25); color: var(--gold-light); border: 1px solid rgba(224,192,106,0.4); }
+    .level-badge.l3 { background: rgba(201,168,76,0.08); color: var(--text-muted); border: 1px solid rgba(201,168,76,0.2); }
+
+    .checklist-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin: 1em 0;
+    }
+    .checklist-card h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .checklist-card ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .checklist-card li {
+      padding: 5px 0 5px 22px;
+      position: relative;
+      font-size: 0.95rem;
+      color: var(--text-body);
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+    }
+    .checklist-card li:last-child { border-bottom: none; }
+    .checklist-card li::before {
+      content: "&#10003;";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.8rem;
+      top: 7px;
+    }
+
+    .related-posts {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      margin-top: 52px;
+    }
+    .related-posts-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .related-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      transition: border-color var(--transition);
+    }
+    .related-card:hover { border-color: var(--gold); }
+    .related-card-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .related-card-link { font-size: 0.78rem; color: var(--gold); font-weight: 600; }
+
+    .author-box {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      margin-top: 52px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .author-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--navy-mid);
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.3rem;
+      color: var(--gold);
+      font-weight: 800;
+    }
+    .author-name { font-weight: 700; color: var(--white); font-size: 0.95rem; margin-bottom: 4px; }
+    .author-bio { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">Travis D. <span>Butera</span></div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/#blog">Insights</a>
+    <a href="/#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="article-hero">
+  <div class="article-category">&#9679; DoD Compliance &middot; Small Business</div>
+  <h1 class="article-title">CMMC 2.0 From the Field: What Small Contractors Actually Need to Do</h1>
+  <div class="article-meta">
+    <span><strong>Travis D. Butera</strong> &nbsp;&middot;&nbsp; ISSM, U.S. Navy Senior Chief</span>
+    <span>May 2026</span>
+    <span>12 min read</span>
+  </div>
+</div>
+
+<article class="article-container">
+
+  <p>
+    The Cybersecurity Maturity Model Certification (CMMC) 2.0 compliance industry has created a market for fear. Small defense contractors are being sold six-figure compliance engagements for requirements that, in many cases, a disciplined three-person internal effort could address in 90 days. I am not saying CMMC 2.0 is simple. I am saying the complexity is consistently misrepresented in ways that benefit consultants more than contractors.
+  </p>
+  <p>
+    My perspective is grounded in 18 years implementing the same underlying framework that CMMC 2.0 is built on &mdash; the Risk Management Framework (RMF), NIST Special Publication 800-53, and National Institute of Standards and Technology (NIST) Special Publication 800-171 &mdash; across Department of Defense (DoD) submarine network environments. I have executed full Authority to Operate (ATO) lifecycles, held Information Systems Security Manager (ISSM) billets continuously since 2012, and led commands through Fleet Cyber Command inspections that assess the same control families CMMC 2.0 requires contractors to demonstrate.
+  </p>
+  <p>
+    This post covers what the three levels actually require, who falls under which level, and what a realistic first-90-days plan looks like for a small contractor coming into compliance for the first time.
+  </p>
+
+  <h2>What the Three Levels Actually Mean</h2>
+  <p>
+    The CMMC 2.0 framework has three maturity levels. Most of the complexity in the compliance conversation comes from treating all three as if they apply to everyone, which they do not.
+  </p>
+
+  <table class="level-table">
+    <thead>
+      <tr>
+        <th>Level</th>
+        <th>Who It Applies To</th>
+        <th>Controls Required</th>
+        <th>Assessment Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="level-badge l1">Level 1</span></td>
+        <td>Contractors handling Federal Contract Information (FCI) only</td>
+        <td>17 practices (FAR 52.204-21 basic safeguarding)</td>
+        <td>Annual self-assessment</td>
+      </tr>
+      <tr>
+        <td><span class="level-badge l2">Level 2</span></td>
+        <td>Contractors handling Controlled Unclassified Information (CUI)</td>
+        <td>110 practices aligned to NIST SP 800-171 Rev 2</td>
+        <td>Self-assessment (most) or C3PAO (critical programs)</td>
+      </tr>
+      <tr>
+        <td><span class="level-badge l3">Level 3</span></td>
+        <td>Contractors on highest-priority DoD programs</td>
+        <td>110+ practices (800-171 plus additional NIST SP 800-172 requirements)</td>
+        <td>Government-led assessment by DIBCAC</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    If you are a small defense contractor &mdash; a law firm handling government contracts, an engineering firm with Defense Federal Acquisition Regulation Supplement (DFARS) clauses in your contracts, a technology company supporting a prime contractor &mdash; you almost certainly fall under Level 2. You are probably not Level 3 unless your Contracting Officer has specifically identified you as supporting a classified or critical national security program.
+  </p>
+  <p>
+    Level 2 is where 90 percent of the compliance industry operates and where 90 percent of the fear-selling happens. So Level 2 is where this post focuses.
+  </p>
+
+  <h2>What Level 2 Is Actually Asking For</h2>
+  <p>
+    CMMC Level 2 maps directly to NIST SP 800-171 Revision 2. That standard has 110 security requirements organized across 14 control families. If you have handled any federal contractor work in the last decade, you have already been contractually required to implement these controls under DFARS clause 252.204-7012. CMMC 2.0 Level 2 does not add new technical requirements &mdash; it adds verified compliance requirements.
+  </p>
+  <p>
+    The 14 families are: Access Control, Awareness and Training, Audit and Accountability, Configuration Management, Identification and Authentication, Incident Response, Maintenance, Media Protection, Personnel Security, Physical Protection, Risk Assessment, Security Assessment, System and Communications Protection, and System and Information Integrity.
+  </p>
+  <p>
+    None of these families are novel. Every one of them appears in the RMF framework I have been implementing in DoD environments since 2012. The difference for small contractors is not the content of the requirements &mdash; it is the documentation and evidence burden that comes with demonstrating compliance to an assessor.
+  </p>
+
+  <div class="callout">
+    <p><strong>The compliance gap most small contractors have is not a security gap. It is a documentation gap.</strong> The technical controls are often already partially in place. What is missing is the System Security Plan (SSP), the evidence artifacts, and the Plan of Action and Milestones (POA&amp;M) that demonstrate you know what you have and what you are working to close.</p>
+  </div>
+
+  <h2>The Three Documents That Actually Matter</h2>
+  <p>
+    Before you engage a Certified Third-Party Assessment Organization (C3PAO) or spend a dollar on tooling, you need three documents. If you do not have these, nothing else matters. If you do have them, you have already done most of the foundational compliance work.
+  </p>
+
+  <h3>1. The System Security Plan (SSP)</h3>
+  <p>
+    The SSP is your organization's formal description of the information system, the boundary around the Controlled Unclassified Information (CUI) environment, and how each of the 110 NIST 800-171 requirements is addressed. It is not a checklist. It is a narrative document that tells an assessor: here is what we process, here is how we protect it, and here is the evidence that our controls are implemented and effective.
+  </p>
+  <p>
+    Most small contractors do not have one. That is the actual starting point of a CMMC compliance program. Everything else &mdash; tooling, assessments, staff training &mdash; is filling in the evidence that the SSP describes.
+  </p>
+
+  <h3>2. The Plan of Action and Milestones (POA&amp;M)</h3>
+  <p>
+    No organization achieves 110 out of 110 controls on day one. The POA&amp;M is the document that formally acknowledges which requirements are not yet met, what the remediation plan is, and what the completion timeline looks like. In DoD RMF practice, a well-structured POA&amp;M is not a liability &mdash; it is evidence of disciplined risk management. An assessor who sees a clean POA&amp;M with specific timelines and ownership trusts your program more than an organization that claims full compliance with no documented gaps.
+  </p>
+  <p>
+    I have spent 18 years writing and reviewing POA&amp;Ms. The most common failure is treating them as a compliance artifact rather than a management tool. A POA&amp;M that nobody owns, with completion dates that have passed two quarters in a row, is worse than no POA&amp;M at all &mdash; it tells an assessor that your organization does not take its own commitments seriously.
+  </p>
+
+  <h3>3. The CUI Inventory</h3>
+  <p>
+    You cannot protect what you cannot identify. Before your SSP has meaning, you need to know exactly what CUI you receive, create, process, store, and transmit &mdash; and where it lives. This means identifying every system, every endpoint, every cloud service, every third-party tool that touches information covered under your contracts. The boundary you draw around that inventory defines your assessment scope. A smaller, well-defended boundary is nearly always better than a sprawling one that touches systems you cannot control.
+  </p>
+
+  <h2>What Your First 90 Days Should Actually Look Like</h2>
+  <p>
+    This is the practical sequence that makes sense for most small contractors approaching CMMC Level 2 for the first time. It assumes you have an existing IT environment and some contractual DFARS obligations but no formal CMMC compliance program.
+  </p>
+
+  <div class="checklist-card">
+    <h4>Days 1&ndash;30: Understand Your Scope</h4>
+    <ul>
+      <li>Identify every contract that contains DFARS clause 252.204-7012 or CUI handling requirements</li>
+      <li>Inventory every system that touches, stores, or transmits CUI</li>
+      <li>Define your CUI boundary &mdash; document it in writing, keep it as small as defensible</li>
+      <li>Assign an internal owner for the compliance program (this person does not need to be a cybersecurity professional &mdash; they need to be organized and empowered)</li>
+      <li>Download the NIST SP 800-171 Rev 2 Assessment Guide (free, public document) and read the 110 requirements against your environment</li>
+    </ul>
+  </div>
+
+  <div class="checklist-card">
+    <h4>Days 31&ndash;60: Build the Foundation Documents</h4>
+    <ul>
+      <li>Draft your System Security Plan using the NIST SP 800-171A template (also free and public)</li>
+      <li>Score each of the 110 requirements: Implemented, Partially Implemented, Not Implemented, or Not Applicable</li>
+      <li>Begin your POA&amp;M for every requirement not marked Implemented &mdash; assign ownership and realistic completion dates</li>
+      <li>Document your network diagram and data flow within the CUI boundary</li>
+      <li>Calculate your SPRS (Supplier Performance Risk System) score using the DoD scoring methodology and submit it &mdash; this is already required under DFARS 252.204-7019</li>
+    </ul>
+  </div>
+
+  <div class="checklist-card">
+    <h4>Days 61&ndash;90: Close the High-Priority Gaps</h4>
+    <ul>
+      <li>Prioritize multi-factor authentication (MFA) for all privileged accounts and all remote access &mdash; this single control closes or supports more than a dozen 800-171 requirements</li>
+      <li>Implement audit logging if it is not already in place &mdash; you cannot demonstrate accountability without log data</li>
+      <li>Review user access against least-privilege principles: remove accounts that should not exist, document those that should</li>
+      <li>Complete security awareness training for all staff with CUI access and document completion</li>
+      <li>Establish an incident response plan &mdash; even a simple, two-page document that defines what a reportable incident is, who gets notified, and what the 72-hour reporting timeline looks like</li>
+    </ul>
+  </div>
+
+  <p>
+    At the end of 90 days, you will not be fully compliant. But you will have a defensible program: a scored SSP, a working POA&amp;M, and closed gaps on the highest-risk requirements. That is the foundation that a C3PAO assessment can build on, and it is the artifact that demonstrates to your government customers that you take the requirement seriously.
+  </p>
+
+  <h2>Where the Compliance Industry Gets It Wrong</h2>
+  <p>
+    The CMMC compliance market has developed several persistent myths that cost small contractors money without improving their security posture.
+  </p>
+
+  <h3>Myth 1: You Need a New SIEM Right Now</h3>
+  <p>
+    A Security Information and Event Management (SIEM) platform is a powerful tool for large organizations with dedicated security operations staff. For a 20-person defense contractor, deploying a SIEM before you have completed your SSP or your CUI inventory is backwards. The requirement is to have audit logs and to review them &mdash; not to have a six-figure platform that no one monitors. Microsoft 365 native audit logging, properly configured and reviewed, satisfies the audit requirement for most small organizations.
+  </p>
+
+  <h3>Myth 2: CMMC Requires Classified-Level Security</h3>
+  <p>
+    CMMC Level 2 does not require air-gapped systems, classified processing, or government-furnished equipment. It requires protecting CUI &mdash; which is sensitive but not classified. The controls map to enterprise commercial best practices: access control, encryption in transit and at rest, patching, logging, and physical protection of workstations. A well-managed Microsoft 365 Business Premium deployment addresses the majority of Level 2 requirements in a small organization.
+  </p>
+
+  <h3>Myth 3: Third-Party Assessment Is Always Required for Level 2</h3>
+  <p>
+    The CMMC 2.0 rule allows the majority of Level 2 contractors to self-assess rather than go through a C3PAO. Third-party assessment at Level 2 is required only for contractors on programs specifically identified by the DoD as requiring it &mdash; and that designation must appear in your solicitation or contract. If your contract does not specify a C3PAO assessment requirement, self-assessment with SPRS score submission is the baseline obligation.
+  </p>
+
+  <div class="callout">
+    <p>The most expensive compliance mistake I see is organizations engaging a C3PAO before they have an SSP. An assessment organization cannot assess what has not been documented. You will pay for the assessment window, fail due to missing documentation, and then pay again. Build the SSP first.</p>
+  </div>
+
+  <h2>What My DoD Background Adds to This Conversation</h2>
+  <p>
+    I am not a CMMC consultant. I am an active-duty Navy Senior Chief who has spent 18 years implementing the frameworks that CMMC is built on, in operational environments with higher stakes than contractor compliance. The difference between what I have done and what a small contractor needs to do is mostly one of scale and classification level &mdash; the underlying discipline is identical.
+  </p>
+  <p>
+    I know what a well-written SSP looks like because I have written them for systems that control navigation, communications, and weapons employment on submarines. I know what a credible POA&amp;M looks like because I have defended them in front of Authorizing Officials (AOs) who have the authority to revoke network access for an operational platform. I know what assessors look for because I have been the person conducting the assessment.
+  </p>
+  <p>
+    That background informs the ButeraNet Intelligence product: a private, offline AI appliance designed specifically for small organizations &mdash; law firms, contractors, nonprofits &mdash; that need to process sensitive information without routing it through public cloud services. From a CMMC perspective, moving your CUI processing to an on-premises, air-isolated appliance simplifies your boundary, reduces your external attack surface, and eliminates the cloud configuration requirements that represent the most complex portion of most small contractor SSPs.
+  </p>
+  <p>
+    CMMC 2.0 is achievable for small contractors who approach it the same way DoD approaches RMF: document what you have, be honest about your gaps, close the highest-risk gaps first, and maintain the program as a living effort rather than a one-time checkbox. The framework does not require perfection. It requires discipline.
+  </p>
+  <p>
+    If you are a small contractor working through CMMC preparation and want a straight answer on whether your approach makes sense &mdash; not a consulting engagement, just a conversation &mdash; reach out at <a href="mailto:travis@buteranet.com">travis@buteranet.com</a>.
+  </p>
+  <p>
+    &mdash; <strong>Travis D. Butera</strong>
+  </p>
+
+  <div class="related-posts">
+    <div class="related-posts-label">&#9679; Related Posts</div>
+    <div class="related-grid">
+      <a href="/rmf-in-practice.html" class="related-card" style="text-decoration:none;">
+        <div class="related-card-title">RMF in Practice &mdash; What the Checklist Does Not Tell You</div>
+        <span class="related-card-link">Read &rarr;</span>
+      </a>
+      <a href="/dod-cyber-inspections.html" class="related-card" style="text-decoration:none;">
+        <div class="related-card-title">Why Most DoD Cyber Inspections Fail Before They Start</div>
+        <span class="related-card-link">Read &rarr;</span>
+      </a>
+      <a href="/canes-enterprise-architecture.html" class="related-card" style="text-decoration:none;">
+        <div class="related-card-title">What CANES Actually Is &mdash; And What Running It Taught Me About Enterprise Architecture</div>
+        <span class="related-card-link">Read &rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="author-box">
+    <div class="author-icon">TB</div>
+    <div>
+      <div class="author-name">Travis D. Butera</div>
+      <div class="author-bio">
+        U.S. Navy Senior Chief &amp; ISSM with 18+ years executing DoD cybersecurity, RMF/ATO lifecycles, and enterprise IT programs across seven operational submarines. NEC 741A (ISSM), NEC 742A (NSVT). Active TS/SCI. Available October 2027.<br><br>
+        <a href="mailto:travis@buteranet.com">travis@buteranet.com</a> &nbsp;&middot;&nbsp; <a href="/">buteranet.com</a>
+      </div>
+    </div>
+  </div>
+
+</article>
+
+<footer>&copy; Travis D. Butera &nbsp;&middot;&nbsp; <a href="/">buteranet.com</a></footer>
+
+</body>
+</html>

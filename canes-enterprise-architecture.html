@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What CANES Actually Is &mdash; And What Running It Taught Me About Enterprise Architecture | Travis D. Butera</title>
+  <meta name="description" content="The Consolidated Afloat Networks and Enterprise Services system is the most demanding enterprise IT environment most civilians have never heard of. Here is what 18+ years running it taught me." />
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://buteranet.com/canes-enterprise-architecture.html" />
+  <meta property="og:title"       content="What CANES Actually Is &mdash; And What Running It Taught Me About Enterprise Architecture" />
+  <meta property="og:description" content="The Consolidated Afloat Networks and Enterprise Services system is the most demanding enterprise IT environment most civilians have never heard of." />
+  <meta property="og:image"       content="https://buteranet.com/og-preview.png" />
+  <link rel="canonical" href="https://buteranet.com/canes-enterprise-architecture.html" />
+  <meta name="author" content="Travis D. Butera" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="What CANES Actually Is &mdash; And What Running It Taught Me About Enterprise Architecture" />
+  <meta name="twitter:description" content="The Consolidated Afloat Networks and Enterprise Services system is the most demanding enterprise IT environment most civilians have never heard of." />
+  <meta name="twitter:image"       content="https://buteranet.com/og-preview.png" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "What CANES Actually Is — And What Running It Taught Me About Enterprise Architecture",
+    "description": "The Consolidated Afloat Networks and Enterprise Services system is the most demanding enterprise IT environment most civilians have never heard of. Here is what 18+ years running it taught me.",
+    "author": {
+      "@type": "Person",
+      "name": "Travis D. Butera",
+      "url": "https://buteranet.com"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Travis D. Butera",
+      "url": "https://buteranet.com"
+    },
+    "datePublished": "2026-05-24",
+    "url": "https://buteranet.com/canes-enterprise-architecture.html"
+  }
+  </script>
+
+  <style>
+    :root {
+      --navy-darkest: #060e1a;
+      --navy-dark:    #0b1a2e;
+      --navy-mid:     #0f2544;
+      --navy-light:   #1a3560;
+      --gold:         #c9a84c;
+      --gold-light:   #e0c06a;
+      --white:        #ffffff;
+      --off-white:    #e8edf4;
+      --text-muted:   #8fa3c0;
+      --text-body:    #cdd6e3;
+      --border:       rgba(201,168,76,0.25);
+      --card-bg:      rgba(15,37,68,0.7);
+      --radius:       8px;
+      --transition:   0.25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: var(--navy-darkest);
+      color: var(--text-body);
+      line-height: 1.75;
+    }
+    a { color: var(--gold); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--gold-light); }
+
+    .site-header {
+      background: var(--navy-dark);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .site-header .logo { font-weight: 700; color: var(--white); font-size: 1.1rem; }
+    .site-header .logo span { color: var(--gold); }
+    .site-header nav a { color: var(--text-muted); font-size: 0.9rem; margin-left: 24px; }
+    .site-header nav a:hover { color: var(--gold); }
+
+    .article-hero {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-mid) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px 48px;
+      text-align: center;
+    }
+    .article-hero .category {
+      display: inline-block;
+      background: rgba(201,168,76,0.15);
+      color: var(--gold);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      margin-bottom: 20px;
+    }
+    .article-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--white);
+      max-width: 780px;
+      margin: 0 auto 20px;
+      line-height: 1.25;
+    }
+    .article-hero .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto 28px;
+    }
+    .meta-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+    .meta-row span { display: flex; align-items: center; gap: 6px; }
+
+    .article-wrap {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+    .article-wrap h2 {
+      font-size: 1.5rem;
+      color: var(--white);
+      margin: 48px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-wrap h3 {
+      font-size: 1.1rem;
+      color: var(--gold);
+      margin: 32px 0 10px;
+    }
+    .article-wrap p { margin-bottom: 20px; }
+    .article-wrap ul, .article-wrap ol { margin: 0 0 20px 24px; }
+    .article-wrap li { margin-bottom: 10px; }
+    .article-wrap strong { color: var(--off-white); }
+
+    .callout {
+      background: var(--card-bg);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 24px;
+      margin: 32px 0;
+      font-style: italic;
+      color: var(--off-white);
+    }
+
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 28px 0;
+      font-size: 0.9rem;
+    }
+    .spec-table th {
+      background: var(--navy-light);
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 10px 14px;
+      text-align: left;
+    }
+    .spec-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: var(--text-body);
+      vertical-align: top;
+    }
+    .spec-table tr:last-child td { border-bottom: none; }
+    .spec-table td:first-child { color: var(--off-white); font-weight: 600; white-space: nowrap; }
+
+    .lesson-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      margin-bottom: 16px;
+    }
+    .lesson-card .lesson-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .lesson-card p { margin-bottom: 0; }
+
+    .author-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-top: 56px;
+    }
+    .author-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--navy-light);
+      border: 2px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; color: var(--gold); font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .author-name { font-weight: 700; color: var(--white); margin-bottom: 4px; }
+    .author-bio  { font-size: 0.88rem; color: var(--text-muted); }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 40px;
+    }
+    .back-link:hover { color: var(--gold); }
+
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">Travis D. <span>Butera</span></div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/#blog">More Posts</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="article-hero">
+    <div class="category">Navy IT &middot; Enterprise Architecture</div>
+    <h1>What CANES Actually Is &mdash; And What Running It Taught Me About Enterprise Architecture</h1>
+    <p class="subtitle">Most enterprise architects have never heard of CANES. The ones who have usually have no idea how it works. Here is a field account from someone who has administered it across seven operational submarines.</p>
+    <div class="meta-row">
+      <span>
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        May 2026
+      </span>
+      <span>
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        10 min read
+      </span>
+      <span>Travis D. Butera</span>
+    </div>
+  </div>
+
+  <article class="article-wrap">
+
+    <a href="/" class="back-link">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to buteranet.com
+    </a>
+
+    <p>
+      If you have spent time in the defense contracting space, you have likely encountered the acronym "CANES" in a requirements document or a job posting without a clear explanation of what it actually means. If you are a hiring manager evaluating candidates from Navy IT backgrounds, you may have seen the credential listed without understanding its weight. This post exists to fix that.
+    </p>
+
+    <p>
+      Consolidated Afloat Networks and Enterprise Services (CANES) is the United States Navy's primary enterprise IT platform for surface ships and submarines. It is not a piece of software. It is not a router. It is an entire network architecture &mdash; a converged, multi-enclave, classification-separated computing environment that must function reliably in one of the most demanding operational environments on Earth: underwater, under communications blackout, with no help desk and no remote support.
+    </p>
+
+    <p>
+      I hold Navy Enlisted Classification (NEC) 735A, the CANES Administrator certification for Software Versions 3 and 4. Across 18+ years on submarine platforms, I have administered, troubleshot, rebuilt, and audited CANES deployments in operational environments where a network failure was not a helpdesk ticket &mdash; it was a mission impact event. Here is what that experience actually looks like, and why it maps directly onto the enterprise architecture problems that defense contractors and civilian IT organizations face every day.
+    </p>
+
+    <h2>What CANES Is &mdash; The Technical Reality</h2>
+
+    <p>
+      CANES replaced seven legacy shipboard networks that had been running in parallel, each with its own hardware, management interfaces, and security posture. The consolidation goal was to eliminate redundant infrastructure, reduce the administrative burden on a small crew, and create a single managed platform that could support the full range of Navy mission systems from one unified backbone.
+    </p>
+
+    <p>
+      The architecture is built around hardware and software components that would be familiar to any enterprise network engineer, but deployed in a configuration that most enterprise engineers have never encountered:
+    </p>
+
+    <div class="lesson-card">
+      <div class="lesson-label">Multiple Security Domains on a Single Physical Plant</div>
+      <p>CANES supports multiple classification levels simultaneously, physically separated at the enclave layer and logically separated at the software layer. Routing between enclaves requires explicit cross-domain solution (CDS) hardware. There is no "accidentally browsed to the wrong segment" &mdash; the architecture prevents it by design.</p>
+    </div>
+
+    <div class="lesson-card">
+      <div class="lesson-label">No External Network Dependency</div>
+      <p>A submerged submarine has no internet connection. CANES must function in a fully isolated state for weeks at a time. Every service the crew depends on &mdash; email, domain authentication, file services, mission system integration &mdash; must be available entirely from local infrastructure. There is no cloud fallback. There is no "the server is in the data center." The server is 200 feet underwater.</p>
+    </div>
+
+    <div class="lesson-card">
+      <div class="lesson-label">Minimal Manning by Design</div>
+      <p>A submarine Information Systems Technician (IT) division on a fast attack submarine is typically two to four personnel. Those personnel also stand watch, complete qualifications, and support operations. The network cannot require constant hands-on management. Every CANES deployment must be capable of running without an IT person watching it for extended periods.</p>
+    </div>
+
+    <div class="lesson-card">
+      <div class="lesson-label">Change Control Is Not Optional</div>
+      <p>Every configuration change to CANES must be documented, approved through a chain of authority, and reversible. The Information System Security Manager (ISSM) holds authority over what can change and when. An undocumented change discovered during a Type Commander (TYCOM) inspection is a finding that follows the crew. The documentation discipline is not bureaucracy &mdash; it is the only way to maintain security posture accountability across personnel rotations.</p>
+    </div>
+
+    <h2>The Administrative Reality</h2>
+
+    <p>
+      When I sit down to administer a CANES system, the scope is not a single server or a single application. A typical CANES deployment includes Active Directory (AD) domain infrastructure, DNS and DHCP services, file and print services, PKI (Public Key Infrastructure) and smart card authentication, virtualization layers, cross-domain hardware, multiple switching fabrics with separate management planes, and integration points to mission systems that are not under IT control.
+    </p>
+
+    <p>
+      All of this is managed by a small team, under operational conditions, with documentation requirements that are enforced by audit. The phrase "I did not have time to document it" is not accepted. If a change was made, it was documented. If a system state is unknown, the starting assumption is that it is not compliant, and the administrator's job is to prove otherwise before the next inspection.
+    </p>
+
+    <div class="callout">
+      "The most important skill CANES develops is not technical. It is the discipline of treating every undocumented state as a liability. On a submarine, an undocumented configuration is a system you cannot recover from with confidence. That principle applies equally in an enterprise data center."
+    </div>
+
+    <h2>What This Translates To in Civilian Enterprise</h2>
+
+    <p>
+      Every lesson the Navy forces CANES administrators to learn applies directly to enterprise IT environments. The difference is that enterprise environments usually have escape valves &mdash; a vendor you can call, a cloud service you can fall back on, a second site you can fail over to. Submarine IT administrators learn to solve problems without escape valves. That changes how you think about architecture.
+    </p>
+
+    <h3>Resilience Is Designed In, Not Bolted On</h3>
+
+    <p>
+      In a CANES environment, resilience is not a feature you add after the system is built. It is a design requirement you satisfy before the system is considered operational. Redundant controllers, independent power feeds for critical systems, documented recovery procedures tested in advance of need &mdash; these are not optional enhancements. They are the baseline.
+    </p>
+
+    <p>
+      Most enterprise environments I evaluate in a consulting context have resilience that was bolted on after an incident. The backup was configured after the first data loss. The failover path was documented after the first extended outage. CANES administrators learn that the incident you have not had yet is the most expensive one to prepare for after the fact.
+    </p>
+
+    <h3>Authentication Must Work When the Network Is Degraded</h3>
+
+    <p>
+      In an isolated network, if the domain controller (DC) goes offline and no one can authenticate, the mission is degraded. CANES deployments use redundant DC configurations and local administrator account controls that are documented in advance of need, so that a single server failure does not produce a full authentication outage. Enterprise environments that rely on a single sign-on provider with no local fallback are one authentication service outage away from the same scenario.
+    </p>
+
+    <h3>Personnel Rotation Requires Documented State</h3>
+
+    <p>
+      A submarine crew rotates. When one CANES administrator transfers and another reports aboard, the new administrator must be able to reconstruct the exact configuration state of the system from documentation alone. If the documentation is incomplete, the new administrator inherits a system they cannot fully account for. This is the same problem every enterprise IT organization faces when a senior administrator departs. The organizations with documented configuration baselines survive the transition. The ones that relied on tribal knowledge do not.
+    </p>
+
+    <h3>Security Posture Is Continuously Auditable</h3>
+
+    <p>
+      CANES deployments are subject to Type Accreditation (TA) and unit-level inspections that evaluate the security posture of the system against documented controls. The ISSM must be able to produce evidence of compliance on demand. This is the same standard that commercial Risk Management Framework (RMF) Authority to Operate (ATO) processes require, and it is the same standard that cybersecurity compliance frameworks like the Cybersecurity Maturity Model Certification (CMMC) are moving toward.
+    </p>
+
+    <p>
+      An administrator who has maintained CANES under inspection conditions understands, at a practical level, what "continuously auditable" means. It does not mean you clean up before the auditor arrives. It means the system is in an auditable state every day because the cost of catching up is higher than the cost of maintaining.
+    </p>
+
+    <h2>Why This Credential Matters for Defense Contractor Positions</h2>
+
+    <p>
+      Defense contractors supporting Navy programs &mdash; particularly submarine-related programs, CANES sustainment contracts, and afloat network modernization programs &mdash; are looking for candidates who can operate with minimal supervision in classified environments, maintain documentation discipline under operational pressure, and make sound architectural decisions without a vendor on speed dial.
+    </p>
+
+    <p>
+      The NEC 735A credential signals that a candidate has completed formal Navy training on the CANES platform and has been certified to operate it at the administrator level. It is not a vendor certification. It is a military qualification that requires demonstrated proficiency in an operational environment. Candidates who hold it have administered real systems under real operational conditions.
+    </p>
+
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>CANES Skill</th>
+          <th>Civilian Enterprise Equivalent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Multi-enclave network administration</td>
+          <td>Multi-tenant / segmented enterprise network management</td>
+        </tr>
+        <tr>
+          <td>Isolated domain operations</td>
+          <td>Air-gapped environment management; offline PKI; local identity services</td>
+        </tr>
+        <tr>
+          <td>TYCOM inspection preparation</td>
+          <td>SOC 2 audit preparation; CMMC assessment readiness; RMF ATO package maintenance</td>
+        </tr>
+        <tr>
+          <td>Configuration change documentation</td>
+          <td>Change management (ITIL); Configuration Management Database (CMDB) hygiene</td>
+        </tr>
+        <tr>
+          <td>Cross-domain solution management</td>
+          <td>Data Loss Prevention (DLP) architecture; network access control policy enforcement</td>
+        </tr>
+        <tr>
+          <td>Minimal-manning resilience design</td>
+          <td>Automation-first infrastructure; self-healing system design; runbook-based operations</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>What It Does Not Translate To</h2>
+
+    <p>
+      Honesty requires acknowledging the gaps as clearly as the strengths. CANES administration does not produce deep expertise in hyperscale cloud platforms, DevOps pipeline tooling, or Software as a Service (SaaS) identity management. The skills transfer best to environments that prize operational discipline, documentation, resilience, and security posture over velocity and abstraction.
+    </p>
+
+    <p>
+      A CANES-experienced administrator arriving at a cloud-native startup will spend time relearning tool chains. A CANES-experienced administrator arriving at a defense contractor, a cleared facility, a healthcare organization, or any environment where the network must be reliable and auditable will be immediately productive.
+    </p>
+
+    <h2>The Honest Assessment</h2>
+
+    <p>
+      I administered CANES deployments across seven submarine platforms over my career. I held the ISSM authority for those systems during the most demanding operational periods. I prepared those systems for and through Type Commander inspections that evaluated every security control against the Navy's authorization baseline.
+    </p>
+
+    <p>
+      The civilian equivalent experience &mdash; managing a multi-enclave enterprise network, under inspection conditions, with no external support, for years at a time &mdash; does not have a direct parallel. Defense contractors who understand what CANES represents will read that experience correctly. The ones who do not will file it under "military IT" and move on. That is their loss.
+    </p>
+
+    <p>
+      If you are a hiring manager evaluating a candidate with CANES experience and you want to understand what they actually did, ask them to describe a specific inspection finding they resolved and what it took to close it. The answer will tell you everything about how they operate.
+    </p>
+
+    <p>
+      &mdash; <strong>Travis D. Butera</strong>
+    </p>
+
+  <!-- Related Posts -->
+  <div style="border-top:1px solid var(--border);padding-top:40px;margin-top:52px;">
+    <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;color:var(--text-muted);margin-bottom:20px;">&#9679; Related Posts</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+      <a href="/rmf-in-practice.html" style="background:var(--navy-mid);border:1px solid var(--border);border-radius:8px;padding:16px 18px;text-decoration:none;display:block;transition:border-color 0.25s ease;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.25)'">
+        <div style="font-size:0.88rem;font-weight:600;color:#fff;line-height:1.4;margin-bottom:6px;">RMF in Practice &mdash; What the Checklist Does Not Tell You</div>
+        <span style="font-size:0.78rem;color:var(--gold);font-weight:600;">Read &rarr;</span>
+      </a>
+      <a href="/dod-cyber-inspections.html" style="background:var(--navy-mid);border:1px solid var(--border);border-radius:8px;padding:16px 18px;text-decoration:none;display:block;transition:border-color 0.25s ease;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.25)'">
+        <div style="font-size:0.88rem;font-weight:600;color:#fff;line-height:1.4;margin-bottom:6px;">Why Most DoD Cyber Inspections Fail Before They Start</div>
+        <span style="font-size:0.78rem;color:var(--gold);font-weight:600;">Read &rarr;</span>
+      </a>
+      <a href="/submarine-to-civilian-it.html" style="background:var(--navy-mid);border:1px solid var(--border);border-radius:8px;padding:16px 18px;text-decoration:none;display:block;transition:border-color 0.25s ease;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.25)'">
+        <div style="font-size:0.88rem;font-weight:600;color:#fff;line-height:1.4;margin-bottom:6px;">From Submarine Networks to Civilian IT &mdash; What Actually Transfers</div>
+        <span style="font-size:0.78rem;color:var(--gold);font-weight:600;">Read &rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="author-box">
+    <div class="author-icon">TB</div>
+    <div>
+      <div class="author-name">Travis D. Butera</div>
+      <div class="author-bio">
+        U.S. Navy Senior Chief &amp; ISSM (NEC 741A) with 18+ years of DoD cybersecurity and enterprise IT operations on submarine platforms. NEC 735A &mdash; CANES Administrator SW3/SW4. TS/SCI cleared. Available October 2027.
+        <br/>
+        <a href="mailto:travis@buteranet.com">travis@buteranet.com</a> &nbsp;&middot;&nbsp; <a href="/">buteranet.com</a>
+      </div>
+    </div>
+  </div>
+
+  </article>
+
+  <footer>
+    &copy; Travis D. Butera &nbsp;&middot;&nbsp; <a href="/">buteranet.com</a>
+  </footer>
+
+</body>
+</html>
