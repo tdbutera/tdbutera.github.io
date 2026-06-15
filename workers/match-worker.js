@@ -3,11 +3,11 @@
  * Route: buteranet.com/api/match
  *
  * POST { jd: "<job description text>", tsToken?: "<turnstile token>" }
- * Streams SSE text deltas from Claude Haiku back to the browser.
+ * Streams SSE text deltas from Claude (claude-sonnet-4-6) back to the browser.
  *
  * Required Worker secrets (set via `wrangler secret put`):
  *   ANTHROPIC_API_KEY   — your Anthropic API key
- *   TURNSTILE_SECRET    — 0x4AAAAAADAUwegSTb8t3h_sgqziQD0C_UI
+ *   TURNSTILE_SECRET    — (stored as a Worker secret; never hardcode it here)
  */
 
 const CORS = {
