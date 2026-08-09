@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>The Access Point That Was Dead for 11 Days (Nothing Was Broken) | Travis D. Butera</title>
+  <meta name="description" content="An access point at a client site was offline for eleven days. The hardware was fine. A Navy ISSM on why the real failure was a missing line of paperwork, and the four field rules that came out of it." />
+
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://buteranet.com/ap-dead-11-days.html" />
+  <meta property="og:title"       content="The Access Point That Was Dead for 11 Days (Nothing Was Broken)" />
+  <meta property="og:description" content="The hardware was fine. The cable was fine. What failed was the paper trail. Documentation is a network component." />
+  <meta property="og:image"       content="https://buteranet.com/og-preview.png" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <link rel="canonical"           href="https://buteranet.com/ap-dead-11-days.html" />
+  <meta name="author"             content="Travis D. Butera" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The Access Point That Was Dead for 11 Days (Nothing Was Broken)",
+    "description": "An access point at a client site was offline for eleven days. The hardware was fine. A Navy ISSM on why the real failure was a missing line of paperwork, and the four field rules that came out of it.",
+    "author": {
+      "@type": "Person",
+      "name": "Travis D. Butera",
+      "url": "https://buteranet.com"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Travis D. Butera",
+      "url": "https://buteranet.com"
+    },
+    "datePublished": "2026-08-09",
+    "dateModified": "2026-08-09",
+    "url": "https://buteranet.com/ap-dead-11-days.html",
+    "mainEntityOfPage": "https://buteranet.com/ap-dead-11-days.html",
+    "keywords": ["network documentation", "managed IT Hawaii", "network troubleshooting", "access point offline", "small business IT", "MSP field notes", "IT documentation discipline"]
+  }
+  </script>
+
+  <style>
+    :root {
+      --navy-darkest: #060e1a;
+      --navy-dark:    #0b1a2e;
+      --navy-mid:     #0f2544;
+      --navy-light:   #1a3560;
+      --gold:         #c9a84c;
+      --gold-light:   #e0c06a;
+      --white:        #ffffff;
+      --off-white:    #e8edf4;
+      --text-muted:   #8fa3c0;
+      --text-body:    #cdd6e3;
+      --border:       rgba(201,168,76,0.25);
+      --card-bg:      rgba(15,37,68,0.7);
+      --radius:       8px;
+      --transition:   0.25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: var(--navy-darkest);
+      color: var(--text-body);
+      line-height: 1.75;
+    }
+    a { color: var(--gold); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--gold-light); }
+
+    .site-header {
+      background: var(--navy-dark);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .site-header .logo { font-weight: 700; color: var(--white); font-size: 1.1rem; }
+    .site-header .logo span { color: var(--gold); }
+    .site-header nav a { color: var(--text-muted); font-size: 0.9rem; margin-left: 24px; }
+    .site-header nav a:hover { color: var(--gold); }
+
+    .article-hero {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-mid) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px 48px;
+      text-align: center;
+    }
+    .article-category {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .article-title {
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      max-width: 780px;
+      margin: 0 auto 20px;
+    }
+    .article-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .article-meta strong { color: var(--off-white); }
+
+    .article-container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 52px 24px 80px;
+    }
+    .article-container p {
+      margin-bottom: 1.4em;
+      font-size: 1.05rem;
+    }
+    .article-container h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      margin: 2.8em 0 0.8em;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-container h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 2em 0 0.6em;
+    }
+    .article-container strong { color: var(--white); }
+    .article-container ul {
+      margin: 0 0 1.4em 1.4em;
+      font-size: 1.05rem;
+    }
+    .article-container li { margin-bottom: 0.5em; }
+
+    .callout {
+      background: var(--navy-mid);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px;
+      margin: 2em 0;
+      font-size: 0.97rem;
+    }
+    .callout p { margin: 0; }
+
+    .level-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2em 0;
+      font-size: 0.9rem;
+    }
+    .level-table th {
+      background: var(--navy-light);
+      color: var(--gold);
+      font-weight: 700;
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 2px solid var(--border);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .level-table td {
+      padding: 11px 14px;
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      vertical-align: top;
+      color: var(--text-body);
+    }
+    .level-table tr:last-child td { border-bottom: none; }
+    .level-table tr:nth-child(even) td { background: rgba(15,37,68,0.4); }
+
+    .checklist-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin: 1em 0;
+    }
+    .checklist-card h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .checklist-card ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .checklist-card li {
+      padding: 5px 0 5px 22px;
+      position: relative;
+      font-size: 0.95rem;
+      color: var(--text-body);
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+    }
+    .checklist-card li:last-child { border-bottom: none; }
+    .checklist-card li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.8rem;
+      top: 7px;
+    }
+
+    .related-posts {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      margin-top: 52px;
+    }
+    .related-posts-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .related-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      transition: border-color var(--transition);
+    }
+    .related-card:hover { border-color: var(--gold); }
+    .related-card-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .related-card-link { font-size: 0.78rem; color: var(--gold); font-weight: 600; }
+
+    .author-box {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      margin-top: 52px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .author-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--navy-mid);
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.3rem;
+      color: var(--gold);
+      font-weight: 800;
+    }
+    .author-name { font-weight: 700; color: var(--white); font-size: 0.95rem; margin-bottom: 4px; }
+    .author-bio { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">Travis D. <span>Butera</span></div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/#blog">Insights</a>
+    <a href="/#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="article-hero">
+  <div class="article-category">Field Notes &middot; Managed IT</div>
+  <h1 class="article-title">The Access Point That Was Dead for 11 Days (Nothing Was Broken)</h1>
+  <div class="article-meta">
+    <span><strong>Travis D. Butera</strong></span>
+    <span>August 9, 2026</span>
+    <span>7 min read</span>
+  </div>
+</div>
+
+<article class="article-container">
+
+  <p>
+    An access point at a client site dropped offline. Not flapping, not degraded. Gone. It stayed gone for eleven days, through two work sessions and one Sunday that mattered, while coverage in that corner of the building quietly got worse and nobody could say why.
+  </p>
+  <p>
+    When we finally closed it out, the fix took about ninety seconds and zero dollars in parts. The hardware was fine. The cable was fine. The run in the wall was fine. What failed was a line of paperwork that never got written, and I think that failure is worth more to you than any product recommendation I could publish.
+  </p>
+
+  <h2>Everything that was not broken</h2>
+  <p>
+    When an AP goes dark, the suspect list writes itself: the AP died, the switch port died, the PoE budget ran out, or the cable run is damaged. All reasonable theories. All wrong here, and each one costs real money if you act on it before you diagnose. A replacement AP is a few hundred dollars. A re-pulled cable run is several hundred more. An eleven-day mystery invites both purchases at once.
+  </p>
+  <div class="callout">
+    <p><strong>The five-minute cable verdict.</strong> Unplug the suspect run from its device and plug it into a laptop. Read the negotiated link speed. Gigabit means the run is good, because gigabit requires all four pairs to be healthy. A 100&nbsp;Mbps sync means damaged pairs, because 100&nbsp;Mbps only needs two, which is exactly why a wounded run still appears to work. No link at all means a dead run, or nothing behind the wall plate. This one test separates a termination problem from a hardware problem before you spend a dollar.</p>
+  </div>
+
+  <h2>What the records said, and why they lied</h2>
+  <p>
+    The site documentation we inherited said this AP lived on a specific switch port. The switch's live table said that port belonged to an entirely different room. Both could not be true, and the live table wins every time, because the live table is reporting what is physically negotiating electrons right now and the binder is reporting what somebody believed months ago.
+  </p>
+  <p>
+    This was not the first time inherited records lied to us at this site. Across the engagement, prior documentation had one access point misnamed, two that did not appear in any record at all, and one declared dead that was alive the whole time. The lesson got promoted to a standing rule: <strong>the MAC address printed on the physical hardware is ground truth.</strong> Names, spreadsheets, and port maps are claims. The label is evidence.
+  </p>
+
+  <h2>What the logs actually said</h2>
+  <p>
+    The controller kept a precise record of the moment the AP disconnected. That timestamp landed squarely inside a documented work session eleven days earlier, a morning of heavy physical work in the same rack. Two days after that, a planned rack consolidation moved and re-dressed most of the cabling in the area, and the loose end got buried behind clean cable management.
+  </p>
+  <p>
+    Reconstruct it and the story is mundane. A cable was unplugged during legitimate work, for a legitimate reason, by someone doing their job. It never got plugged back in, and the unplug never got written down. Every day after that, the outage looked more like a hardware failure and less like what it was.
+  </p>
+
+  <h2>The ninety-second fix</h2>
+  <p>
+    Once the timeline pointed at the rack instead of the hardware, the fix was walking to the switch with the run in one hand and landing it on a port. Gigabit sync. Both radios up. And for the first time in the engagement's recorded history, every single device on that network showed online at once. Nothing was purchased. Nothing was replaced. Nothing had ever been broken.
+  </p>
+
+  <h2>What actually failed</h2>
+  <p>
+    I spent my career on submarines, where physical state changes are controlled by tag-out discipline. Nothing gets unplugged, de-energized, or valved shut without a tag on the equipment and a line in the log, because underway, an unexplained state change is not an inconvenience. It is a casualty investigation.
+  </p>
+  <p>
+    Civilian networks skip that paperwork because the cost is invisible at the moment you skip it. Unplugging a cable without writing it down costs nothing today. The bill shows up later, as an eleven-day outage nobody can explain, a replacement AP nobody needed, or a re-pulled cable run that was never damaged. The failure mode is not technical. It is a state change without a record, and no amount of hardware spend prevents it.
+  </p>
+
+  <h2>The four rules we adopted that afternoon</h2>
+  <ul>
+    <li><strong>If it gets unplugged and not re-plugged, it gets flagged.</strong> A tag on the cable or a line in the day's notes before anyone goes home. No exceptions for "I'll remember."</li>
+    <li><strong>Trust the MAC label, never the inherited name.</strong> Physical verification beats every database, spreadsheet, and well-meaning predecessor.</li>
+    <li><strong>The port map is a living document.</strong> It gets updated at the moment of the change, not at the end of the project. A port map updated later is a port map that is wrong now.</li>
+    <li><strong>Diagnose by link speed before replacing anything.</strong> The laptop test above is free and takes five minutes. Start there, every time.</li>
+  </ul>
+
+  <h2>Why this matters if you run a small organization</h2>
+  <p>
+    A business with an IT department can absorb an eleven-day mystery. A twenty-person company, a nonprofit, or a church running a Sunday livestream cannot. You do not have the slack, and you should not need it, because the countermeasure costs almost nothing. Documentation is the cheapest component in the building. It is also the only component that turns the next mystery into a ninety-second fix.
+  </p>
+  <p>
+    This is the actual product of a disciplined IT practice. Not the router brand, not the WiFi generation. The binder: an accurate port map, an asset register verified against physical labels, and a change log that records what changed hands and when. Every engagement I run leaves the client holding that binder, because the day I am unreachable, the binder is the engineer.
+  </p>
+  <p>
+    If your network has a mystery like this one, or you cannot say with confidence what is plugged into what, that is a solvable problem and solving it is not expensive. Reach me at <a href="mailto:travis@buteranet.com">travis@buteranet.com</a>, or see how the managed practice works at <a href="https://msp.buteranet.com">msp.buteranet.com</a>.
+  </p>
+  <p>
+    <strong>Travis D. Butera</strong>
+  </p>
+
+  <div class="related-posts">
+    <div class="related-posts-label">&#9679; Related Posts</div>
+    <div class="related-grid">
+      <a href="/dod-cyber-inspections.html" class="related-card" style="text-decoration:none;">
+        <div class="related-card-title">Why Most DoD Cyber Inspections Fail Before They Start</div>
+        <span class="related-card-link">Read &rarr;</span>
+      </a>
+      <a href="/cmmc-2-small-contractors.html" class="related-card" style="text-decoration:none;">
+        <div class="related-card-title">CMMC 2.0 From the Field: What Small Contractors Actually Need to Do</div>
+        <span class="related-card-link">Read &rarr;</span>
+      </a>
+      <a href="/air-gapped-ai.html" class="related-card" style="text-decoration:none;">
+        <div class="related-card-title">Air-Gapped AI: Why Your Most Sensitive Data Should Never Touch a Cloud Model</div>
+        <span class="related-card-link">Read &rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="author-box">
+    <div class="author-icon">TB</div>
+    <div>
+      <div class="author-name">Travis D. Butera</div>
+      <div class="author-bio">
+        U.S. Navy Senior Chief &amp; ISSM with 18+ years executing DoD cybersecurity, RMF/ATO lifecycles, and enterprise IT programs across seven operational submarines. NEC 741A (ISSM), NEC 742A (NSVT). Active TS/SCI. Available October 2027.<br><br>
+        <a href="mailto:travis@buteranet.com">travis@buteranet.com</a> &nbsp;&middot;&nbsp; <a href="/">buteranet.com</a>
+      </div>
+    </div>
+  </div>
+
+</article>
+
+<footer>&copy; Travis D. Butera &nbsp;&middot;&nbsp; <a href="/">buteranet.com</a></footer>
+
+</body>
+</html>
