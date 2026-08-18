@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <title>Travis D. Butera &mdash; IT & Cybersecurity Operations Leader</title>
-  <meta name="description" content="Travis D. Butera &mdash; U.S. Navy Senior Chief, ISSM, 18+ years DoD cybersecurity and enterprise IT leadership. Active TS/SCI. Available October 2027. Founder of ButeraNet Solutions (managed IT) and ButeraNet Intelligence (private on-premise AI)." />
+  <title>Travis D. Butera &middot; IT & Cybersecurity Operations Leader</title>
+  <meta name="description" content="Travis D. Butera &middot; U.S. Navy Senior Chief, ISSM, 18+ years DoD cybersecurity and enterprise IT leadership. Active TS/SCI. Available October 2027. Founder of ButeraNet Solutions (managed IT) and ButeraNet Intelligence (private on-premise AI)." />
 
   <!-- ===== SEO / OPEN GRAPH ===== -->
   <meta property="og:type"        content="profile" />
   <meta property="og:url"         content="https://buteranet.com/" />
-  <meta property="og:title"       content="Travis D. Butera &mdash; IT &amp; Cybersecurity Operations Leader" />
+  <meta property="og:title"       content="Travis D. Butera &middot; IT &amp; Cybersecurity Operations Leader" />
   <meta property="og:description" content="U.S. Navy Senior Chief &amp; ISSM with 18+ years leading DoD cybersecurity and enterprise IT in submarine forces. Active TS/SCI. Available October 2027. Founder, ButeraNet Solutions and ButeraNet Intelligence." />
   <meta property="og:image"       content="https://buteranet.com/og-preview.png" />
   <meta property="og:image:width"  content="1200" />
@@ -20,7 +20,7 @@
 
   <!-- Twitter / X card -->
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="Travis D. Butera &mdash; IT &amp; Cybersecurity Operations Leader" />
+  <meta name="twitter:title"       content="Travis D. Butera &middot; IT &amp; Cybersecurity Operations Leader" />
   <meta name="twitter:description" content="U.S. Navy Senior Chief &amp; ISSM with 18+ years leading DoD cybersecurity and enterprise IT in submarine forces. Active TS/SCI. Available October 2027. Founder, ButeraNet Solutions and ButeraNet Intelligence." />
   <meta name="twitter:image"       content="https://buteranet.com/og-preview.png" />
 
@@ -209,10 +209,12 @@
 
     /* ===== HERO ===== */
     #hero {
-      min-height: 100vh;
+      /* Height accounts for the fixed nav (64px) + the business banner above it,
+         so the hero does not reserve a full viewport starting below the banner. */
+      min-height: calc(100vh - 264px);
       display: flex;
       align-items: center;
-      padding: 80px 0 60px;
+      padding: 40px 0 72px;
       position: relative;
       overflow: hidden;
     }
@@ -1183,6 +1185,10 @@
       th, td { padding: 12px 14px; }
 
       .contact-clearance-box { margin-top: 24px; }
+
+      /* Banner cards stack on small screens, so let the hero size to content. */
+      #hero { min-height: auto; padding: 32px 0 56px; }
+      .bn-banner-cards { flex-direction: column; }
     }
 
     @media (max-width: 480px) {
@@ -1378,6 +1384,13 @@
       font-size: 0.78rem;
     }
 
+    /* Business banner (service lines) */
+    .bn-card { transition: background .18s ease, border-color .18s ease, transform .18s ease; }
+    .bn-card:hover { transform: translateY(-2px); }
+    .bn-card-msp:hover { background: rgba(46,117,182,0.26) !important; border-color: rgba(46,117,182,0.85) !important; }
+    .bn-card-int:hover { background: rgba(21,128,61,0.26) !important; border-color: rgba(21,128,61,0.85) !important; }
+    .bn-card:focus-visible { outline: 2px solid var(--gold, #c9a84c); outline-offset: 3px; }
+
     /* ===== PHASE 3: AI RESUME MATCHER ===== */
     #ai-matcher { background: var(--navy-dark); }
 
@@ -1519,7 +1532,7 @@
        Token setup: dash.cloudflare.com &#8594; Analytics & Logs &#8594; Web Analytics &#8594; buteranet.com -->
 
   <!-- ================================================================
-       CLOUDFLARE TURNSTILE &mdash; Spam protection for contact form
+       CLOUDFLARE TURNSTILE &middot; Spam protection for contact form
        TODO Phase 1: Complete these steps to activate:
          1. Go to dash.cloudflare.com &#8594; Security &#8594; Turnstile
          2. Click "Add Site" &#8594; Name: buteranet.com &#8594; Widget type: Managed
@@ -1531,7 +1544,7 @@
 
   <!--
   ================================================================
-  PHASE 3 &mdash; PLANNED FEATURES (no code yet &mdash; design notes only)
+  PHASE 3 &middot; PLANNED FEATURES (no code yet, design notes only)
   ================================================================
 
   7. AI-POWERED RESUME TAILORING TOOL
@@ -1539,7 +1552,7 @@
      - Client-side JS sends it to a Cloudflare Worker (edge function)
      - Worker calls Claude API with Travis's background as context
      - Returns a tailored match summary: skills alignment, gaps, suggested
-       talking points &mdash; displayed inline on the page
+       talking points, displayed inline on the page
      - Implementation: Workers AI or Claude API (claude-haiku-4-5)
      - Auth: none needed (read-only, no sensitive data sent)
 
@@ -1590,12 +1603,12 @@
     <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(201,168,76,0.95);margin-bottom:12px;font-weight:600;">
       ButeraNet Solutions LLC &nbsp;&middot;&nbsp; Managed IT &amp; Cybersecurity &nbsp;&middot;&nbsp; Honolulu, Hawaii
     </div>
-    <div style="display:flex;flex-wrap:wrap;gap:14px;">
-      <a href="https://msp.buteranet.com" style="flex:1 1 320px;text-decoration:none;background:rgba(46,117,182,0.14);border:1px solid rgba(46,117,182,0.45);border-radius:10px;padding:18px 20px;display:block;">
+    <div class="bn-banner-cards" style="display:flex;flex-wrap:wrap;gap:14px;">
+      <a href="https://msp.buteranet.com" class="bn-card bn-card-msp" style="flex:1 1 320px;text-decoration:none;background:rgba(46,117,182,0.14);border:1px solid rgba(46,117,182,0.45);border-radius:10px;padding:18px 20px;display:block;">
         <div style="font-size:17px;font-weight:700;color:#fff;margin-bottom:5px;">ButeraNet MSP &nbsp;&rarr;</div>
         <div style="font-size:13px;line-height:1.5;color:rgba(226,236,247,0.82);">Managed IT, network, Wi-Fi, firewall, and cybersecurity for churches, nonprofits, and small business.</div>
       </a>
-      <a href="https://intelligence.buteranet.com" style="flex:1 1 320px;text-decoration:none;background:rgba(21,128,61,0.14);border:1px solid rgba(21,128,61,0.5);border-radius:10px;padding:18px 20px;display:block;">
+      <a href="https://intelligence.buteranet.com" class="bn-card bn-card-int" style="flex:1 1 320px;text-decoration:none;background:rgba(21,128,61,0.14);border:1px solid rgba(21,128,61,0.5);border-radius:10px;padding:18px 20px;display:block;">
         <div style="font-size:17px;font-weight:700;color:#fff;margin-bottom:5px;">ButeraNet Intelligence &nbsp;&rarr;</div>
         <div style="font-size:13px;line-height:1.5;color:rgba(226,247,232,0.82);">Private, on-premise AI appliances for organizations that cannot send their data to the cloud.</div>
       </a>
@@ -1697,19 +1710,19 @@
     <div class="about-grid">
       <div class="about-text fade-in">
         <p>
-          I am a U.S. Navy Senior Chief (E-8) with <strong>18+ years managing mission-critical enterprise IT and cybersecurity programs</strong> in support of submarine forces &mdash; one of the most demanding operational environments in the Department of Defense (DoD). I currently serve as Cyber Assistant, Information System Security Manager (ISSM), and Cyberspace Workforce Program Manager at <strong>Commander, Submarine Squadron ONE (COMSUBRON ONE)</strong>, responsible for cybersecurity posture across seven operational fast-attack submarines.
+          I am a U.S. Navy Senior Chief (E-8) with <strong>18+ years managing mission-critical enterprise IT and cybersecurity programs</strong> in support of submarine forces, one of the most demanding operational environments in the Department of Defense (DoD). I currently serve as Cyber Assistant, Information System Security Manager (ISSM), and Cyberspace Workforce Program Manager at <strong>Commander, Submarine Squadron ONE (COMSUBRON ONE)</strong>, responsible for cybersecurity posture across seven operational fast-attack submarines.
         </p>
         <p>
-          My record is built on turning around failing programs, executing high-stakes inspections under pressure, and developing technical teams that perform when it matters. I contributed to <strong>the highest-scoring Fleet Cyber Command cyber inspection in submarine history</strong> &mdash; recognized with a Navy and Marine Corps Commendation Medal from the Commodore.
+          My record is built on turning around failing programs, executing high-stakes inspections under pressure, and developing technical teams that perform when it matters. I contributed to <strong>the highest-scoring Fleet Cyber Command cyber inspection in submarine history</strong>, recognized with a Navy and Marine Corps Commendation Medal from the Commodore.
         </p>
         <p>
-          In a single year, I executed three cyber inspections and one Key Management Infrastructure (KMI) inspection &mdash; all satisfactory or better. I have also co-authored occupational standards at the Chief of Naval Operations (CNO) level for the Information Technology Networks (ITN) rate.
+          In a single year, I executed three cyber inspections and one Key Management Infrastructure (KMI) inspection, all satisfactory or better. I have also co-authored occupational standards at the Chief of Naval Operations (CNO) level for the Information Technology Networks (ITN) rate.
         </p>
         <p>
           I hold a <strong>B.S. in Information Technology from Purdue Global, Summa Cum Laude</strong> (December 2025), and I am on a deliberate path toward Certified Information Security Manager (CISM) and CISSP certification as I transition to the civilian sector. My planned retirement is <strong>October 2027</strong>.
         </p>
         <p>
-          Alongside active duty, I build production software. The <strong>Combat Information Center (CIC)</strong> project at <a href="https://github.com/tdbutera/cic" target="_blank" rel="noopener" style="color:var(--gold);">github.com/tdbutera/cic</a> is a production AI orchestrator I architect and maintain on my own time &mdash; 10 containerized services, a 9-gate CI/CD pipeline, and a privacy routing layer designed using the same least-privilege principles I enforce as an ISSM. It is publicly auditable evidence of hands-on technical depth, not just leadership of technical teams.
+          Alongside active duty, I build production software. The <strong>Combat Information Center (CIC)</strong> project at <a href="https://github.com/tdbutera/cic" target="_blank" rel="noopener" style="color:var(--gold);">github.com/tdbutera/cic</a> is a production AI orchestrator I architect and maintain on my own time, 10 containerized services, a 9-gate CI/CD pipeline, and a privacy routing layer designed using the same least-privilege principles I enforce as an ISSM. It is publicly auditable evidence of hands-on technical depth, not just leadership of technical teams.
         </p>
       </div>
 
@@ -1739,7 +1752,7 @@
           <div class="highlight-icon">&#128269;</div>
           <div class="highlight-text">
             <strong>Inspection & Compliance Execution</strong>
-            Immediate Superior in Command (ISIC) Cyber Inspector qualified. Executed 4 major inspections in a single year &mdash; all satisfactory or better, including one record-breaking Fleet Cyber Command (FCC) cyber inspection.
+            Immediate Superior in Command (ISIC) Cyber Inspector qualified. Executed 4 major inspections in a single year, all satisfactory or better, including one record-breaking Fleet Cyber Command (FCC) cyber inspection.
           </div>
         </div>
         <div class="highlight-item">
@@ -1753,7 +1766,7 @@
           <div class="highlight-icon">&#128295;</div>
           <div class="highlight-text">
             <strong>Technical Portfolio (Active)</strong>
-            CIC: production AI orchestrator &mdash; Python 3.12, FastAPI, Anthropic Claude SDK, Docker, Postgres, 9-gate CI/CD, privacy-tier routing aligned to RMF AC-6.
+            CIC: production AI orchestrator &middot; Python 3.12, FastAPI, Anthropic Claude SDK, Docker, Postgres, 9-gate CI/CD, privacy-tier routing aligned to RMF AC-6.
             <a href="https://github.com/tdbutera/cic" target="_blank" rel="noopener" style="color:var(--gold);font-size:0.8rem;display:block;margin-top:4px;">github.com/tdbutera/cic &#8599;</a>
           </div>
         </div>
@@ -1771,7 +1784,7 @@
 
     <div class="portfolio-intro">
       <p>
-        Beyond active duty responsibilities, I architect and ship production infrastructure software &mdash;
+        Beyond active duty responsibilities, I architect and ship production infrastructure software,
         publicly auditable evidence of hands-on technical depth alongside senior leadership experience.
       </p>
     </div>
@@ -1780,9 +1793,9 @@
       <div class="project-card-header">
         <div>
           <div class="project-title">Combat Information Center (CIC)</div>
-          <div class="project-subtitle">Private AI Orchestrator &mdash; Production Deployment</div>
+          <div class="project-subtitle">Private AI Orchestrator, Production Deployment</div>
         </div>
-        <div class="project-year">2026 &mdash; Active</div>
+        <div class="project-year">2026 &middot; Active</div>
       </div>
 
       <p class="project-desc">
@@ -1790,7 +1803,7 @@
         Anthropic Claude tool-use, and real integrations to Cloudflare and OPNsense firewall
         application programming interfaces (APIs). Features a 9-gate Continuous Integration/
         Continuous Deployment (CI/CD) pipeline, strict typing, 100 percent test pass rate, and a
-        two-tier privacy routing layer that keeps sensitive data off public AI APIs &mdash;
+        two-tier privacy routing layer that keeps sensitive data off public AI APIs,
         directly applicable to classified and cleared environments.
       </p>
 
@@ -1819,14 +1832,14 @@
           <div class="project-title">ButeraNet Solutions</div>
           <div class="project-subtitle">Managed IT &amp; Network Infrastructure for Small Organizations</div>
         </div>
-        <div class="project-year">2026 &mdash; Active</div>
+        <div class="project-year">2026 &middot; Active</div>
       </div>
 
       <p class="project-desc">
         A founder-operated managed services provider (MSP) serving churches, nonprofits, and small
         businesses across Hawaii. Enterprise-grade network infrastructure, layered security
         (CrowdSec inbound + Maltrail outbound), structured cabling, Wi-Fi engineering, and 24x7
-        monitoring &mdash; deployed at small-organization budgets. Active engagements include a faith
+        monitoring, deployed at small-organization budgets. Active engagements include a faith
         organization deployment, a small business network refresh (reference architecture), and an
         ongoing nonprofit consultation. Four-layer managed service model with a documented 5-phase
         engagement process: discovery, assessment, design, deployment, and managed operations.
@@ -1858,17 +1871,17 @@
           <div class="project-title">ButeraNet Intelligence</div>
           <div class="project-subtitle">Private AI Appliances for Sensitive Organizations</div>
         </div>
-        <div class="project-year">2026 &mdash; Active</div>
+        <div class="project-year">2026 &middot; Active</div>
       </div>
 
       <p class="project-desc">
         A standalone product company building, deploying, and managing private on-premise AI
-        appliances for organizations that cannot use cloud AI &mdash; churches, law firms, medical
+        appliances for organizations that cannot use cloud AI: churches, law firms, medical
         practices, government contractors, faith-based nonprofits. Local large language model
         (LLM) inference (vLLM and Ollama), Qdrant vector database, IBM Docling document
-        understanding, LlamaIndex agent orchestration, and Neo4j knowledge graphs &mdash; running
+        understanding, LlamaIndex agent orchestration, and Neo4j knowledge graphs, running
         entirely behind the client's firewall. Zero data egress by architecture, not by policy.
-        Self-healing infrastructure &mdash; a private AI appliance that knows your organization's
+        Self-healing infrastructure, a private AI appliance that knows your organization's
         content, operates fully offline, and serves your entire staff without per-query billing.
       </p>
 
@@ -1912,7 +1925,7 @@
           <div class="resume-card-title">ISSM / Defense Contractor</div>
         </div>
         <p class="resume-card-desc">
-          Targeted at cleared defense firms &mdash; Leidos, SAIC, Booz Allen Hamilton, GDIT, Peraton. Emphasizes TS/SCI handling, full RMF/ATO lifecycle, ACAS/VRAM compliance, eMASS, inspection leadership, and ISSM authority across multiple platforms.
+          Targeted at cleared defense firms: Leidos, SAIC, Booz Allen Hamilton, GDIT, Peraton. Emphasizes TS/SCI handling, full RMF/ATO lifecycle, ACAS/VRAM compliance, eMASS, inspection leadership, and ISSM authority across multiple platforms.
         </p>
         <div class="resume-tags">
           <span class="tag">TS/SCI</span>
@@ -1923,7 +1936,7 @@
         </div>
         <a href="butera_issm_v2.pdf" download class="resume-download">
           <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download &mdash; butera_issm_v2.pdf
+          Download &middot; butera_issm_v2.pdf
         </a>
         <div class="resume-card-web">
           <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -1949,7 +1962,7 @@
         </div>
         <a href="butera_itdirector_v2.pdf" download class="resume-download">
           <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download &mdash; butera_itdirector_v2.pdf
+          Download &middot; butera_itdirector_v2.pdf
         </a>
         <div class="resume-card-web">
           <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -1975,7 +1988,7 @@
         </div>
         <a href="butera_federal_2page.pdf" download class="resume-download">
           <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download &mdash; butera_federal_2page.pdf
+          Download &middot; butera_federal_2page.pdf
         </a>
         <div class="resume-card-web">
           <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -1999,7 +2012,7 @@
         </div>
         <a href="butera_private_resume.pdf" download class="resume-download">
           <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download &mdash; butera_private_resume.pdf
+          Download &middot; butera_private_resume.pdf
         </a>
         <div class="resume-card-web">
           <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -2011,7 +2024,7 @@
 
     <p class="resume-note">
       Additional versions available upon request &nbsp;&middot;&nbsp;
-      <a href="mailto:travis@buteranet.com?subject=Resume Request &mdash; Travis Butera">Email me directly</a> and I will send the right version.
+      <a href="mailto:travis@buteranet.com?subject=Resume Request, Travis Butera">Email me directly</a> and I will send the right version.
     </p>
   </div>
 </section>
@@ -2098,7 +2111,7 @@
           <tr>
             <td>
               <div class="cert-name">KMI KOAM</div>
-              <div class="cert-issuer">Key Management Infrastructure &mdash; Operator</div>
+              <div class="cert-issuer">Key Management Infrastructure, Operator</div>
             </td>
             <td>DoD / Navy</td>
             <td>
@@ -2144,11 +2157,11 @@
     <div class="nec-note fade-in">
       <strong>Navy Enlisted Classifications (NECs)</strong>
       <div class="nec-pills">
-        <span class="nec-pill">741A &mdash; ISSM</span>
-        <span class="nec-pill">742A &mdash; NSVT</span>
-        <span class="nec-pill">735A &mdash; CANES Admin</span>
-        <span class="nec-pill">T47A &mdash; SUBLAN</span>
-        <span class="nec-pill">T32A &mdash; Sub Comms LCPO</span>
+        <span class="nec-pill">741A, ISSM</span>
+        <span class="nec-pill">742A, NSVT</span>
+        <span class="nec-pill">735A, CANES Admin</span>
+        <span class="nec-pill">T47A &middot; SUBLAN</span>
+        <span class="nec-pill">T32A &middot; Sub Comms LCPO</span>
       </div>
     </div>
   </div>
@@ -2164,15 +2177,15 @@
     <div class="contact-grid">
       <div class="fade-in">
         <p class="contact-intro">
-          My planned retirement is <strong style="color:var(--white)">October 2027</strong>. If you are a hiring manager, recruiter, or senior contact who has told me to reach out &mdash; this is the page I will keep current. The certification tracker above reflects exactly where I am in my professional development path.
+          My planned retirement is <strong style="color:var(--white)">October 2027</strong>. If you are a hiring manager, recruiter, or senior contact who has told me to reach out, this is the page I will keep current. The certification tracker above reflects exactly where I am in my professional development path.
         </p>
         <p class="contact-intro" style="font-size:0.9rem;">
-          Open to cleared contractor, federal civilian, and corporate IT/cyber leadership roles. Preference for Tennessee post-retirement &mdash; open CONUS.
+          Open to cleared contractor, federal civilian, and corporate IT/cyber leadership roles. Preference for Tennessee post-retirement, open CONUS.
         </p>
 
         <div class="contact-form fade-in">
           <h3>Send a Message</h3>
-          <!-- Formspree &mdash; replace YOUR_FORM_ID after signing up at formspree.io/register
+          <!-- Formspree, replace YOUR_FORM_ID after signing up at formspree.io/register
                Takes ~2 minutes: create account &#8594; New Form &#8594; copy the ID from the action URL -->
           <form id="contactForm" action="https://formspree.io/f/xrerkkoe" method="POST">
             <div class="form-group">
@@ -2185,7 +2198,7 @@
             </div>
             <div class="form-group">
               <label for="cf-subject">Subject</label>
-              <input type="text" id="cf-subject" name="subject" placeholder="e.g. Cybersecurity role &mdash; Q4 2027">
+              <input type="text" id="cf-subject" name="subject" placeholder="e.g. Cybersecurity role &middot; Q4 2027">
             </div>
             <div class="form-group">
               <label for="cf-message">Message</label>
@@ -2201,7 +2214,7 @@
             </button>
           </form>
           <div class="form-success" id="formSuccess">
-            &#10003; Message sent &mdash; I will get back to you shortly.
+            &#10003; Message sent, I will get back to you shortly.
           </div>
         </div>
       </div>
@@ -2274,7 +2287,7 @@
             <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Book a 30-min Discovery Call
           </a>
-          <p style="margin-top:8px;font-size:0.78rem;color:var(--text-muted);">No commitment &mdash; just a conversation about fit and timing.</p>
+          <p style="margin-top:8px;font-size:0.78rem;color:var(--text-muted);">No commitment, just a conversation about fit and timing.</p>
         </div>
       </div>
     </div>
@@ -2284,7 +2297,7 @@
 
 
 <!-- ============================================================
-     PHASE 2 &mdash; BLOG / INSIGHTS SECTION
+     PHASE 2 &middot; BLOG / INSIGHTS SECTION
      TODO: Replace placeholder excerpts with real post content.
      TODO: Update dates when posts go live. Replace href="#" with post URL.
      ============================================================ -->
@@ -2297,10 +2310,10 @@
 
       <article class="blog-card fade-in">
         <div class="blog-date">April 2026</div>
-        <h3 class="blog-title">RMF in Practice &mdash; What the Checklist Does Not Tell You</h3>
+        <h3 class="blog-title">RMF in Practice, What the Checklist Does Not Tell You</h3>
         <p class="blog-excerpt">
           After executing full Risk Management Framework (RMF)/Authority to Operate (ATO) lifecycles across seven operational submarines, I have learned that the framework&#8217;s
-          biggest gaps are not technical &mdash; they are organizational. Here is what most contractors get wrong before the
+          biggest gaps are not technical, they are organizational. Here is what most contractors get wrong before the
           package even hits the Information System Security Manager (ISSM)&#8217;s desk.
         </p>
         <a href="/rmf-in-practice.html" class="blog-read-more">Read Post &rarr;</a>
@@ -2308,7 +2321,7 @@
 
       <article class="blog-card fade-in">
         <div class="blog-date">April 2026</div>
-        <h3 class="blog-title">From Submarine Networks to Civilian IT &mdash; What Actually Transfers</h3>
+        <h3 class="blog-title">From Submarine Networks to Civilian IT, What Actually Transfers</h3>
         <p class="blog-excerpt">
           The question I get most from recruiters: "How does running networks on a submarine translate to enterprise IT?"
           The honest answer is that the technical skills are table stakes. What actually transfers is the operational
@@ -2321,7 +2334,7 @@
         <div class="blog-date">April 2026</div>
         <h3 class="blog-title">Why Most DoD Cyber Inspections Fail Before They Start</h3>
         <p class="blog-excerpt">
-          Most commands fail cybersecurity inspections not because of technical gaps &mdash; but because of preparation
+          Most commands fail cybersecurity inspections not because of technical gaps, but because of preparation
           failures that happen weeks before the inspector arrives. Six failure modes I have watched repeat across
           every inspection cycle.
         </p>
@@ -2330,10 +2343,10 @@
 
       <article class="blog-card fade-in">
         <div class="blog-date">April 2026</div>
-        <h3 class="blog-title">The ISSM Test &mdash; Building a System I Would Have to Audit</h3>
+        <h3 class="blog-title">The ISSM Test, Building a System I Would Have to Audit</h3>
         <p class="blog-excerpt">
           I have spent 18+ years telling engineers what is wrong with their security posture. Last year, I became
-          the engineer. Building CIC &mdash; a production AI orchestrator for my home infrastructure &mdash;
+          the engineer. Building CIC, a production AI orchestrator for my home infrastructure,
           I applied every RMF control I enforce professionally. Here is what I found when I ran my own audit.
         </p>
         <a href="/issm-test-building-system-i-audit.html" class="blog-read-more">Read Post &rarr;</a>
@@ -2341,10 +2354,10 @@
 
       <article class="blog-card fade-in">
         <div class="blog-date">April 2026</div>
-        <h3 class="blog-title">Why I Let My Security+ Expire &mdash; And What Renewing It Taught Me</h3>
+        <h3 class="blog-title">Why I Let My Security+ Expire, And What Renewing It Taught Me</h3>
         <p class="blog-excerpt">
-          My CompTIA Security+ CE expired in 2018. Every recruiter notices. Here is the honest explanation &mdash;
-          no excuses &mdash; and what coming back to foundational material after eight years in the field
+          My CompTIA Security+ CE expired in 2018. Every recruiter notices. Here is the honest explanation,
+          no excuses, and what coming back to foundational material after eight years in the field
           taught me about the gap between certification knowledge and operational reality.
         </p>
         <a href="/security-plus-renewal.html" class="blog-read-more">Read Post &rarr;</a>
@@ -2352,9 +2365,9 @@
 
       <article class="blog-card fade-in">
         <div class="blog-date">May 2026</div>
-        <h3 class="blog-title">What CANES Actually Is &mdash; And What Running It Taught Me About Enterprise Architecture</h3>
+        <h3 class="blog-title">What CANES Actually Is, And What Running It Taught Me About Enterprise Architecture</h3>
         <p class="blog-excerpt">
-          Consolidated Afloat Networks and Enterprise Services (CANES) is not a single system &mdash; it is a
+          Consolidated Afloat Networks and Enterprise Services (CANES) is not a single system, it is a
           multi-enclave, multi-classification network architecture deployed across the U.S. Navy surface and
           submarine fleet. Here is what managing it at the technical level actually taught me about resilience,
           authentication, and continuous auditability.
@@ -2376,10 +2389,10 @@
 
       <article class="blog-card fade-in">
         <div class="blog-date">June 2026</div>
-        <h3 class="blog-title">Air-Gapped AI &mdash; Why Your Most Sensitive Data Should Never Touch a Cloud Model</h3>
+        <h3 class="blog-title">Air-Gapped AI, Why Your Most Sensitive Data Should Never Touch a Cloud Model</h3>
         <p class="blog-excerpt">
           Every prompt you send to a cloud AI model is a data-disclosure decision you are making by default. What
-          18 years of classified-network discipline taught me about running AI on hardware you control &mdash; who
+          18 years of classified-network discipline taught me about running AI on hardware you control, who
           actually needs it, and the honest tradeoffs.
         </p>
         <a href="/air-gapped-ai.html" class="blog-read-more">Read Post &rarr;</a>
@@ -2401,13 +2414,13 @@
 </section>
 
 <!-- ============================================================
-     PHASE 2 &mdash; ENDORSEMENTS SECTION
+     PHASE 2 &middot; ENDORSEMENTS SECTION
      Source: Military evaluation narratives (verbatim).
      TODO: Add a 4th quote when next EVAL cycle is complete.
      ============================================================ -->
 
 <!-- ============================================================
-     PHASE 3 &mdash; AI RESUME MATCHER
+     PHASE 3 &middot; AI RESUME MATCHER
      TODO Phase 3: Wire to Claude API:
        - Create a Cloudflare Worker at /api/match
        - POST job description to Worker
@@ -2424,11 +2437,11 @@
 
     <div class="matcher-wrap fade-in">
       <span class="matcher-phase-badge">
-        &#9679; Claude AI &mdash; Live Analysis
+        &#9679; Claude AI, Live Analysis
       </span>
 
       <p class="matcher-label">
-        Paste a job description below and I will show you exactly how my background maps to your requirements &mdash; skills alignment, relevant experience, and suggested talking points. Powered by Claude AI.
+        Paste a job description below and I will show you exactly how my background maps to your requirements, skills alignment, relevant experience, and suggested talking points. Powered by Claude AI.
       </p>
 
       <textarea
@@ -2448,9 +2461,9 @@
         </p>
       </div>
 
-      <!-- Live AI result &mdash; streams from /api/match Cloudflare Worker -->
+      <!-- Live AI result, streams from /api/match Cloudflare Worker -->
       <div class="matcher-result" id="matcherResult" style="display:none;">
-        <div class="matcher-result-title">&#9654; Match Analysis &mdash; Powered by Claude AI</div>
+        <div class="matcher-result-title">&#9654; Match Analysis, Powered by Claude AI</div>
         <div id="matcherResultBody" style="color:var(--text-body);line-height:1.7;"></div>
       </div>
     </div>
@@ -2458,10 +2471,10 @@
 </section>
 
 <!-- ============================================================
-     PHASE 3 &mdash; EMPLOYER PORTAL
+     PHASE 3 &middot; EMPLOYER PORTAL
      TODO Phase 3: Replace hardcoded password with proper auth:
        - Option A: Cloudflare Access (Zero Trust, SSO, free tier)
-       - Option B: Cloudflare Workers KV &mdash; store tokens per employer,
+       - Option B: Cloudflare Workers KV, store tokens per employer,
          pass token as URL query param (?token=ABC123)
        - Each employer gets a personalized page built from JSON config
        - Portal content: custom intro, targeted resume, clearance details,
@@ -2470,7 +2483,7 @@
      ============================================================ -->
 <section id="employer-portal">
   <div class="container">
-    <span class="section-label">Employer Portal &mdash; Private Access</span>
+    <span class="section-label">Employer Portal &middot; Private Access</span>
     <h2 class="section-title">Restricted Access</h2>
     <div class="divider"></div>
 
@@ -2497,14 +2510,14 @@
       </p>
     </div>
 
-    <!-- Portal content &mdash; shown after correct password -->
+    <!-- Portal content, shown after correct password -->
     <div class="portal-content" id="portalContent">
       <div style="max-width:760px;">
-        <p style="color:var(--gold); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; margin-bottom:20px;">&#9679; Recruiter / Hiring Manager Brief &mdash; Confidential</p>
+        <p style="color:var(--gold); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; margin-bottom:20px;">&#9679; Recruiter / Hiring Manager Brief &middot; Confidential</p>
 
         <!-- THE BRIEF -->
         <div style="background:var(--navy-mid);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin-bottom:28px;">
-          <p style="color:var(--white);font-size:1rem;font-weight:700;margin-bottom:4px;">Travis D. Butera &mdash; U.S. Navy Senior Chief (E-8)</p>
+          <p style="color:var(--white);font-size:1rem;font-weight:700;margin-bottom:4px;">Travis D. Butera &middot; U.S. Navy Senior Chief (E-8)</p>
           <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:20px;">Information System Security Manager (ISSM) &nbsp;&middot;&nbsp; 18+ Years DoD Enterprise IT &amp; Cybersecurity &nbsp;&middot;&nbsp; Active TS/SCI</p>
 
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:20px;">
@@ -2525,7 +2538,7 @@
             </div>
             <div style="border-left:2px solid var(--gold);padding-left:14px;">
               <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);font-weight:700;margin-bottom:4px;">Veterans&rsquo; Preference</div>
-              <div style="color:var(--white);font-size:0.95rem;font-weight:600;">5-Point &mdash; Active Duty</div>
+              <div style="color:var(--white);font-size:0.95rem;font-weight:600;">5-Point &middot; Active Duty</div>
               <div style="color:var(--text-muted);font-size:0.82rem;">20+ years honorable service &nbsp;&middot;&nbsp; 5 U.S.C. &sect; 2108</div>
             </div>
           </div>
@@ -2534,11 +2547,11 @@
             <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);font-weight:700;margin-bottom:12px;">Compensation Expectations by Role</div>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;">
               <div style="background:rgba(0,0,0,0.2);border-radius:6px;padding:12px 14px;">
-                <div style="color:var(--white);font-size:0.88rem;font-weight:600;margin-bottom:2px;">Cleared Contractor &mdash; ISSM</div>
+                <div style="color:var(--white);font-size:0.88rem;font-weight:600;margin-bottom:2px;">Cleared Contractor, ISSM</div>
                 <div style="color:var(--gold);font-size:0.95rem;font-weight:700;">Provided on request</div>
               </div>
               <div style="background:rgba(0,0,0,0.2);border-radius:6px;padding:12px 14px;">
-                <div style="color:var(--white);font-size:0.88rem;font-weight:600;margin-bottom:2px;">Federal Civil Service &mdash; GS-13/14</div>
+                <div style="color:var(--white);font-size:0.88rem;font-weight:600;margin-bottom:2px;">Federal Civil Service &middot; GS-13/14</div>
                 <div style="color:var(--gold);font-size:0.95rem;font-weight:700;">Per OPM GS scale</div>
               </div>
               <div style="background:rgba(0,0,0,0.2);border-radius:6px;padding:12px 14px;">
@@ -2546,7 +2559,7 @@
                 <div style="color:var(--gold);font-size:0.95rem;font-weight:700;">Provided on request</div>
               </div>
             </div>
-            <p style="color:var(--text-muted);font-size:0.78rem;margin-top:10px;">Specific compensation expectations are shared directly with hiring contacts &mdash; reach out at <a href="mailto:travis@buteranet.com" style="color:var(--gold);">travis@buteranet.com</a>. Open to discussing the full package: base, benefits, clearance premium, and remote flexibility.</p>
+            <p style="color:var(--text-muted);font-size:0.78rem;margin-top:10px;">Specific compensation expectations are shared directly with hiring contacts, reach out at <a href="mailto:travis@buteranet.com" style="color:var(--gold);">travis@buteranet.com</a>. Open to discussing the full package: base, benefits, clearance premium, and remote flexibility.</p>
           </div>
         </div>
 
@@ -2581,7 +2594,7 @@
 
         <!-- CONTACT -->
         <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
-          <a href="mailto:travis@buteranet.com?subject=Hiring Inquiry &mdash; Travis Butera" class="btn btn-primary">
+          <a href="mailto:travis@buteranet.com?subject=Hiring Inquiry, Travis Butera" class="btn btn-primary">
             <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
             Email Directly
           </a>
@@ -2603,7 +2616,7 @@
 </section>
 
 <!-- ============================================================
-     PHASE 4 &mdash; BUSINESS EVOLUTION (no code yet &mdash; design notes only)
+     PHASE 4 &middot; BUSINESS EVOLUTION (no code yet, design notes only)
      ============================================================
 
      TODO Phase 4: Evolve buteranet.com into consulting firm front door
@@ -2653,22 +2666,22 @@
 
 <script>
   // ================================================================
-  // SITE CONFIG &mdash; The ONLY block you need to edit for routine updates.
+  // SITE CONFIG, The ONLY block you need to edit for routine updates.
   // ================================================================
   const SITE_CONFIG = {
-    lastUpdated:     'May 2026',                // Footer date &mdash; update on every push
+    lastUpdated:     'May 2026',                // Footer date, update on every push
     email:           'travis@buteranet.com',    // Contact email shown on site
     analyticsToken:  'YOUR_CF_ANALYTICS_TOKEN', // TODO: Replace after Cloudflare Web Analytics setup
     // Cert progress percentages (0&ndash;100). Only "In Progress" certs need a value.
     certSecplus:  75,   // CompTIA Security+ CE renewal   (0&ndash;100)
     certCism:     35,   // CISM                            (0&ndash;100)
-    certPmp:       0,   // PMP &mdash; Planned                   (0&ndash;100)
-    certCissp:     0,   // CISSP &mdash; Planned                 (0&ndash;100)
+    certPmp:       0,   // PMP &middot; Planned                   (0&ndash;100)
+    certCissp:     0,   // CISSP &middot; Planned                 (0&ndash;100)
   };
   // ================================================================
 
   // ================================================================
-  // CERT TRACKER &mdash; reads from SITE_CONFIG above, no need to edit here
+  // CERT TRACKER, reads from SITE_CONFIG above, no need to edit here
   // ================================================================
   const CERT_PROGRESS = {
     'secplus': SITE_CONFIG.certSecplus,
@@ -2704,7 +2717,7 @@
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  // Contact form &mdash; Formspree AJAX submit
+  // Contact form, Formspree AJAX submit
   const contactForm = document.getElementById('contactForm');
   const formSuccess = document.getElementById('formSuccess');
   if (contactForm) {
@@ -2753,7 +2766,7 @@
   if (lastUpdEl) lastUpdEl.textContent = 'Last updated: ' + SITE_CONFIG.lastUpdated;
 
   // ================================================================
-  // PHASE 3: AI RESUME MATCHER &mdash; live Cloudflare Worker + Claude Haiku
+  // PHASE 3: AI RESUME MATCHER, live Cloudflare Worker + Claude Haiku
   // Worker: workers/match-worker.js  |  Route: buteranet.com/api/match
   // ================================================================
   async function runMatcher() {
@@ -2763,7 +2776,7 @@
     const btn = document.getElementById('matchBtn');
 
     if (!input) { alert('Please paste a job description first.'); return; }
-    if (input.length < 30) { alert('Please paste more of the job description &mdash; that looks too short.'); return; }
+    if (input.length < 30) { alert('Please paste more of the job description, that looks too short.'); return; }
 
     btn.disabled = true;
     btn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Analyzing\u2026';
@@ -2815,7 +2828,7 @@
       resultBody.innerHTML = mdToHtml(md);
 
     } catch (e) {
-      resultBody.innerHTML = '<span style="color:#f87171;">Network error &mdash; is the Worker deployed? (' + e.message + ')</span>';
+      resultBody.innerHTML = '<span style="color:#f87171;">Network error, is the Worker deployed? (' + e.message + ')</span>';
     } finally {
       btn.disabled = false;
       btn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Match My Background';
@@ -2837,7 +2850,7 @@
   }
 
   // ================================================================
-  // PHASE 3: EMPLOYER PORTAL &mdash; simple JS password gate
+  // PHASE 3: EMPLOYER PORTAL, simple JS password gate
   // TODO Phase 3: Replace with Cloudflare Access or Workers KV token auth
   // ================================================================
   const PORTAL_CODE = 'butera2027'; // TODO: Change before sharing portal link
