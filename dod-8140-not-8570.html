@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>DoD 8570 Has Been Gone Since 2023. Most Job Postings Still Ask for It | Travis D. Butera</title>
+  <meta name="description" content="DoD 8570 was superseded by DoDM 8140.03 on 15 February 2023. A Navy ISSM on what actually replaced it, why certification is only one of three qualification paths, and the nine and twelve month clocks nobody mentions." />
+
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://buteranet.com/dod-8140-not-8570.html" />
+  <meta property="og:title"       content="DoD 8570 Has Been Gone Since 2023. Most Job Postings Still Ask for It" />
+  <meta property="og:description" content="Certification is one of three foundational qualification options under 8140.03, not the only one. What changed, and what it means whether you are hiring or being hired." />
+  <meta property="og:image"       content="https://buteranet.com/og-preview.png" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <link rel="canonical"           href="https://buteranet.com/dod-8140-not-8570.html" />
+  <meta name="author"             content="Travis D. Butera" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "DoD 8570 Has Been Gone Since 2023. Most Job Postings Still Ask for It",
+    "description": "DoD 8570 was superseded by DoDM 8140.03 on 15 February 2023. A Navy ISSM on what actually replaced it, why certification is only one of three qualification paths, and the nine and twelve month clocks nobody mentions.",
+    "author": {
+      "@type": "Person",
+      "name": "Travis D. Butera",
+      "url": "https://buteranet.com"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Travis D. Butera",
+      "url": "https://buteranet.com"
+    },
+    "datePublished": "2026-09-03",
+    "dateModified": "2026-09-03",
+    "url": "https://buteranet.com/dod-8140-not-8570.html",
+    "mainEntityOfPage": "https://buteranet.com/dod-8140-not-8570.html",
+    "keywords": ["DoD 8140", "DoDM 8140.03", "DoD 8570", "DCWF", "cyber workforce qualification", "ISSM", "Security+", "CISSP", "cleared cybersecurity jobs", "DoD cybersecurity certification"]
+  }
+  </script>
+
+  <style>
+    :root {
+      --navy-darkest: #060e1a;
+      --navy-dark:    #0b1a2e;
+      --navy-mid:     #0f2544;
+      --navy-light:   #1a3560;
+      --gold:         #c9a84c;
+      --gold-light:   #e0c06a;
+      --white:        #ffffff;
+      --off-white:    #e8edf4;
+      --text-muted:   #8fa3c0;
+      --text-body:    #cdd6e3;
+      --border:       rgba(201,168,76,0.25);
+      --card-bg:      rgba(15,37,68,0.7);
+      --radius:       8px;
+      --transition:   0.25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: var(--navy-darkest);
+      color: var(--text-body);
+      line-height: 1.75;
+    }
+    a { color: var(--gold); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--gold-light); }
+
+    .site-header {
+      background: var(--navy-dark);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .site-header .logo { font-weight: 700; color: var(--white); font-size: 1.1rem; }
+    .site-header .logo span { color: var(--gold); }
+    .site-header nav a { color: var(--text-muted); font-size: 0.9rem; margin-left: 24px; }
+    .site-header nav a:hover { color: var(--gold); }
+
+    .article-hero {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-mid) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px 48px;
+      text-align: center;
+    }
+    .article-category {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .article-title {
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      max-width: 780px;
+      margin: 0 auto 20px;
+    }
+    .article-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .article-meta strong { color: var(--off-white); }
+
+    .article-container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 52px 24px 80px;
+    }
+    .article-container p {
+      margin-bottom: 1.4em;
+      font-size: 1.05rem;
+    }
+    .article-container h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      margin: 2.8em 0 0.8em;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-container h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 2em 0 0.6em;
+    }
+    .article-container strong { color: var(--white); }
+    .article-container ul {
+      margin: 0 0 1.4em 1.4em;
+      font-size: 1.05rem;
+    }
+    .article-container li { margin-bottom: 0.5em; }
+
+    .callout {
+      background: var(--navy-mid);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px;
+      margin: 2em 0;
+      font-size: 0.97rem;
+    }
+    .callout p { margin: 0; }
+
+    .level-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2em 0;
+      font-size: 0.9rem;
+    }
+    .level-table th {
+      background: var(--navy-light);
+      color: var(--gold);
+      font-weight: 700;
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 2px solid var(--border);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .level-table td {
+      padding: 11px 14px;
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      vertical-align: top;
+      color: var(--text-body);
+    }
+    .level-table tr:last-child td { border-bottom: none; }
+    .level-table tr:nth-child(even) td { background: rgba(15,37,68,0.4); }
+
+    .checklist-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin: 1em 0;
+    }
+    .checklist-card h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .checklist-card ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .checklist-card li {
+      padding: 5px 0 5px 22px;
+      position: relative;
+      font-size: 0.95rem;
+      color: var(--text-body);
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+    }
+    .checklist-card li:last-child { border-bottom: none; }
+    .checklist-card li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.8rem;
+      top: 7px;
+    }
+
+    .related-posts {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      margin-top: 52px;
+    }
+    .related-posts-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .related-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      transition: border-color var(--transition);
+    }
+    .related-card:hover { border-color: var(--gold); }
+    .related-card-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .related-card-link { font-size: 0.78rem; color: var(--gold); font-weight: 600; }
+
+    .author-box {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      margin-top: 52px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .author-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--navy-mid);
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.3rem;
+      color: var(--gold);
+      font-weight: 800;
+    }
+    .author-name { font-weight: 700; color: var(--white); font-size: 0.95rem; margin-bottom: 4px; }
+    .author-bio { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">Travis D. <span>Butera</span></div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/#blog">Insights</a>
+    <a href="/#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="article-hero">
+  <div class="article-category">&#9679; DoD Compliance &middot; Cyber Workforce</div>
+  <h1 class="article-title">DoD 8570 Has Been Gone Since 2023. Most Job Postings Still Ask for It</h1>
+  <div class="article-meta">
+    <span><strong>Travis D. Butera</strong></span>
+    <span>September 3, 2026</span>
+    <span>6 min read</span>
+  </div>
+</div>
+
+<article class="article-container">
+  <p>
+    Open any cleared cybersecurity job posting this week and there is a good chance it asks for a certification "per DoD 8570" or names an "IAT Level II baseline." I have seen it in postings written this year, in contract statements of work, and in the certification table on my own website until I corrected it while writing this.
+  </p>
+  <p>
+    DoD 8570 has not been the governing policy since 15 February 2023. It was superseded on the release of DoD Manual 8140.03, the Cyberspace Workforce Qualification and Management Program (<a href="https://dl.dod.cyber.mil/wp-content/uploads/8140/pdf/unclass-dod8570_ia_program_transition_dod8140_cwp.pdf" target="_blank" rel="noopener">DoD Cyber Exchange transition paper</a>, retrieved 3 September 2026). That is more than three years of a retired framework being cited as a current requirement.
+  </p>
+  <p>
+    This is not pedantry about a document number. The replacement changed the substance of how people qualify, and the change works in favor of experienced practitioners in a way that almost nobody is taking advantage of.
+  </p>
+
+  <h2>The part everyone gets wrong</h2>
+  <p>
+    Under the old model, the mental shortcut was simple and mostly accurate: find your category and level, hold one of the listed certifications, and you are compliant. A cert was the ticket. That shortcut is why the entire defense hiring market still thinks in terms of "do you have Security+."
+  </p>
+  <p>
+    DoDM 8140.03 does not work that way. Qualification is now tied to a specific work role in the DoD Cyber Workforce Framework, and the foundational portion offers <strong>three options</strong>, not one. Per the manual, personnel must "complete any one of the three foundational qualification options":
+  </p>
+  <div class="callout">
+    <p><strong>Education.</strong> A secondary diploma at minimum, with higher education evaluated against the work role.</p>
+    <p style="margin-top:10px"><strong>Training.</strong> Coursework that covers 70 percent of the core task and knowledge, skills and abilities content for that role.</p>
+    <p style="margin-top:10px"><strong>Personnel certification.</strong> A certification accredited to ISO/IEC 17024.</p>
+  </div>
+  <p>
+    Any one of the three satisfies the foundational requirement. A certification is a path, not the path. I have watched capable people conclude they were locked out of a role because they did not hold a specific four-letter credential, when the education or training path was open to them the whole time.
+  </p>
+
+  <h2>Foundational is only half of it</h2>
+  <p>
+    The second half is the piece that has no equivalent in the old framework, and it is the one hiring managers should care about most. Alongside the foundational area, 8140.03 requires <strong>residential qualification</strong>: a formal period of supervised engagement covering the task and knowledge, skills and abilities content for the role before the individual works unsupervised.
+  </p>
+  <p>
+    Read that again with an operational eye. The policy now says out loud that holding a certificate does not mean you can do the job, and it builds a supervised on-the-job period into the qualification itself. Anyone who has watched a freshly certified technician meet a live accreditation boundary for the first time understands exactly why that clause exists.
+  </p>
+  <p>
+    There is also continuous professional development on top of both, which is the part that most resembles the old continuing-education cycle.
+  </p>
+
+  <h2>The two clocks</h2>
+  <p>
+    The manual attaches deadlines to assignment, not to hiring or to fiscal year:
+  </p>
+  <ul>
+    <li><strong>Foundational qualification within 9 months</strong> of assignment to a cyberspace work role.</li>
+    <li><strong>Residential qualification within 12 months</strong> of assignment to that role.</li>
+  </ul>
+  <p>
+    Missing either one requires removal from the role unless a waiver is granted. That is a materially different posture from the old one, where a lapse tended to surface as an administrative finding during an inspection and then sat in a tracker.
+  </p>
+  <p>
+    I have some personal history with exactly that failure mode. My own Security+ lapsed in 2018 and nothing in the system caught it for years, which I <a href="/security-plus-renewal.html">wrote about honestly</a> rather than quietly fixing. Under a clock tied to assignment with removal as the consequence, that gap is visible far sooner. This is an improvement, and I say that as someone it would have caught.
+  </p>
+
+  <h2>If you are writing the job posting</h2>
+  <p>
+    Three things are worth correcting, and none of them cost anything:
+  </p>
+  <ul>
+    <li><strong>Cite the current policy.</strong> A posting that says "DoD 8570 IAT Level II" tells a knowledgeable candidate that the requirement was copied from an old template. That is a small credibility leak in a market where the candidates you most want are the ones who notice.</li>
+    <li><strong>Name the work role, not just the certification.</strong> The framework is role-based now. Naming the role tells a candidate what the job actually is and lets them map their own qualification path to it.</li>
+    <li><strong>Stop screening on a single certification.</strong> If the policy accepts three foundational paths and your filter accepts one, you are rejecting qualified people for a requirement the government did not impose. In a market this tight for cleared talent, that is a self-inflicted wound.</li>
+  </ul>
+
+  <h2>If you are the candidate</h2>
+  <p>
+    The practical read is less dramatic than it sounds. Certifications remain the cleanest, most portable evidence, because they travel between employers and clear automated filters that were built during the 8570 era and never updated. A recruiter's applicant tracking system does not read DoD manuals.
+  </p>
+  <p>
+    So the honest advice is to hold the certification anyway, while knowing three things the average applicant does not:
+  </p>
+  <ul>
+    <li>You are not disqualified by the absence of one specific credential, and you can say so accurately, with the policy behind you.</li>
+    <li>Documented training and relevant education count against the foundational requirement, so the study you have already done may not be wasted.</li>
+    <li>Your supervised operational record is now part of the qualification model rather than a soft factor. If you have run the program, passed the inspections, and held the boundary, that is on-policy evidence, not just a talking point.</li>
+  </ul>
+  <p>
+    That last point is the one I would emphasize if you are transitioning. The framework moved toward what you actually did, and away from what you can produce a PDF for.
+  </p>
+
+  <h2>What I changed on this site</h2>
+  <p>
+    Writing this cost me a correction. My own certification tracker cited the "DoD 8570 Baseline" next to Security+, which is the exact error I am describing. I fixed it the same day. A current Information System Security Manager citing a framework retired three years ago is not a good look, and I would rather find it myself than have a hiring manager find it for me.
+  </p>
+  <p>
+    The one thing I would not do is treat the qualification matrix as settled. The certification-to-role mappings and proficiency tiers are maintained separately from the manual and are revised on their own schedule, and the authoritative view for a specific role sits behind DoD access. If you need the answer for a particular billet, confirm it through your command or DoD COOL rather than through any article, including this one.
+  </p>
+  <p>
+    If you are transitioning out of a cleared role and trying to work out which credentials actually matter for where you are going, that is a conversation worth having and I am happy to have it. Reach me at <a href="mailto:travis@buteranet.com">travis@buteranet.com</a>.
+  </p>
+  <p>
+    <strong>Travis D. Butera</strong>
+  </p>
+
+  <div class="related-posts">
+    <div class="related-posts-label">&#9679; Related Posts</div>
+    <div class="related-grid">
+      <a href="/security-plus-renewal.html" class="related-card" style="text-decoration:none;">
+        <div class="related-card-title">Why I Let My Security+ Expire, And What Renewing It Taught Me</div>
+        <span class="related-card-link">Read &rarr;</span>
+      </a>
+      <a href="/submarine-to-civilian-it.html" class="related-card" style="text-decoration:none;">
+        <div class="related-card-title">From Submarine Networks to Civilian IT: What Actually Transfers</div>
+        <span class="related-card-link">Read &rarr;</span>
+      </a>
+      <a href="/rmf-in-practice.html" class="related-card" style="text-decoration:none;">
+        <div class="related-card-title">RMF in Practice: What the Checklist Does Not Tell You</div>
+        <span class="related-card-link">Read &rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="author-box">
+    <div class="author-icon">TB</div>
+    <div>
+      <div class="author-name">Travis D. Butera</div>
+      <div class="author-bio">
+        U.S. Navy Senior Chief &amp; ISSM with 18+ years executing DoD cybersecurity, RMF/ATO lifecycles, and enterprise IT programs across seven operational submarines. NEC 741A (ISSM), NEC 742A (NSVT). Active TS/SCI. Available February 2028.<br><br>
+        <a href="mailto:travis@buteranet.com">travis@buteranet.com</a> &nbsp;&middot;&nbsp; <a href="/">buteranet.com</a>
+      </div>
+    </div>
+  </div>
+
+</article>
+
+<footer>&copy; Travis D. Butera &nbsp;&middot;&nbsp; <a href="/">buteranet.com</a></footer>
+
+</body>
+</html>

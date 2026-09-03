@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<!-- =====================================================================
+     STAGED, NOT PUBLISHED. Deliberately NOT linked from index.html and NOT
+     listed in sitemap.xml, so it is not part of the live site yet.
+     Dated 24 September 2026 to space it from the 3 September 8140 post.
+     TO PUBLISH: add the Insights card to index.html, add the sitemap entry,
+     and confirm the three date fields below still match the day you push:
+       datePublished / dateModified in the JSON-LD, and the visible
+       "September 24, 2026" in the article-meta block.
+     Client detail is deliberately absent. Nothing here identifies an
+     organization, a site, a person or a vendor.
+     ===================================================================== -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Building an IT Department From Nothing | Travis D. Butera</title>
+  <meta name="description" content="Not a broken IT department. None at all. A Navy ISSM on the one document that shows up every time, why it has to be split into three, and what the first ninety days should actually produce." />
+
+  <meta property="og:type"        content="article" />
+  <meta property="og:url"         content="https://buteranet.com/building-an-it-department.html" />
+  <meta property="og:title"       content="Building an IT Department From Nothing" />
+  <meta property="og:description" content="The single artifact that tells you an organization has no IT function, and the three documents that replace it." />
+  <meta property="og:image"       content="https://buteranet.com/og-preview.png" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <link rel="canonical"           href="https://buteranet.com/building-an-it-department.html" />
+  <meta name="author"             content="Travis D. Butera" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Building an IT Department From Nothing",
+    "description": "Not a broken IT department. None at all. A Navy ISSM on the one document that shows up every time, why it has to be split into three, and what the first ninety days should actually produce.",
+    "author": {
+      "@type": "Person",
+      "name": "Travis D. Butera",
+      "url": "https://buteranet.com"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Travis D. Butera",
+      "url": "https://buteranet.com"
+    },
+    "datePublished": "2026-09-24",
+    "dateModified": "2026-09-24",
+    "url": "https://buteranet.com/building-an-it-department.html",
+    "mainEntityOfPage": "https://buteranet.com/building-an-it-department.html",
+    "keywords": ["IT documentation", "IT department", "nonprofit IT", "asset register", "credential management", "IT operations manual", "managed IT Hawaii", "IT governance", "MSP field notes"]
+  }
+  </script>
+
+  <style>
+    :root {
+      --navy-darkest: #060e1a;
+      --navy-dark:    #0b1a2e;
+      --navy-mid:     #0f2544;
+      --navy-light:   #1a3560;
+      --gold:         #c9a84c;
+      --gold-light:   #e0c06a;
+      --white:        #ffffff;
+      --off-white:    #e8edf4;
+      --text-muted:   #8fa3c0;
+      --text-body:    #cdd6e3;
+      --border:       rgba(201,168,76,0.25);
+      --card-bg:      rgba(15,37,68,0.7);
+      --radius:       8px;
+      --transition:   0.25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: var(--navy-darkest);
+      color: var(--text-body);
+      line-height: 1.75;
+    }
+    a { color: var(--gold); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--gold-light); }
+
+    .site-header {
+      background: var(--navy-dark);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .site-header .logo { font-weight: 700; color: var(--white); font-size: 1.1rem; }
+    .site-header .logo span { color: var(--gold); }
+    .site-header nav a { color: var(--text-muted); font-size: 0.9rem; margin-left: 24px; }
+    .site-header nav a:hover { color: var(--gold); }
+
+    .article-hero {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-mid) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px 48px;
+      text-align: center;
+    }
+    .article-category {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .article-title {
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      max-width: 780px;
+      margin: 0 auto 20px;
+    }
+    .article-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .article-meta strong { color: var(--off-white); }
+
+    .article-container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 52px 24px 80px;
+    }
+    .article-container p {
+      margin-bottom: 1.4em;
+      font-size: 1.05rem;
+    }
+    .article-container h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      margin: 2.8em 0 0.8em;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-container h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 2em 0 0.6em;
+    }
+    .article-container strong { color: var(--white); }
+    .article-container ul {
+      margin: 0 0 1.4em 1.4em;
+      font-size: 1.05rem;
+    }
+    .article-container li { margin-bottom: 0.5em; }
+
+    .callout {
+      background: var(--navy-mid);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px;
+      margin: 2em 0;
+      font-size: 0.97rem;
+    }
+    .callout p { margin: 0; }
+
+    .level-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2em 0;
+      font-size: 0.9rem;
+    }
+    .level-table th {
+      background: var(--navy-light);
+      color: var(--gold);
+      font-weight: 700;
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 2px solid var(--border);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .level-table td {
+      padding: 11px 14px;
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      vertical-align: top;
+      color: var(--text-body);
+    }
+    .level-table tr:last-child td { border-bottom: none; }
+    .level-table tr:nth-child(even) td { background: rgba(15,37,68,0.4); }
+
+    .checklist-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin: 1em 0;
+    }
+    .checklist-card h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .checklist-card ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .checklist-card li {
+      padding: 5px 0 5px 22px;
+      position: relative;
+      font-size: 0.95rem;
+      color: var(--text-body);
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+    }
+    .checklist-card li:last-child { border-bottom: none; }
+    .checklist-card li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.8rem;
+      top: 7px;
+    }
+
+    .related-posts {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      margin-top: 52px;
+    }
+    .related-posts-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .related-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      transition: border-color var(--transition);
+    }
+    .related-card:hover { border-color: var(--gold); }
+    .related-card-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .related-card-link { font-size: 0.78rem; color: var(--gold); font-weight: 600; }
+
+    .author-box {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      margin-top: 52px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .author-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--navy-mid);
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.3rem;
+      color: var(--gold);
+      font-weight: 800;
+    }
+    .author-name { font-weight: 700; color: var(--white); font-size: 0.95rem; margin-bottom: 4px; }
+    .author-bio { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">Travis D. <span>Butera</span></div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/#blog">Insights</a>
+    <a href="/#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="article-hero">
+  <div class="article-category">&#9679; Field Notes &middot; IT Operations</div>
+  <h1 class="article-title">Building an IT Department From Nothing</h1>
+  <div class="article-meta">
+    <span><strong>Travis D. Butera</strong></span>
+    <span>September 24, 2026</span>
+    <span>6 min read</span>
+  </div>
+</div>
+
+<article class="article-container">
+  <p>
+    There is a specific kind of engagement that does not begin with a broken system. It begins with an organization that has real infrastructure, real dependencies, real money moving through software, and no IT function at all. Not an understaffed one. None.
+  </p>
+  <p>
+    I have walked into a version of this more than once now, and the surprising part is how consistent it is. The same artifact shows up every time, and it tells you almost everything before you look at a single switch.
+  </p>
+
+  <h2>The artifact</h2>
+  <p>
+    Somebody, usually a capable and conscientious person with another full-time job, has written an IT manual. It lives on a shared drive. It is often genuinely good work. And it is one document doing three incompatible jobs at once:
+  </p>
+  <ul>
+    <li>A policy and role handbook, which everybody should be able to read.</li>
+    <li>An asset and systems register with internal addresses, device models and site details, which only operations staff should read.</li>
+    <li>A credential list with WiFi passwords, service logins, remote-access details and the account that owns the domain, which should not be in a document at all.</li>
+  </ul>
+  <p>
+    Every problem that follows comes from that fusion. The document cannot be shared, because a third of it is secrets. So it is not shared, which means the policy half never reaches the people it governs. It cannot be safely handed to a vendor or a new hire. It goes stale, because updating it means opening the file that holds the passwords, which people avoid. And access control for the organization's entire credential set has quietly become "who has the link."
+  </p>
+  <div class="callout">
+    <p><strong>The single diagnostic.</strong> Ask to see the IT documentation. If what comes back is one file, and it contains a password, you have found the shape of the problem and you have not needed to look at the network yet. The document is not the failure. Fusing three audiences into one file is.</p>
+  </div>
+
+  <h2>The split</h2>
+  <p>
+    The first real deliverable is not a network diagram. It is separating that one file into three, because each piece has a different audience, a different update cadence and a different security posture.
+  </p>
+  <p>
+    <strong>An operations manual</strong> that is shareable by design, written in two tiers: what every staff member needs (how to get help, what the acceptable-use expectations are, who owns what decision) and what the operations tier needs (procedures, escalation paths, vendor contacts). It contains no secrets, so it can be distributed freely, which is the entire point. A document nobody is allowed to read governs nothing.
+  </p>
+  <p>
+    <strong>An asset and systems register</strong> marked internal. Devices, models, locations, addressing, licence counts, renewal dates, and which vendor or contract each system sits under. This is the document that answers "what do we have and what does it cost us," and it is the one that makes every later decision cheaper.
+  </p>
+  <p>
+    <strong>A credential register that is not a document.</strong> It goes in a password manager with per-person access and an audit trail. The operations manual points at the vault. It never quotes it. If you take one thing from this, take that: the moment credentials live in a file, revoking someone's access requires changing every password, and nobody will.
+  </p>
+
+  <h2>The second finding, which is always people</h2>
+  <p>
+    Somewhere in the environment there is a request form, a shared mailbox or a help address that routes to nobody. It was set up by someone who has since moved on, it still appears in the interface, and staff still use it. Requests go in and nothing comes out.
+  </p>
+  <p>
+    This is worth finding early because it is cheap to fix and it changes how people talk to you. A staff member who has been submitting tickets into a void for a year does not have an IT problem, they have a trust problem, and the first thing they need is evidence that the channel now reaches a person.
+  </p>
+
+  <h2>Count before you buy</h2>
+  <p>
+    The reflex, once someone is finally paying attention to IT, is to buy. There is usually a budget request already drafted, and it is usually a list of products with a total at the bottom and no line-item reasoning.
+  </p>
+  <p>
+    Do the boring pass first. List every recurring software and service charge, then look for the overlaps. Organizations that grew without an IT function accumulate them predictably: two products doing perimeter security, two remote-access tools, a forms product alongside the one already included in the productivity suite, a phone system running next to the conferencing platform that also does telephony, licences assigned to people who left.
+  </p>
+  <p>
+    You cannot responsibly recommend anything until you know what is already being paid for, and the honest answer is often that some of the new budget is already being spent on things nobody is using. That finding is worth more than any product recommendation, and it is the one that earns you the room to make the recommendation later.
+  </p>
+
+  <h2>What ninety days should produce</h2>
+  <p>
+    Not a rebuilt network. The measurable output is:
+  </p>
+  <ul>
+    <li>Three documents where there was one, each with a named owner and a review date.</li>
+    <li>Credentials out of files and into a vault, with per-person access.</li>
+    <li>Every request channel confirmed to reach a real person, or removed.</li>
+    <li>A complete list of recurring charges, with the overlaps flagged and nothing bought yet.</li>
+    <li>One decision that was previously undocumented now written down, so the next one has a precedent.</li>
+  </ul>
+  <p>
+    None of that requires new hardware and none of it is impressive to look at. It is also the difference between an organization that has IT and one that has a person who is good with computers, and the gap between those two is where the expensive failures live.
+  </p>
+
+  <h2>Why this is the work</h2>
+  <p>
+    I spent years as an Information System Security Manager where the documentation <em>was</em> the control. A system without a current authorization package is not a secure system that happens to be undocumented, it is an unaccredited system. That framing transfers directly, and it is why I start here rather than with equipment.
+  </p>
+  <p>
+    If your organization runs on systems nobody has written down, that is a solvable problem, and solving it costs time rather than money. Reach me at <a href="mailto:travis@buteranet.com">travis@buteranet.com</a>, or see how the managed practice works at <a href="https://msp.buteranet.com">msp.buteranet.com</a>.
+  </p>
+  <p>
+    <strong>Travis D. Butera</strong>
+  </p>
+
+  <div class="related-posts">
+    <div class="related-posts-label">&#9679; Related Posts</div>
+    <div class="related-grid">
+      <a href="/ap-dead-11-days.html" class="related-card" style="text-decoration:none;">
+        <div class="related-card-title">The Access Point That Was Dead for 11 Days (Nothing Was Broken)</div>
+        <span class="related-card-link">Read &rarr;</span>
+      </a>
+      <a href="/rmf-in-practice.html" class="related-card" style="text-decoration:none;">
+        <div class="related-card-title">RMF in Practice: What the Checklist Does Not Tell You</div>
+        <span class="related-card-link">Read &rarr;</span>
+      </a>
+      <a href="/dod-8140-not-8570.html" class="related-card" style="text-decoration:none;">
+        <div class="related-card-title">DoD 8570 Has Been Gone Since 2023. Most Job Postings Still Ask for It</div>
+        <span class="related-card-link">Read &rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="author-box">
+    <div class="author-icon">TB</div>
+    <div>
+      <div class="author-name">Travis D. Butera</div>
+      <div class="author-bio">
+        U.S. Navy Senior Chief &amp; ISSM with 18+ years executing DoD cybersecurity, RMF/ATO lifecycles, and enterprise IT programs across seven operational submarines. NEC 741A (ISSM), NEC 742A (NSVT). Active TS/SCI. Available February 2028.<br><br>
+        <a href="mailto:travis@buteranet.com">travis@buteranet.com</a> &nbsp;&middot;&nbsp; <a href="/">buteranet.com</a>
+      </div>
+    </div>
+  </div>
+
+</article>
+
+<footer>&copy; Travis D. Butera &nbsp;&middot;&nbsp; <a href="/">buteranet.com</a></footer>
+
+</body>
+</html>
