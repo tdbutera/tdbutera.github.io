@@ -30,7 +30,7 @@ Responsible for cybersecurity posture across seven operational fast-attack subma
 
 **Education:** B.S. Information Technology, Purdue Global — Summa Cum Laude, December 2025
 
-**Planned Retirement / Transition:** October 2027
+**Planned Retirement / Transition:** February 2028
 
 **Key Technical Skills & Experience:**
 - Full RMF / ATO lifecycle authority — eMASS, ACAS/Tenable, VRAM, STIG compliance, eMASS package management
