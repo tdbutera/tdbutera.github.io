@@ -1,0 +1,6 @@
+# Normalize all text to LF in the repository.
+# Added 2026-09-03 after 13 files drifted to CRLF in a working copy and
+# produced a 3,582-line whitespace diff that buried a 21-line content change.
+* text=auto eol=lf
+*.png binary
+*.pdf binary
