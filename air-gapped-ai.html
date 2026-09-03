@@ -299,7 +299,7 @@
 
 <div class="article-hero">
   <div class="article-category">&#9679; AI Security &middot; Data Governance</div>
-  <h1 class="article-title">Air-Gapped AI &mdash; Why Your Most Sensitive Data Should Never Touch a Cloud Model</h1>
+  <h1 class="article-title">Air-Gapped AI: Why Your Most Sensitive Data Should Never Touch a Cloud Model</h1>
   <div class="article-meta">
     <span><strong>Travis D. Butera</strong> &nbsp;&middot;&nbsp; ISSM, U.S. Navy Senior Chief</span>
     <span>June 2026</span>
@@ -310,18 +310,18 @@
 <article class="article-container">
 
   <p>
-    Every time someone pastes a contract, a counseling note, a patient summary, or a board memo into a public chatbot to &ldquo;clean it up,&rdquo; they are making a data-disclosure decision. Most of them do not know they are making it. The convenience is immediate and the cost is invisible &mdash; which is exactly the combination that produces bad security outcomes.
+    Every time someone pastes a contract, a counseling note, a patient summary, or a board memo into a public chatbot to &ldquo;clean it up,&rdquo; they are making a data-disclosure decision. Most of them do not know they are making it. The convenience is immediate and the cost is invisible, which is exactly the combination that produces bad security outcomes.
   </p>
   <p>
     I have spent 18 years in Department of Defense (DoD) environments where the first question about any system was never &ldquo;what can it do?&rdquo; It was &ldquo;where does the data go, and who else can reach it?&rdquo; That question does not stop being relevant because the system is now an artificial intelligence (AI) model instead of a file server. If anything, it matters more, because large language models are designed to ingest whatever you give them.
   </p>
   <p>
-    This post is about a specific architectural choice: running AI models on hardware you physically control, isolated from the public internet, instead of sending your data to a provider&rsquo;s cloud. I will cover what &ldquo;sending it to the cloud&rdquo; actually means, what classified-network discipline teaches about the alternative, who genuinely needs on-premises AI, and &mdash; because I am not selling a panacea &mdash; the honest tradeoffs.
+    This post is about a specific architectural choice: running AI models on hardware you physically control, isolated from the public internet, instead of sending your data to a provider&rsquo;s cloud. I will cover what &ldquo;sending it to the cloud&rdquo; actually means, what classified-network discipline teaches about the alternative, who genuinely needs on-premises AI, and, because I am not selling a panacea, the honest tradeoffs.
   </p>
 
   <h2>What &ldquo;Sending It to the Cloud&rdquo; Actually Means</h2>
   <p>
-    When you use a hosted AI service, your prompt and any documents you attach leave your device, transit the public internet, and are processed on infrastructure owned and operated by a third party. That is not a criticism &mdash; it is simply the architecture. The reasonable question is what happens to the data along that path and at rest on the other end.
+    When you use a hosted AI service, your prompt and any documents you attach leave your device, transit the public internet, and are processed on infrastructure owned and operated by a third party. That is not a criticism, it is simply the architecture. The reasonable question is what happens to the data along that path and at rest on the other end.
   </p>
   <p>
     The major providers have improved meaningfully here. Most now offer enterprise and business tiers that contractually exclude your inputs from model training and commit to defined retention windows. If you are on one of those tiers and you have read the data-processing addendum, you have done more diligence than most organizations. But three facts remain true regardless of the tier:
@@ -332,7 +332,7 @@
     <li><strong>Your data becomes reachable by processes you did not authorize:</strong> the provider&rsquo;s breach surface, a misconfiguration, a subpoena served on the provider, or a future change to terms of service that you accept by continuing to click &ldquo;send.&rdquo;</li>
   </ul>
   <p>
-    For a marketing team drafting blog posts, none of this matters and the cloud is the right answer. For a church processing congregant counseling records, a law firm handling privileged communications, or a contractor touching Controlled Unclassified Information (CUI), the calculus is different &mdash; because the cost of being wrong is not embarrassment, it is a breach of a duty they are legally or ethically bound to uphold.
+    For a marketing team drafting blog posts, none of this matters and the cloud is the right answer. For a church processing congregant counseling records, a law firm handling privileged communications, or a contractor touching Controlled Unclassified Information (CUI), the calculus is different, because the cost of being wrong is not embarrassment, it is a breach of a duty they are legally or ethically bound to uphold.
   </p>
 
   <h2>The Air-Gap Mindset</h2>
@@ -340,10 +340,10 @@
     In classified and high-assurance network environments, the controlling principle is data domain separation: information of a given sensitivity lives on infrastructure rated for that sensitivity, and it does not cross into a lower or external domain without a deliberate, documented, and controlled process. You do not trust that data will stay where it belongs because someone promised. You design the system so that the data <em>cannot</em> leave without a person making an explicit decision.
   </p>
   <p>
-    An air gap is the strongest form of that principle: the sensitive system has no network path to the outside world at all. There is no remote attacker, no exfiltration channel, and no third-party retention question, because there is no wire. That is a heavy control, and in the DoD it is reserved for data that warrants it. The relevant insight for the civilian world is not &ldquo;air-gap everything&rdquo; &mdash; it is the underlying discipline: <strong>decide deliberately where your most sensitive data is allowed to live, and build the system so it stays there.</strong>
+    An air gap is the strongest form of that principle: the sensitive system has no network path to the outside world at all. There is no remote attacker, no exfiltration channel, and no third-party retention question, because there is no wire. That is a heavy control, and in the DoD it is reserved for data that warrants it. The relevant insight for the civilian world is not &ldquo;air-gap everything&rdquo;, it is the underlying discipline: <strong>decide deliberately where your most sensitive data is allowed to live, and build the system so it stays there.</strong>
   </p>
   <p>
-    Applied to AI, that discipline produces a clear architecture. Run the model on a machine in your building. Load it with your organization&rsquo;s own documents. Let your staff query it. And give that machine no path to the public internet for the data itself. The model still answers questions, summarizes, and drafts &mdash; it simply does so without your data ever transiting infrastructure you do not own.
+    Applied to AI, that discipline produces a clear architecture. Run the model on a machine in your building. Load it with your organization&rsquo;s own documents. Let your staff query it. And give that machine no path to the public internet for the data itself. The model still answers questions, summarizes, and drafts, it simply does so without your data ever transiting infrastructure you do not own.
   </p>
 
   <div class="callout">
@@ -352,7 +352,7 @@
 
   <h2>Cloud AI vs. Private, On-Premises AI</h2>
   <p>
-    Here is the honest comparison across the dimensions that actually matter for a small organization handling sensitive information. Neither column is &ldquo;better&rdquo; in the abstract &mdash; the right choice depends entirely on the sensitivity of what you are processing.
+    Here is the honest comparison across the dimensions that actually matter for a small organization handling sensitive information. Neither column is &ldquo;better&rdquo; in the abstract, the right choice depends entirely on the sensitivity of what you are processing.
   </p>
 
   <table class="level-table">
@@ -377,7 +377,7 @@
       <tr>
         <td>Training-data exposure</td>
         <td>Excluded only on enterprise tiers you must verify</td>
-        <td>Structurally impossible &mdash; data never leaves</td>
+        <td>Structurally impossible, data never leaves</td>
       </tr>
       <tr>
         <td>External breach surface</td>
@@ -387,29 +387,29 @@
       <tr>
         <td>Compliance boundary</td>
         <td>Expands to include the provider and its subprocessors</td>
-        <td>Stays inside your own walls &mdash; smaller, defensible</td>
+        <td>Stays inside your own walls, smaller, defensible</td>
       </tr>
       <tr>
         <td>Model quality ceiling</td>
-        <td>Highest &mdash; frontier models, always current</td>
+        <td>Highest, frontier models, always current</td>
         <td>Strong and improving, but below the frontier</td>
       </tr>
       <tr>
         <td>Cost model</td>
         <td>Per-use / per-seat, scales with usage</td>
-        <td>Up-front hardware, flat ongoing &mdash; usage is free</td>
+        <td>Up-front hardware, flat ongoing, usage is free</td>
       </tr>
       <tr>
         <td>Internet outage</td>
         <td>Service unavailable</td>
-        <td>Keeps working &mdash; it never needed the internet</td>
+        <td>Keeps working, it never needed the internet</td>
       </tr>
     </tbody>
   </table>
 
   <h2>Who Actually Needs This</h2>
   <p>
-    On-premises AI is not for everyone, and pretending otherwise is how the security industry loses credibility. It is the right answer for organizations whose routine work involves information they have a legal, ethical, or fiduciary duty to protect &mdash; and who would struggle to defend a cloud-disclosure decision if they ever had to.
+    On-premises AI is not for everyone, and pretending otherwise is how the security industry loses credibility. It is the right answer for organizations whose routine work involves information they have a legal, ethical, or fiduciary duty to protect, and who would struggle to defend a cloud-disclosure decision if they ever had to.
   </p>
 
   <h3>Churches and ministries</h3>
@@ -419,7 +419,7 @@
 
   <h3>Professional-services firms with a duty of confidentiality</h3>
   <p>
-    Law firms have privilege. Accounting and financial-advisory firms have client-confidentiality obligations and regulatory exposure. Medical and counseling practices have the Health Insurance Portability and Accountability Act (HIPAA). For these organizations, the cloud-disclosure decision is not theirs to make casually &mdash; it is a duty they owe to someone else, and an on-premises boundary is the cleanest way to honor it while still adopting AI.
+    Law firms have privilege. Accounting and financial-advisory firms have client-confidentiality obligations and regulatory exposure. Medical and counseling practices have the Health Insurance Portability and Accountability Act (HIPAA). For these organizations, the cloud-disclosure decision is not theirs to make casually, it is a duty they owe to someone else, and an on-premises boundary is the cleanest way to honor it while still adopting AI.
   </p>
 
   <h3>Defense contractors and CUI handlers</h3>
@@ -435,8 +435,8 @@
   <div class="checklist-card">
     <h4>What you give up</h4>
     <ul>
-      <li><strong>Model ceiling.</strong> A model you run on a single on-premises box will not match the largest frontier cloud models on the hardest reasoning tasks. For document search, summarization, drafting, and question-answering over your own content &mdash; the actual work most organizations need &mdash; a well-chosen local model is more than capable. For frontier-level reasoning, it is not.</li>
-      <li><strong>Up-front cost.</strong> You are buying hardware instead of renting compute. The tradeoff is that ongoing usage is effectively free &mdash; no per-query or per-seat metering &mdash; so heavy users reach break-even and keep going.</li>
+      <li><strong>Model ceiling.</strong> A model you run on a single on-premises box will not match the largest frontier cloud models on the hardest reasoning tasks. For document search, summarization, drafting, and question-answering over your own content, the actual work most organizations need, a well-chosen local model is more than capable. For frontier-level reasoning, it is not.</li>
+      <li><strong>Up-front cost.</strong> You are buying hardware instead of renting compute. The tradeoff is that ongoing usage is effectively free, no per-query or per-seat metering, so heavy users reach break-even and keep going.</li>
       <li><strong>Maintenance.</strong> A box in your building is a box someone has to patch, back up, and occasionally update. This is solvable with managed service or a shipped update process, but it is real work that the cloud abstracts away.</li>
     </ul>
   </div>
@@ -447,23 +447,23 @@
 
   <h2>What I Built</h2>
   <p>
-    This is not a theoretical position for me. I run a production AI orchestrator on my own home infrastructure &mdash; I wrote about auditing it against the same Risk Management Framework (RMF) controls I enforce professionally &mdash; and that work became <strong>ButeraNet Intelligence</strong>: a private, offline AI appliance built specifically for small organizations that need to use AI without surrendering custody of their data. It runs in the client&rsquo;s building, loaded with the client&rsquo;s own documents, with no path for that data to leave. Each deployment is the organization&rsquo;s own &mdash; isolated, private, and not shaped by an outside provider&rsquo;s view of what their data is for.
+    This is not a theoretical position for me. I run a production AI orchestrator on my own home infrastructure, I wrote about auditing it against the same Risk Management Framework (RMF) controls I enforce professionally, and that work became <strong>ButeraNet Intelligence</strong>: a private, offline AI appliance built specifically for small organizations that need to use AI without surrendering custody of their data. It runs in the client&rsquo;s building, loaded with the client&rsquo;s own documents, with no path for that data to leave. Each deployment is the organization&rsquo;s own, isolated, private, and not shaped by an outside provider&rsquo;s view of what their data is for.
   </p>
   <p>
-    The architecture is not novel and that is the point. It is the same principle I have applied to sensitive systems for 18 years, pointed at a new class of tool. Decide where your data is allowed to live. Build the system so it stays there. Then use AI like everyone else &mdash; just without giving your most sensitive information to someone you will never meet.
+    The architecture is not novel and that is the point. It is the same principle I have applied to sensitive systems for 18 years, pointed at a new class of tool. Decide where your data is allowed to live. Build the system so it stays there. Then use AI like everyone else, just without giving your most sensitive information to someone you will never meet.
   </p>
   <p>
-    If you run an organization that handles information you are responsible for protecting and you are trying to figure out where AI fits without creating a disclosure problem, I am happy to talk it through &mdash; not a sales pitch, just a straight answer. Reach me at <a href="mailto:travis@buteranet.com">travis@buteranet.com</a>.
+    If you run an organization that handles information you are responsible for protecting and you are trying to figure out where AI fits without creating a disclosure problem, I am happy to talk it through, not a sales pitch, just a straight answer. Reach me at <a href="mailto:travis@buteranet.com">travis@buteranet.com</a>.
   </p>
   <p>
-    &mdash; <strong>Travis D. Butera</strong>
+    <strong>Travis D. Butera</strong>
   </p>
 
   <div class="related-posts">
     <div class="related-posts-label">&#9679; Related Posts</div>
     <div class="related-grid">
       <a href="/issm-test-building-system-i-audit.html" class="related-card" style="text-decoration:none;">
-        <div class="related-card-title">The ISSM Test &mdash; Building a System I Would Have to Audit</div>
+        <div class="related-card-title">The ISSM Test: Building a System I Would Have to Audit</div>
         <span class="related-card-link">Read &rarr;</span>
       </a>
       <a href="/cmmc-2-small-contractors.html" class="related-card" style="text-decoration:none;">
@@ -471,7 +471,7 @@
         <span class="related-card-link">Read &rarr;</span>
       </a>
       <a href="/canes-enterprise-architecture.html" class="related-card" style="text-decoration:none;">
-        <div class="related-card-title">What CANES Actually Is &mdash; And What Running It Taught Me About Enterprise Architecture</div>
+        <div class="related-card-title">What CANES Actually Is, And What Running It Taught Me About Enterprise Architecture</div>
         <span class="related-card-link">Read &rarr;</span>
       </a>
     </div>

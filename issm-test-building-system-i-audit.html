@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <title>The ISSM Test &mdash; Building a System I Would Have to Audit | Travis D. Butera</title>
-  <meta name="description" content="After 18+ years auditing other people's security posture, I built a production system and ran my own assessment. What I found — and what every contractor gets wrong about Least Privilege." />
+  <title>The ISSM Test: Building a System I Would Have to Audit | Travis D. Butera</title>
+  <meta name="description" content="After 18+ years auditing other people's security posture, I built a production system and ran my own assessment. What I found, and what every contractor gets wrong about Least Privilege." />
 
   <!-- SEO / OG -->
   <meta property="og:type"        content="article" />
   <meta property="og:url"         content="https://buteranet.com/issm-test-building-system-i-audit.html" />
-  <meta property="og:title"       content="The ISSM Test &mdash; Building a System I Would Have to Audit" />
+  <meta property="og:title"       content="The ISSM Test: Building a System I Would Have to Audit" />
   <meta property="og:description" content="After 18+ years auditing security posture, I built a production system and ran my own assessment. Here is what I found." />
   <meta property="og:image"       content="https://buteranet.com/og-preview.png" />
   <meta name="twitter:card"       content="summary_large_image" />
@@ -21,8 +21,8 @@
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "The ISSM Test — Building a System I Would Have to Audit",
-    "description": "After 18+ years auditing other people's security posture, I built a production system and ran my own assessment. What I found — and what every contractor gets wrong about Least Privilege.",
+    "headline": "The ISSM Test: Building a System I Would Have to Audit",
+    "description": "After 18+ years auditing other people's security posture, I built a production system and ran my own assessment. What I found, and what every contractor gets wrong about Least Privilege.",
     "author": {
       "@type": "Person",
       "name": "Travis D. Butera",
@@ -214,7 +214,7 @@
 <!-- HERO -->
 <header class="post-hero">
   <div class="post-label">&#9679; Technical Depth</div>
-  <h1 class="post-title">The ISSM Test &mdash; Building a System I Would Have to Audit</h1>
+  <h1 class="post-title">The ISSM Test: Building a System I Would Have to Audit</h1>
   <div class="post-meta">
     <span><strong>Travis D. Butera</strong> &nbsp;&middot;&nbsp; ISSM, U.S. Navy Senior Chief</span>
     <span class="post-tag">Security Engineering</span>
@@ -230,7 +230,7 @@
     For 18+ years, I have walked into other people&rsquo;s systems and told them what was wrong. I have found Plan of Action and Milestones (POA&amp;M) entries that had not been touched in two years. I have found Assured Compliance Assessment Solution (ACAS) scans run on schedule but never read. I have found Key Management Infrastructure (KMI) programs that looked compliant on paper and were indefensible in person.
   </p>
   <p>
-    Last year, I became the engineer. I built Combat Information Center (CIC) &mdash; a production artificial intelligence (AI) orchestrator that runs my home infrastructure. And because I cannot turn off 18 years of Information System Security Manager (ISSM) instinct, I did something most personal project developers never do: <strong>I ran an honest assessment of my own work against the same standard I apply to operational systems.</strong>
+    Last year, I became the engineer. I built Combat Information Center (CIC), a production artificial intelligence (AI) orchestrator that runs my home infrastructure. And because I cannot turn off 18 years of Information System Security Manager (ISSM) instinct, I did something most personal project developers never do: <strong>I ran an honest assessment of my own work against the same standard I apply to operational systems.</strong>
   </p>
   <p>
     Here is what I found.
@@ -241,15 +241,15 @@
     CIC is not a hobby script. It is a production system: 10 containerized services managed via docker-compose and systemd, running on a Hyper-V virtual machine on bare metal, with a FastAPI backend, PostgreSQL 16 database, and live integrations to Cloudflare and OPNsense firewall application programming interfaces (APIs). The primary function is an AI chat interface powered by Anthropic Claude tool-use that can interrogate and control my home network in natural language.
   </p>
   <p>
-    The repository is public at <a href="https://github.com/tdbutera/cic" target="_blank" rel="noopener">github.com/tdbutera/cic</a>. Every commit, every pull request, every CI/CD gate is visible. That transparency was intentional &mdash; I wanted a system I could not hide behind.
+    The repository is public at <a href="https://github.com/tdbutera/cic" target="_blank" rel="noopener">github.com/tdbutera/cic</a>. Every commit, every pull request, every CI/CD gate is visible. That transparency was intentional, I wanted a system I could not hide behind.
   </p>
 
-  <h2>Control 1: AC-6 &mdash; Least Privilege</h2>
+  <h2>Control 1: AC-6, Least Privilege</h2>
   <p>
     Risk Management Framework (RMF) control AC-6 requires that users and processes receive only the permissions necessary to perform their function. In operational environments, I have seen this violated constantly: service accounts with domain admin, technicians with root on every box, audit users who can write to the audit log.
   </p>
   <p>
-    When I built CIC&rsquo;s Cloudflare integration, my first instinct was to generate an API token with full account access &mdash; easy, convenient, and exactly what I would flag in an assessment. Instead I stopped, went back to the Cloudflare dashboard, and created a scoped token with exactly two permissions: <span class="code-inline">Zone:DNS:Edit</span> for a single zone and <span class="code-inline">Zone:Cache:Purge</span>. Nothing else. The OPNsense integration gets a dedicated user account with only the API privileges that service actually needs.
+    When I built CIC&rsquo;s Cloudflare integration, my first instinct was to generate an API token with full account access, easy, convenient, and exactly what I would flag in an assessment. Instead I stopped, went back to the Cloudflare dashboard, and created a scoped token with exactly two permissions: <span class="code-inline">Zone:DNS:Edit</span> for a single zone and <span class="code-inline">Zone:Cache:Purge</span>. Nothing else. The OPNsense integration gets a dedicated user account with only the API privileges that service actually needs.
   </p>
   <p>
     The uncomfortable truth: scoping permissions properly took three times longer than using broad credentials. That is why commands do not do it. It requires discipline that only shows up when someone is checking.
@@ -259,7 +259,7 @@
     <p><strong>The civilian hiring objection I hear most often is: &ldquo;Can military IT people actually do the work, or just manage it?&rdquo; The answer is in the commit history.</strong></p>
   </div>
 
-  <h2>Control 2: Continuous Monitoring &mdash; The CI/CD Pipeline as ConMon</h2>
+  <h2>Control 2: Continuous Monitoring, The CI/CD Pipeline as ConMon</h2>
   <p>
     In the Risk Management Framework (RMF), continuous monitoring (ConMon) is the ongoing process of verifying that your security posture matches your documentation. In practice, it means running scans, reviewing findings, and having humans accountable for what the system reports.
   </p>
@@ -267,21 +267,21 @@
     The CIC Continuous Integration/Continuous Deployment (CI/CD) pipeline enforces something structurally similar. Nine parallel quality gates run on every pull request: static analysis, strict type checking with <span class="code-inline">mypy --strict</span>, unit tests, dependency vulnerability scanning, secrets scanning, container linting, and more. No merge occurs without 100 percent pass rate.
   </p>
   <p>
-    The analogy is not perfect &mdash; a CI/CD pipeline is not a security accreditation. But the discipline is identical: <strong>automation that makes it harder to merge insecure code than to fix it.</strong> That is exactly what a mature ConMon program is supposed to accomplish. Running the scan is not the mission. Acting on what it finds is the mission.
+    The analogy is not perfect, a CI/CD pipeline is not a security accreditation. But the discipline is identical: <strong>automation that makes it harder to merge insecure code than to fix it.</strong> That is exactly what a mature ConMon program is supposed to accomplish. Running the scan is not the mission. Acting on what it finds is the mission.
   </p>
 
-  <h2>Control 3: Data Classification &mdash; The Privacy Routing Layer</h2>
+  <h2>Control 3: Data Classification, The Privacy Routing Layer</h2>
   <p>
-    One of the harder problems in classified environments is data boundary enforcement: ensuring that information does not leave its authorized boundary. I have seen this failure in the wild &mdash; personnel who sent Controlled Unclassified Information (CUI) through personal email because it was faster, or who used a public AI chatbot to summarize a sensitive document because the approved tool was slow.
+    One of the harder problems in classified environments is data boundary enforcement: ensuring that information does not leave its authorized boundary. I have seen this failure in the wild, personnel who sent Controlled Unclassified Information (CUI) through personal email because it was faster, or who used a public AI chatbot to summarize a sensitive document because the approved tool was slow.
   </p>
   <p>
     CIC has this problem too. My home network contains information I do not want traversing Anthropic&rsquo;s API: network topology, device inventory, firewall rules, credentials. When a user query requires that context, I do not send it to Claude. The routing layer intercepts the query, identifies the data classification tier, and processes privacy-sensitive requests entirely locally using a smaller model with no external API call.
   </p>
   <p>
-    In Sensitive Compartmented Information Facility (SCIF) environments and Department of Defense (DoD) cloud enclaves, commercial AI APIs are prohibited for exactly this reason. The architecture I built at home is directly applicable to those environments &mdash; not because I planned it that way, but because the threat model is structurally the same.
+    In Sensitive Compartmented Information Facility (SCIF) environments and Department of Defense (DoD) cloud enclaves, commercial AI APIs are prohibited for exactly this reason. The architecture I built at home is directly applicable to those environments, not because I planned it that way, but because the threat model is structurally the same.
   </p>
 
-  <h2>Control 4: Audit Trail &mdash; What I Did Not Do Well</h2>
+  <h2>Control 4: Audit Trail, What I Did Not Do Well</h2>
   <p>
     Here is where the honest ISSM assessment diverges from the confident builder narrative.
   </p>
@@ -304,7 +304,7 @@
     First, <strong>security discipline is a habit, not a compliance event.</strong> The developers I assess who do security well are not following a checklist during a pre-assessment sprint. They built the habit into their workflow. Scoped tokens every time. Secrets in environment files every time. Pull requests with gates, every time. It costs nothing once it is the default.
   </p>
   <p>
-    Second, <strong>the gap between &ldquo;compliant&rdquo; and &ldquo;secure&rdquo; is visible from the inside.</strong> CIC would probably pass a surface-level assessment. The audit logging gap is real but not immediately apparent. The only reason I know about it is because I looked for it. That is what ISSMs are supposed to do &mdash; not just verify that boxes are checked, but understand the system well enough to know what the boxes are actually measuring.
+    Second, <strong>the gap between &ldquo;compliant&rdquo; and &ldquo;secure&rdquo; is visible from the inside.</strong> CIC would probably pass a surface-level assessment. The audit logging gap is real but not immediately apparent. The only reason I know about it is because I looked for it. That is what ISSMs are supposed to do, not just verify that boxes are checked, but understand the system well enough to know what the boxes are actually measuring.
   </p>
   <p>
     Third, <strong>the skills transfer.</strong> The same threat modeling, the same control mapping, the same honest assessment process that I apply to operational submarine networks is directly applicable to commercial infrastructure. The context changes. The discipline does not.
@@ -313,7 +313,7 @@
     The repository is at <a href="https://github.com/tdbutera/cic" target="_blank" rel="noopener">github.com/tdbutera/cic</a>. The commit history is the evidence.
   </p>
   <p>
-    &mdash; <strong>Travis D. Butera</strong>
+    <strong>Travis D. Butera</strong>
   </p>
 
   <!-- Related Posts -->
@@ -321,7 +321,7 @@
     <div class="related-posts-label">&#9679; Related Posts</div>
     <div class="related-grid">
       <a href="/rmf-in-practice.html" class="related-card" style="text-decoration:none;">
-        <div class="related-card-title">RMF in Practice &mdash; What the Checklist Does Not Tell You</div>
+        <div class="related-card-title">RMF in Practice: What the Checklist Does Not Tell You</div>
         <span class="related-card-link">Read &rarr;</span>
       </a>
       <a href="/dod-cyber-inspections.html" class="related-card" style="text-decoration:none;">
@@ -329,11 +329,11 @@
         <span class="related-card-link">Read &rarr;</span>
       </a>
       <a href="/submarine-to-civilian-it.html" class="related-card" style="text-decoration:none;">
-        <div class="related-card-title">From Submarine Networks to Civilian IT &mdash; What Actually Transfers</div>
+        <div class="related-card-title">From Submarine Networks to Civilian IT: What Actually Transfers</div>
         <span class="related-card-link">Read &rarr;</span>
       </a>
       <a href="/security-plus-renewal.html" class="related-card" style="text-decoration:none;">
-        <div class="related-card-title">Why I Let My Security+ Expire &mdash; And What Renewing It Taught Me</div>
+        <div class="related-card-title">Why I Let My Security+ Expire, And What Renewing It Taught Me</div>
         <span class="related-card-link">Read &rarr;</span>
       </a>
     </div>
@@ -345,7 +345,7 @@
     <div>
       <div class="author-name">Travis D. Butera</div>
       <div class="author-bio">
-        U.S. Navy Senior Chief &amp; ISSM with 18+ years executing Department of Defense (DoD) cybersecurity, RMF/ATO lifecycles, and enterprise IT programs across seven operational submarines. Builder of CIC &mdash; production AI infrastructure at <a href="https://github.com/tdbutera/cic" target="_blank" rel="noopener">github.com/tdbutera/cic</a>. Navy Enlisted Classification (NEC) 741A (ISSM), NEC 742A (NSVT). Active TS/SCI. Available February 2028.<br><br>
+        U.S. Navy Senior Chief &amp; ISSM with 18+ years executing Department of Defense (DoD) cybersecurity, RMF/ATO lifecycles, and enterprise IT programs across seven operational submarines. Builder of CIC, production AI infrastructure at <a href="https://github.com/tdbutera/cic" target="_blank" rel="noopener">github.com/tdbutera/cic</a>. Navy Enlisted Classification (NEC) 741A (ISSM), NEC 742A (NSVT). Active TS/SCI. Available February 2028.<br><br>
         <a href="mailto:travis@buteranet.com">travis@buteranet.com</a> &nbsp;&middot;&nbsp; <a href="/">buteranet.com</a>
       </div>
     </div>

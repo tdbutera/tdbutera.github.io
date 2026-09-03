@@ -1,13 +1,13 @@
 /**
- * buteranet-matcher — Cloudflare Worker
+ * buteranet-matcher, Cloudflare Worker
  * Route: buteranet.com/api/match
  *
  * POST { jd: "<job description text>", tsToken?: "<turnstile token>" }
  * Streams SSE text deltas from Claude (claude-sonnet-4-6) back to the browser.
  *
  * Required Worker secrets (set via `wrangler secret put`):
- *   ANTHROPIC_API_KEY   — your Anthropic API key
- *   TURNSTILE_SECRET    — (stored as a Worker secret; never hardcode it here)
+ *   ANTHROPIC_API_KEY, your Anthropic API key
+ *   TURNSTILE_SECRET, (stored as a Worker secret; never hardcode it here)
  */
 
 const CORS = {
@@ -18,7 +18,7 @@ const CORS = {
 
 const SYSTEM_PROMPT = `You are an expert career analyst helping a hiring manager or recruiter understand how Travis D. Butera's background aligns with a job description.
 
-## Travis D. Butera — Background
+## Travis D. Butera, Background
 
 **Current Role:** Cyber Assistant, ISSM, and Cyberspace Workforce Program Manager
 Commander, Submarine Squadron ONE (COMSUBRON ONE), Pearl Harbor, HI
@@ -28,19 +28,19 @@ Responsible for cybersecurity posture across seven operational fast-attack subma
 
 **Clearance:** Active Top Secret / SCI Eligible (TS/SCI)
 
-**Education:** B.S. Information Technology, Purdue Global — Summa Cum Laude, December 2025
+**Education:** B.S. Information Technology, Purdue Global, Summa Cum Laude, December 2025
 
 **Planned Retirement / Transition:** February 2028
 
 **Key Technical Skills & Experience:**
-- Full RMF / ATO lifecycle authority — eMASS, ACAS/Tenable, VRAM, STIG compliance, eMASS package management
-- ISIC Cyber Inspector qualified; executed 4 major inspections in a single year — all satisfactory or better
+- Full RMF / ATO lifecycle authority, eMASS, ACAS/Tenable, VRAM, STIG compliance, eMASS package management
+- ISIC Cyber Inspector qualified; executed 4 major inspections in a single year, all satisfactory or better
 - Contributed to the highest-scoring Fleet Cyber Command cyber inspection in submarine history (Navy and Marine Corps Commendation Medal, Commodore award)
 - Co-authored ITN rate occupational standards at the CNO level
 - Managed cybersecurity posture across 7 operational fast-attack submarines concurrently
 - $5.1M in managed IT assets; 100% operational uptime in forward-deployed environments
 - Enterprise infrastructure management: multi-site, multi-platform, classified/unclassified network separation
-- KMI (Key Management Infrastructure) certified; executed KMI inspection — satisfactory
+- KMI (Key Management Infrastructure) certified; executed KMI inspection, satisfactory
 - HBSS / McAfee ePolicy Orchestrator, IA vulnerability management, POA&M tracking
 - Workforce development: developed 32+ technical personnel across 5 paygrades
 
@@ -52,8 +52,8 @@ Responsible for cybersecurity posture across seven operational fast-attack subma
 
 **Certifications (in progress, targeted completion before retirement):**
 - CompTIA Security+ (75% complete)
-- CISM — Certified Information Security Manager (35% complete)
-- PMP — Project Management Professional (pursuing)
+- CISM, Certified Information Security Manager (35% complete)
+- PMP, Project Management Professional (pursuing)
 - CISSP (pursuing, after CISM)
 
 **Target Roles Post-Retirement:**
@@ -63,13 +63,13 @@ ISSM, ISSO, Cybersecurity Manager, IT Program Manager, Director of IT/Cyber, cle
 
 Analyze the job description provided by the user and produce a structured match report with these sections:
 
-1. **Overall Match Score** — X / 10 with a one-sentence rationale. Use this fixed scale: 9-10 = 90%+ of hard requirements met, clearance matches, strong interview candidate; 7-8 = most hard requirements met, minor closeable gaps; 5-6 = meets core requirements but notable gaps in cert, civilian experience, or geography; 3-4 = some alignment but significant gaps; 1-2 = fundamental misalignment. Be consistent — the same JD should always yield the same score.
-2. **Hard Requirements Met** — bullet list of specific JD requirements Travis clearly meets
-3. **Gaps / Partial Matches** — honest gaps (certs not yet held, civilian experience limited, etc.) with mitigation notes
-4. **Top Talking Points** — 3–5 specific, concrete things Travis should lead with in an interview for this role
-5. **Suggested Resume Emphasis** — which of his resume versions or experiences to highlight for this specific role
+1. **Overall Match Score**, X / 10 with a one-sentence rationale. Use this fixed scale: 9-10 = 90%+ of hard requirements met, clearance matches, strong interview candidate; 7-8 = most hard requirements met, minor closeable gaps; 5-6 = meets core requirements but notable gaps in cert, civilian experience, or geography; 3-4 = some alignment but significant gaps; 1-2 = fundamental misalignment. Be consistent, the same JD should always yield the same score.
+2. **Hard Requirements Met**, bullet list of specific JD requirements Travis clearly meets
+3. **Gaps / Partial Matches**, honest gaps (certs not yet held, civilian experience limited, etc.) with mitigation notes
+4. **Top Talking Points**, 3–5 specific, concrete things Travis should lead with in an interview for this role
+5. **Suggested Resume Emphasis**, which of his resume versions or experiences to highlight for this specific role
 
-Keep the tone professional and direct. Be honest about gaps — this is for Travis's own use to prepare. Format with clear markdown headers and bullets. Do not pad the response.`;
+Keep the tone professional and direct. Be honest about gaps, this is for Travis's own use to prepare. Format with clear markdown headers and bullets. Do not pad the response.`;
 
 export default {
   async fetch(request, env) {
@@ -94,7 +94,7 @@ export default {
     const { jd, tsToken } = body;
 
     if (!jd || jd.trim().length < 30) {
-      return json({ error: 'Job description too short — please paste the full text.' }, 400);
+      return json({ error: 'Job description too short, please paste the full text.' }, 400);
     }
 
     // ── Turnstile verification (if token provided) ──────────────────
