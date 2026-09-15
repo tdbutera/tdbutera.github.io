@@ -1,16 +1,24 @@
-# Cloudflare Workers static assets: nothing is excluded by default, so every path
-# listed here would otherwise be published at https://buteranet.com/<path>.
-# Verified against developers.cloudflare.com/workers/static-assets/binding/ 2026-09-15.
+# Cloudflare Workers static assets publish EVERYTHING under assets.directory (".")
+# unless listed here. Nothing is excluded by default.
+# Verified: developers.cloudflare.com/workers/static-assets/binding/ 2026-09-15.
 
-# Version control. /.git/config, /.git/HEAD, /.git/index and /.git/logs/HEAD were
-# all returning 200 before this file existed.
+# Blanket rule first. Tooling creates new dot-directories at deploy time, so
+# enumerating them one by one loses the race. .wrangler/ was created BY the
+# 2026-09-15 deploy and published the Cloudflare account id before this line existed.
+.*
+.*/**
+
+# Re-include the one dot-path a site legitimately serves
+!.well-known
+!.well-known/**
+
+# Named explicitly as well, so the intent survives an edit to the blanket rule
 .git
 .git/**
 .git_stale_*
 .git_stale_*/**
-.gitignore
-.gitattributes
-.assetsignore
+.wrangler
+.wrangler/**
 
 # Worker source and deploy config, not client-side assets
 wrangler.jsonc
@@ -22,7 +30,7 @@ node_modules/**
 package.json
 package-lock.json
 
-# Pre-patch backups. Never publish superseded copies of live pages.
+# Superseded copies of live pages are never published
 _ReviewForDelete
 _ReviewForDelete/**
 *.bak
