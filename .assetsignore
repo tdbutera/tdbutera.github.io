@@ -1,0 +1,28 @@
+# Cloudflare Workers static assets: nothing is excluded by default, so every path
+# listed here would otherwise be published at https://buteranet.com/<path>.
+# Verified against developers.cloudflare.com/workers/static-assets/binding/ 2026-09-15.
+
+# Version control. /.git/config, /.git/HEAD, /.git/index and /.git/logs/HEAD were
+# all returning 200 before this file existed.
+.git
+.git/**
+.git_stale_*
+.git_stale_*/**
+.gitignore
+.gitattributes
+.assetsignore
+
+# Worker source and deploy config, not client-side assets
+wrangler.jsonc
+wrangler.toml
+workers
+workers/**
+node_modules
+node_modules/**
+package.json
+package-lock.json
+
+# Pre-patch backups. Never publish superseded copies of live pages.
+_ReviewForDelete
+_ReviewForDelete/**
+*.bak

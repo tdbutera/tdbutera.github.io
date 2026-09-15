@@ -1188,7 +1188,6 @@
 
       /* Banner cards stack on small screens, so let the hero size to content. */
       #hero { min-height: auto; padding: 32px 0 56px; }
-      .bn-banner-cards { flex-direction: column; }
     }
 
     @media (max-width: 480px) {
@@ -1384,12 +1383,6 @@
       font-size: 0.78rem;
     }
 
-    /* Business banner (service lines) */
-    .bn-card { transition: background .18s ease, border-color .18s ease, transform .18s ease; }
-    .bn-card:hover { transform: translateY(-2px); }
-    .bn-card-msp:hover { background: rgba(46,117,182,0.26) !important; border-color: rgba(46,117,182,0.85) !important; }
-    .bn-card-int:hover { background: rgba(21,128,61,0.26) !important; border-color: rgba(21,128,61,0.85) !important; }
-    .bn-card:focus-visible { outline: 2px solid var(--gold, #c9a84c); outline-offset: 3px; }
 
     /* ===== PHASE 3: AI RESUME MATCHER ===== */
     #ai-matcher { background: var(--navy-dark); }
@@ -1533,7 +1526,6 @@
   <div class="nav-inner">
     <div class="nav-logo">Travis<span>.</span>Butera</div>
     <ul class="nav-links">
-      <li><a href="https://msp.buteranet.com" class="nav-services">Services</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#resume">Resume</a></li>
@@ -1547,7 +1539,6 @@
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="https://msp.buteranet.com">Services</a>
   <a href="#about" onclick="closeMobile()">About</a>
   <a href="#portfolio" onclick="closeMobile()">Portfolio</a>
   <a href="#resume" onclick="closeMobile()">Resume</a>
@@ -1556,29 +1547,6 @@
   <a href="#contact" onclick="closeMobile()">Contact</a>
 </div>
 
-<!-- BUSINESS BANNER · ButeraNet Solutions LLC service lines · added 2026-08-08 -->
-<section aria-label="ButeraNet Solutions LLC services" style="margin-top:64px;background:linear-gradient(180deg,rgba(10,20,36,0.98),rgba(6,14,26,0.98));border-bottom:1px solid rgba(201,168,76,0.18);padding:22px 24px 24px;">
-  <div style="max-width:1080px;margin:0 auto;">
-    <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(201,168,76,0.95);margin-bottom:12px;font-weight:600;">
-      ButeraNet Solutions LLC &nbsp;&middot;&nbsp; Managed IT &amp; Cybersecurity &nbsp;&middot;&nbsp; Honolulu, Hawaii
-    </div>
-    <div class="bn-banner-cards" style="display:flex;flex-wrap:wrap;gap:14px;">
-      <a href="https://msp.buteranet.com" class="bn-card bn-card-msp" style="flex:1 1 320px;text-decoration:none;background:rgba(46,117,182,0.14);border:1px solid rgba(46,117,182,0.45);border-radius:10px;padding:18px 20px;display:block;">
-        <div style="font-size:17px;font-weight:700;color:#fff;margin-bottom:5px;">ButeraNet MSP &nbsp;&rarr;</div>
-        <div style="font-size:13px;line-height:1.5;color:rgba(226,236,247,0.82);">Managed IT, network, Wi-Fi, firewall, and cybersecurity for churches, nonprofits, and small business.</div>
-      </a>
-      <a href="https://intelligence.buteranet.com" class="bn-card bn-card-int" style="flex:1 1 320px;text-decoration:none;background:rgba(21,128,61,0.14);border:1px solid rgba(21,128,61,0.5);border-radius:10px;padding:18px 20px;display:block;">
-        <div style="font-size:17px;font-weight:700;color:#fff;margin-bottom:5px;">ButeraNet Intelligence &nbsp;&rarr;</div>
-        <div style="font-size:13px;line-height:1.5;color:rgba(226,247,232,0.82);">Private, on-premise AI appliances for organizations that cannot send their data to the cloud.</div>
-      </a>
-    </div>
-    <div style="font-size:12px;line-height:1.6;color:rgba(148,163,184,0.9);margin-top:14px;">
-      Business inquiries: <a href="mailto:travis@buteranet.com" style="color:rgba(201,168,76,0.95);text-decoration:none;">travis@buteranet.com</a>
-      &nbsp;&middot;&nbsp; (808) 213-1629
-      &nbsp;&middot;&nbsp; The profile below is Travis Butera&rsquo;s personal professional background, provided for prospective employers.
-    </div>
-  </div>
-</section>
 
 <!-- HERO -->
 <section id="hero">
@@ -1785,85 +1753,6 @@
       </a>
     </div>
 
-    <div class="project-card fade-in">
-      <div class="project-card-header">
-        <div>
-          <div class="project-title">ButeraNet Solutions</div>
-          <div class="project-subtitle">Managed IT &amp; Network Infrastructure for Small Organizations</div>
-        </div>
-        <div class="project-year">2026 &middot; Active</div>
-      </div>
-
-      <p class="project-desc">
-        A founder-operated managed services provider (MSP) serving churches, nonprofits, and small
-        businesses across Hawaii. Enterprise-grade network infrastructure, layered security
-        (CrowdSec inbound + Maltrail outbound), structured cabling, Wi-Fi engineering, and 24x7
-        monitoring, deployed at small-organization budgets. Active engagements include a faith
-        organization deployment, a small business network refresh (reference architecture), and an
-        ongoing nonprofit consultation. Four-layer managed service model with a documented 5-phase
-        engagement process: discovery, assessment, design, deployment, and managed operations.
-      </p>
-
-      <div class="project-tags">
-        <span class="project-tag">Managed IT</span>
-        <span class="project-tag">Network Infrastructure</span>
-        <span class="project-tag">UniFi / MikroTik</span>
-        <span class="project-tag">Cybersecurity</span>
-        <span class="project-tag">CrowdSec / Maltrail</span>
-        <span class="project-tag">Cloudflare Zero Trust</span>
-        <span class="project-tag">Hawaii Local</span>
-      </div>
-
-      <a href="https://msp.buteranet.com" target="_blank" rel="noopener" class="project-link-btn">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-          <path d="M15 3h6v6"/>
-          <path d="M10 14L21 3"/>
-        </svg>
-        Visit msp.buteranet.com
-      </a>
-    </div>
-
-    <div class="project-card fade-in">
-      <div class="project-card-header">
-        <div>
-          <div class="project-title">ButeraNet Intelligence</div>
-          <div class="project-subtitle">Private AI Appliances for Sensitive Organizations</div>
-        </div>
-        <div class="project-year">2026 &middot; Active</div>
-      </div>
-
-      <p class="project-desc">
-        A standalone product company building, deploying, and managing private on-premise AI
-        appliances for organizations that cannot use cloud AI: churches, law firms, medical
-        practices, government contractors, faith-based nonprofits. Local large language model
-        (LLM) inference (vLLM and Ollama), Qdrant vector database, IBM Docling document
-        understanding, LlamaIndex agent orchestration, and Neo4j knowledge graphs, running
-        entirely behind the client's firewall. Zero data egress by architecture, not by policy.
-        Self-healing infrastructure, a private AI appliance that knows your organization's
-        content, operates fully offline, and serves your entire staff without per-query billing.
-      </p>
-
-      <div class="project-tags">
-        <span class="project-tag">Private AI / On-Prem LLM</span>
-        <span class="project-tag">vLLM / Ollama</span>
-        <span class="project-tag">Qdrant Vector DB</span>
-        <span class="project-tag">LlamaIndex GraphRAG</span>
-        <span class="project-tag">Neo4j</span>
-        <span class="project-tag">IBM Docling</span>
-        <span class="project-tag">Self-Healing</span>
-        <span class="project-tag">CMMC / HIPAA Aligned</span>
-      </div>
-
-      <a href="https://intelligence.buteranet.com" target="_blank" rel="noopener" class="project-link-btn">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-          <path d="M15 3h6v6"/>
-          <path d="M10 14L21 3"/>
-        </svg>
-        Visit intelligence.buteranet.com
-      </a>
-    </div>
   </div>
 </section>
 
@@ -2597,12 +2486,6 @@
     <div class="footer-name">Travis D. Butera</div>
     <div class="footer-meta">IT &amp; Cybersecurity Operations Leader &nbsp;&middot;&nbsp; ISSM &nbsp;&middot;&nbsp; U.S. Navy Senior Chief</div>
     <div class="footer-meta" style="margin-top:4px;">Active TS Clearance &nbsp;&middot;&nbsp; Available February 2028</div>
-    <div class="footer-meta" style="margin-top:14px; font-size:0.78rem; letter-spacing:0.06em; opacity:0.7;">
-      Part of the ButeraNet ecosystem &nbsp;&rarr;&nbsp;
-      <a href="https://msp.buteranet.com" style="color:var(--gold); text-decoration:none;" target="_blank" rel="noopener">ButeraNet Solutions</a>
-      &nbsp;&middot;&nbsp;
-      <a href="https://intelligence.buteranet.com" style="color:var(--gold); text-decoration:none;" target="_blank" rel="noopener">ButeraNet Intelligence</a>
-    </div>
     <div class="footer-meta" id="footerLastUpdated" style="margin-top:8px; opacity:0.55; font-size:0.68rem; letter-spacing:0.06em;"></div>
   </div>
 </footer>

@@ -4,3 +4,6 @@
 !.dev.vars.example
 .env*
 !.env.example
+
+# pre-patch backups, kept on disk, never committed
+_ReviewForDelete/
