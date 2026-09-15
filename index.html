@@ -207,14 +207,62 @@
       transition: all var(--transition);
     }
 
-    /* ===== HERO ===== */
-    #hero {
-      /* Height accounts for the fixed nav (64px) + the business banner above it,
-         so the hero does not reserve a full viewport starting below the banner. */
-      min-height: calc(100vh - 264px);
+    /* ===== BUSINESS STRIP ===== */
+    .biz-strip {
+      margin: 0 -24px;
+      padding: 0 24px;
+      background: rgba(15,37,68,0.55);
+      border-bottom: 1px solid rgba(201,168,76,0.10);
+    }
+
+    .biz-strip-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      height: 34px;
       display: flex;
       align-items: center;
-      padding: 40px 0 72px;
+      gap: 10px;
+      overflow: hidden;
+      font-size: clamp(0.58rem, 2.3vw, 0.74rem);
+      line-height: 1;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+    }
+
+    .biz-mark {
+      font-weight: 700;
+      color: var(--off-white);
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+      white-space: nowrap;
+    }
+
+    .biz-sep { color: rgba(143,163,192,0.45); }
+
+    .biz-note { white-space: nowrap; }
+
+    .biz-link {
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--gold);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .biz-link:hover { color: var(--gold-light); text-decoration: underline; }
+    .biz-link:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    .biz-chev { font-size: 1rem; line-height: 1; }
+
+    /* ===== HERO ===== */
+    #hero {
+      /* Height accounts for the fixed nav: 34px business strip + 64px nav bar + hairlines. */
+      min-height: calc(100vh - 100px);
+      display: flex;
+      align-items: center;
+      /* Top padding clears the fixed nav so the eyebrow is never under it. */
+      padding: 138px 0 72px;
       position: relative;
       overflow: hidden;
     }
@@ -1138,7 +1186,7 @@
     .mobile-menu {
       display: none;
       position: fixed;
-      top: 64px; left: 0; right: 0;
+      top: 100px; left: 0; right: 0;
       background: rgba(6,14,26,0.98);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
@@ -1170,6 +1218,8 @@
       .nav-links { display: none; }
       .hamburger { display: flex; }
 
+      .biz-sep, .biz-note { display: none; }
+
       .about-grid,
       .contact-grid {
         grid-template-columns: 1fr;
@@ -1187,10 +1237,16 @@
       .contact-clearance-box { margin-top: 24px; }
 
       /* Banner cards stack on small screens, so let the hero size to content. */
-      #hero { min-height: auto; padding: 32px 0 56px; }
+      #hero { min-height: auto; padding: 130px 0 56px; }
     }
 
     @media (max-width: 480px) {
+      nav { padding: 0 16px; }
+      .biz-strip { margin: 0 -16px; padding: 0 16px; }
+      .biz-strip-inner { gap: 8px; }
+      .biz-mark { letter-spacing: 0.05em; }
+      .biz-chev { display: none; }
+
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .hero-badges { gap: 7px; }
       .badge { font-size: 0.72rem; padding: 6px 11px; }
@@ -1523,6 +1579,15 @@
 
 <!-- NAV -->
 <nav>
+  <!-- Business strip: one link to the company site. No services, no pricing, no rank adjacency. -->
+  <div class="biz-strip">
+    <div class="biz-strip-inner">
+      <span class="biz-mark">ButeraNet Solutions LLC</span>
+      <span class="biz-sep" aria-hidden="true">&middot;</span>
+      <span class="biz-note">my network design and installation business, Oahu</span>
+      <a class="biz-link" href="https://net.buteranet.com/" target="_blank" rel="noopener">net.buteranet.com<span class="biz-chev" aria-hidden="true">&#8250;</span></a>
+    </div>
+  </div>
   <div class="nav-inner">
     <div class="nav-logo">Travis<span>.</span>Butera</div>
     <ul class="nav-links">
