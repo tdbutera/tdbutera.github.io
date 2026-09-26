@@ -3,17 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#001B31">
   <title>Page Not Found | Travis D. Butera</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --navy-darkest: #060e1a; --navy-dark: #0b1a2e; --navy-mid: #0f2544;
-      --gold: #c9a84c; --gold-light: #e0c06a; --white: #ffffff;
-      --text-muted: #8fa3c0; --text-body: #cdd6e3; --border: rgba(201,168,76,0.25);
+      --navy-darkest: #00101F; --navy-dark: #001B31; --navy-mid: #0A2A47;
+      --gold: #AE8140; --gold-light: #C9A25C; --white: #ffffff;
+      --text-muted: #9A9C9F; --text-body: #C9C8C8; --border: rgba(174,129,64,0.25);
     }
     body {
-      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
       background: var(--navy-darkest); color: var(--text-body);
       min-height: 100vh; display: flex; flex-direction: column;
       align-items: center; justify-content: center; padding: 40px 24px;
@@ -34,16 +38,17 @@
       font-weight: 600; text-decoration: none; transition: all 0.2s ease;
     }
     .btn-primary {
-      background: var(--gold); color: #060e1a;
+      background: var(--gold); color: #00101F;
     }
     .btn-primary:hover { background: var(--gold-light); }
     .btn-outline {
       border: 1px solid var(--border); color: var(--gold);
     }
-    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(174,129,64,0.08); }
   </style>
 </head>
 <body>
+  <img src="/assets/brand/bns-mark-reversed.svg" alt="BNS" width="108" height="30" style="height:30px;width:auto;margin:0 auto 22px;display:block">
   <div class="code">404</div>
   <div class="label">&#9679; Page Not Found</div>
   <h1>That page does not exist.</h1>

@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#001B31">
   <title>What CANES Actually Is, And What Running It Taught Me About Enterprise Architecture | Travis D. Butera</title>
   <meta name="description" content="The Consolidated Afloat Networks and Enterprise Services system is the most demanding enterprise IT environment most civilians have never heard of. Here is what 18+ years running it taught me." />
   <meta property="og:type"        content="article" />
@@ -42,25 +46,25 @@
 
   <style>
     :root {
-      --navy-darkest: #060e1a;
-      --navy-dark:    #0b1a2e;
-      --navy-mid:     #0f2544;
-      --navy-light:   #1a3560;
-      --gold:         #c9a84c;
-      --gold-light:   #e0c06a;
+      --navy-darkest: #00101F;
+      --navy-dark:    #001B31;
+      --navy-mid:     #0A2A47;
+      --navy-light:   #163B60;
+      --gold:         #AE8140;
+      --gold-light:   #C9A25C;
       --white:        #ffffff;
-      --off-white:    #e8edf4;
-      --text-muted:   #8fa3c0;
-      --text-body:    #cdd6e3;
-      --border:       rgba(201,168,76,0.25);
-      --card-bg:      rgba(15,37,68,0.7);
+      --off-white:    #ECEBE9;
+      --text-muted:   #9A9C9F;
+      --text-body:    #C9C8C8;
+      --border:       rgba(174,129,64,0.30);
+      --card-bg:      rgba(10,42,71,0.70);
       --radius:       8px;
       --transition:   0.25s ease;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
-      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: 'Montserrat', 'Segoe UI', system-ui, -apple-system, sans-serif;
       background-color: var(--navy-darkest);
       color: var(--text-body);
       line-height: 1.75;
@@ -78,6 +82,9 @@
     }
     .site-header .logo { font-weight: 700; color: var(--white); font-size: 1.1rem; }
     .site-header .logo span { color: var(--gold); }
+    .site-header .logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-mark { height: 22px; width: auto; display: block; }
+    footer .foot-mark { height: 18px; width: auto; display: inline-block; vertical-align: middle; margin-right: 10px; }
     .site-header nav a { color: var(--text-muted); font-size: 0.9rem; margin-left: 24px; }
     .site-header nav a:hover { color: var(--gold); }
 
@@ -89,7 +96,7 @@
     }
     .article-hero .category {
       display: inline-block;
-      background: rgba(201,168,76,0.15);
+      background: rgba(174,129,64,0.15);
       color: var(--gold);
       border: 1px solid var(--border);
       border-radius: 4px;
@@ -241,7 +248,7 @@
 <body>
 
   <header class="site-header">
-    <div class="logo">Travis D. <span>Butera</span></div>
+    <a class="logo" href="/" aria-label="Travis D. Butera, home"><img class="nav-mark" src="/assets/brand/bns-mark-reversed.svg" alt="BNS" width="79" height="22"><b class="nav-name">Travis D. <span>Butera</span></b></a>
     <nav>
       <a href="/">Home</a>
       <a href="/#blog">More Posts</a>
@@ -444,15 +451,15 @@
   <div style="border-top:1px solid var(--border);padding-top:40px;margin-top:52px;">
     <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;color:var(--text-muted);margin-bottom:20px;">&#9679; Related Posts</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
-      <a href="/rmf-in-practice.html" style="background:var(--navy-mid);border:1px solid var(--border);border-radius:8px;padding:16px 18px;text-decoration:none;display:block;transition:border-color 0.25s ease;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.25)'">
+      <a href="/rmf-in-practice.html" style="background:var(--navy-mid);border:1px solid var(--border);border-radius:8px;padding:16px 18px;text-decoration:none;display:block;transition:border-color 0.25s ease;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(174,129,64,0.25)'">
         <div style="font-size:0.88rem;font-weight:600;color:#fff;line-height:1.4;margin-bottom:6px;">RMF in Practice: What the Checklist Does Not Tell You</div>
         <span style="font-size:0.78rem;color:var(--gold);font-weight:600;">Read &rarr;</span>
       </a>
-      <a href="/dod-cyber-inspections.html" style="background:var(--navy-mid);border:1px solid var(--border);border-radius:8px;padding:16px 18px;text-decoration:none;display:block;transition:border-color 0.25s ease;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.25)'">
+      <a href="/dod-cyber-inspections.html" style="background:var(--navy-mid);border:1px solid var(--border);border-radius:8px;padding:16px 18px;text-decoration:none;display:block;transition:border-color 0.25s ease;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(174,129,64,0.25)'">
         <div style="font-size:0.88rem;font-weight:600;color:#fff;line-height:1.4;margin-bottom:6px;">Why Most DoD Cyber Inspections Fail Before They Start</div>
         <span style="font-size:0.78rem;color:var(--gold);font-weight:600;">Read &rarr;</span>
       </a>
-      <a href="/submarine-to-civilian-it.html" style="background:var(--navy-mid);border:1px solid var(--border);border-radius:8px;padding:16px 18px;text-decoration:none;display:block;transition:border-color 0.25s ease;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.25)'">
+      <a href="/submarine-to-civilian-it.html" style="background:var(--navy-mid);border:1px solid var(--border);border-radius:8px;padding:16px 18px;text-decoration:none;display:block;transition:border-color 0.25s ease;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(174,129,64,0.25)'">
         <div style="font-size:0.88rem;font-weight:600;color:#fff;line-height:1.4;margin-bottom:6px;">From Submarine Networks to Civilian IT: What Actually Transfers</div>
         <span style="font-size:0.78rem;color:var(--gold);font-weight:600;">Read &rarr;</span>
       </a>

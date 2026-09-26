@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#001B31">
   <title>RMF in Practice: What the Checklist Does Not Tell You | Travis D. Butera</title>
   <meta name="description" content="After executing full Risk Management Framework (RMF)/Authority to Operate (ATO) lifecycles across seven operational submarines, Information System Security Manager (ISSM) Travis Butera shares what most contractors get wrong before the package hits the desk." />
 
@@ -42,23 +46,23 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --navy-darkest: #060e1a;
-      --navy-dark:    #0b1a2e;
-      --navy-mid:     #0f2544;
-      --navy-light:   #1a3560;
-      --gold:         #c9a84c;
-      --gold-light:   #e0c06a;
+      --navy-darkest: #00101F;
+      --navy-dark:    #001B31;
+      --navy-mid:     #0A2A47;
+      --navy-light:   #163B60;
+      --gold:         #AE8140;
+      --gold-light:   #C9A25C;
       --white:        #ffffff;
-      --off-white:    #e8edf4;
-      --text-muted:   #8fa3c0;
-      --text-body:    #cdd6e3;
-      --border:       rgba(201,168,76,0.25);
+      --off-white:    #ECEBE9;
+      --text-muted:   #9A9C9F;
+      --text-body:    #C9C8C8;
+      --border:       rgba(174,129,64,0.30);
       --radius:       8px;
       --transition:   0.25s ease;
     }
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
-      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: 'Montserrat', 'Segoe UI', system-ui, -apple-system, sans-serif;
       background-color: var(--navy-darkest);
       color: var(--text-body);
       line-height: 1.75;
@@ -160,12 +164,15 @@
       text-align: center;
       font-size: 0.8rem; color: var(--text-muted);
     }
+    .nav-brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-mark { height: 22px; width: auto; display: block; }
+    footer .foot-mark { height: 18px; width: auto; display: inline-block; vertical-align: middle; margin-right: 10px; }
   </style>
 </head>
 <body>
 
 <nav>
-  <span class="nav-brand">Travis D. Butera</span>
+  <a class="nav-brand" href="/" aria-label="Travis D. Butera, home"><img class="nav-mark" src="/assets/brand/bns-mark-reversed.svg" alt="BNS" width="79" height="22">Travis D. Butera</a>
   <a href="/" class="nav-back">
     <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
     Back to buteranet.com
@@ -272,15 +279,15 @@
   <div style="border-top:1px solid var(--border);padding-top:40px;margin-top:52px;">
     <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;color:var(--text-muted);margin-bottom:20px;">&#9679; Related Posts</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
-      <a href="/dod-cyber-inspections.html" style="background:var(--navy-mid);border:1px solid var(--border);border-radius:8px;padding:16px 18px;text-decoration:none;display:block;transition:border-color 0.25s ease;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.25)'">
+      <a href="/dod-cyber-inspections.html" style="background:var(--navy-mid);border:1px solid var(--border);border-radius:8px;padding:16px 18px;text-decoration:none;display:block;transition:border-color 0.25s ease;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(174,129,64,0.25)'">
         <div style="font-size:0.88rem;font-weight:600;color:#fff;line-height:1.4;margin-bottom:6px;">Why Most DoD Cyber Inspections Fail Before They Start</div>
         <span style="font-size:0.78rem;color:var(--gold);font-weight:600;">Read &rarr;</span>
       </a>
-      <a href="/submarine-to-civilian-it.html" style="background:var(--navy-mid);border:1px solid var(--border);border-radius:8px;padding:16px 18px;text-decoration:none;display:block;transition:border-color 0.25s ease;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.25)'">
+      <a href="/submarine-to-civilian-it.html" style="background:var(--navy-mid);border:1px solid var(--border);border-radius:8px;padding:16px 18px;text-decoration:none;display:block;transition:border-color 0.25s ease;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(174,129,64,0.25)'">
         <div style="font-size:0.88rem;font-weight:600;color:#fff;line-height:1.4;margin-bottom:6px;">From Submarine Networks to Civilian IT: What Actually Transfers</div>
         <span style="font-size:0.78rem;color:var(--gold);font-weight:600;">Read &rarr;</span>
       </a>
-      <a href="/issm-test-building-system-i-audit.html" style="background:var(--navy-mid);border:1px solid var(--border);border-radius:8px;padding:16px 18px;text-decoration:none;display:block;transition:border-color 0.25s ease;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.25)'">
+      <a href="/issm-test-building-system-i-audit.html" style="background:var(--navy-mid);border:1px solid var(--border);border-radius:8px;padding:16px 18px;text-decoration:none;display:block;transition:border-color 0.25s ease;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(174,129,64,0.25)'">
         <div style="font-size:0.88rem;font-weight:600;color:#fff;line-height:1.4;margin-bottom:6px;">The ISSM Test: Building a System I Would Have to Audit</div>
         <span style="font-size:0.78rem;color:var(--gold);font-weight:600;">Read &rarr;</span>
       </a>
@@ -300,8 +307,7 @@
 
 </article>
 
-<footer>
-  &copy; Travis D. Butera &nbsp;&middot;&nbsp; <a href="/">buteranet.com</a>
+<footer><img class="foot-mark" src="/assets/brand/bns-mark-reversed.svg" alt="BNS" width="65" height="18">&copy; Travis D. Butera &nbsp;&middot;&nbsp; <a href="/">buteranet.com</a>
 </footer>
 
 </body>

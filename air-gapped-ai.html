@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#001B31">
   <title>Air-Gapped AI: Why Your Most Sensitive Data Should Never Touch a Cloud Model | Travis D. Butera</title>
   <meta name="description" content="Every prompt you send to a cloud AI model is a data-disclosure decision you are making by default. A Navy ISSM on what classified-network discipline teaches about running AI on-premises, who actually needs it, and the honest tradeoffs." />
 
@@ -42,25 +46,25 @@
 
   <style>
     :root {
-      --navy-darkest: #060e1a;
-      --navy-dark:    #0b1a2e;
-      --navy-mid:     #0f2544;
-      --navy-light:   #1a3560;
-      --gold:         #c9a84c;
-      --gold-light:   #e0c06a;
+      --navy-darkest: #00101F;
+      --navy-dark:    #001B31;
+      --navy-mid:     #0A2A47;
+      --navy-light:   #163B60;
+      --gold:         #AE8140;
+      --gold-light:   #C9A25C;
       --white:        #ffffff;
-      --off-white:    #e8edf4;
-      --text-muted:   #8fa3c0;
-      --text-body:    #cdd6e3;
-      --border:       rgba(201,168,76,0.25);
-      --card-bg:      rgba(15,37,68,0.7);
+      --off-white:    #ECEBE9;
+      --text-muted:   #9A9C9F;
+      --text-body:    #C9C8C8;
+      --border:       rgba(174,129,64,0.30);
+      --card-bg:      rgba(10,42,71,0.70);
       --radius:       8px;
       --transition:   0.25s ease;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
-      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: 'Montserrat', 'Segoe UI', system-ui, -apple-system, sans-serif;
       background-color: var(--navy-darkest);
       color: var(--text-body);
       line-height: 1.75;
@@ -78,6 +82,9 @@
     }
     .site-header .logo { font-weight: 700; color: var(--white); font-size: 1.1rem; }
     .site-header .logo span { color: var(--gold); }
+    .site-header .logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-mark { height: 22px; width: auto; display: block; }
+    footer .foot-mark { height: 18px; width: auto; display: inline-block; vertical-align: middle; margin-right: 10px; }
     .site-header nav a { color: var(--text-muted); font-size: 0.9rem; margin-left: 24px; }
     .site-header nav a:hover { color: var(--gold); }
 
@@ -172,12 +179,12 @@
     }
     .level-table td {
       padding: 11px 14px;
-      border-bottom: 1px solid rgba(201,168,76,0.1);
+      border-bottom: 1px solid rgba(174,129,64,0.1);
       vertical-align: top;
       color: var(--text-body);
     }
     .level-table tr:last-child td { border-bottom: none; }
-    .level-table tr:nth-child(even) td { background: rgba(15,37,68,0.4); }
+    .level-table tr:nth-child(even) td { background: rgba(10,42,71,0.4); }
 
     .checklist-card {
       background: var(--navy-mid);
@@ -204,7 +211,7 @@
       position: relative;
       font-size: 0.95rem;
       color: var(--text-body);
-      border-bottom: 1px solid rgba(201,168,76,0.08);
+      border-bottom: 1px solid rgba(174,129,64,0.08);
     }
     .checklist-card li:last-child { border-bottom: none; }
     .checklist-card li::before {
@@ -289,7 +296,7 @@
 <body>
 
 <header class="site-header">
-  <div class="logo">Travis D. <span>Butera</span></div>
+  <a class="logo" href="/" aria-label="Travis D. Butera, home"><img class="nav-mark" src="/assets/brand/bns-mark-reversed.svg" alt="BNS" width="79" height="22"><b class="nav-name">Travis D. <span>Butera</span></b></a>
   <nav>
     <a href="/">Home</a>
     <a href="/#blog">Insights</a>
@@ -490,7 +497,7 @@
 
 </article>
 
-<footer>&copy; Travis D. Butera &nbsp;&middot;&nbsp; <a href="/">buteranet.com</a></footer>
+<footer><img class="foot-mark" src="/assets/brand/bns-mark-reversed.svg" alt="BNS" width="65" height="18">&copy; Travis D. Butera &nbsp;&middot;&nbsp; <a href="/">buteranet.com</a></footer>
 
 </body>
 </html>

@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#001B31">
   <title>Travis D. Butera &middot; IT & Cybersecurity Operations Leader</title>
   <meta name="description" content="Travis D. Butera &middot; U.S. Navy Senior Chief, ISSM, 18+ years DoD cybersecurity and enterprise IT leadership. Active TS/SCI. Available February 2028. Founder of ButeraNet Solutions (managed IT) and ButeraNet Intelligence (private on-premise AI)." />
 
@@ -79,18 +83,18 @@
     /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --navy-darkest: #060e1a;
-      --navy-dark:    #0b1a2e;
-      --navy-mid:     #0f2544;
-      --navy-light:   #1a3560;
-      --gold:         #c9a84c;
-      --gold-light:   #e0c06a;
+      --navy-darkest: #00101F;
+      --navy-dark:    #001B31;
+      --navy-mid:     #0A2A47;
+      --navy-light:   #163B60;
+      --gold:         #AE8140;
+      --gold-light:   #C9A25C;
       --white:        #ffffff;
-      --off-white:    #e8edf4;
-      --text-muted:   #8fa3c0;
-      --text-body:    #cdd6e3;
-      --border:       rgba(201,168,76,0.25);
-      --card-bg:      rgba(15,37,68,0.7);
+      --off-white:    #ECEBE9;
+      --text-muted:   #9A9C9F;
+      --text-body:    #C9C8C8;
+      --border:       rgba(174,129,64,0.30);
+      --card-bg:      rgba(10,42,71,0.70);
       --radius:       8px;
       --transition:   0.25s ease;
     }
@@ -98,7 +102,7 @@
     html { scroll-behavior: smooth; font-size: 16px; }
 
     body {
-      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: 'Montserrat', 'Segoe UI', system-ui, -apple-system, sans-serif;
       background-color: var(--navy-darkest);
       color: var(--text-body);
       line-height: 1.7;
@@ -149,7 +153,7 @@
       z-index: 100;
       background: rgba(6,14,26,0.92);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(201,168,76,0.12);
+      border-bottom: 1px solid rgba(174,129,64,0.12);
       padding: 0 24px;
     }
 
@@ -170,6 +174,12 @@
     }
 
     .nav-logo span { color: var(--gold); }
+    .nav-logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-mark { height: 22px; width: auto; display: block; }
+    .nav-name { font-weight: 700; }
+    .biz-logo { height: 14px; width: auto; display: block; flex: none; }
+    .footer-logo { width: 180px; height: auto; margin-bottom: 10px; }
+
 
     .nav-links {
       display: flex;
@@ -211,8 +221,8 @@
     .biz-strip {
       margin: 0 -24px;
       padding: 0 24px;
-      background: rgba(15,37,68,0.55);
-      border-bottom: 1px solid rgba(201,168,76,0.10);
+      background: rgba(10,42,71,0.55);
+      border-bottom: 1px solid rgba(174,129,64,0.10);
     }
 
     .biz-strip-inner {
@@ -237,7 +247,7 @@
       white-space: nowrap;
     }
 
-    .biz-sep { color: rgba(143,163,192,0.45); }
+    .biz-sep { color: rgba(154,156,159,0.45); }
 
     .biz-note { white-space: nowrap; }
 
@@ -272,8 +282,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 70% 60% at 80% 40%, rgba(201,168,76,0.06) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 80% at 0% 80%, rgba(15,37,68,0.8) 0%, transparent 60%);
+        radial-gradient(ellipse 70% 60% at 80% 40%, rgba(174,129,64,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 80% at 0% 80%, rgba(10,42,71,0.8) 0%, transparent 60%);
       pointer-events: none;
     }
 
@@ -283,8 +293,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+        linear-gradient(rgba(174,129,64,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(174,129,64,0.04) 1px, transparent 1px);
       background-size: 60px 60px;
       pointer-events: none;
     }
@@ -351,7 +361,7 @@
     }
 
     .badge-ts {
-      background: rgba(201,168,76,0.12);
+      background: rgba(174,129,64,0.12);
       border-color: var(--gold);
       color: var(--gold-light);
     }
@@ -410,7 +420,7 @@
       background: var(--gold-light);
       color: var(--navy-darkest);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(201,168,76,0.25);
+      box-shadow: 0 8px 24px rgba(174,129,64,0.25);
     }
 
     .btn-outline {
@@ -523,7 +533,7 @@
       width: 36px;
       height: 36px;
       flex-shrink: 0;
-      background: rgba(201,168,76,0.12);
+      background: rgba(174,129,64,0.12);
       border-radius: 6px;
       display: flex;
       align-items: center;
@@ -684,7 +694,7 @@
     }
 
     .resume-card:hover {
-      border-color: rgba(201,168,76,0.5);
+      border-color: rgba(174,129,64,0.5);
       transform: translateY(-4px);
       box-shadow: 0 16px 40px rgba(0,0,0,0.4);
     }
@@ -694,7 +704,7 @@
     .resume-card-icon {
       width: 48px;
       height: 48px;
-      background: rgba(201,168,76,0.12);
+      background: rgba(174,129,64,0.12);
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -746,7 +756,7 @@
       align-items: center;
       gap: 8px;
       padding: 12px 20px;
-      background: rgba(201,168,76,0.1);
+      background: rgba(174,129,64,0.1);
       border: 1.5px solid var(--gold);
       border-radius: var(--radius);
       color: var(--gold);
@@ -806,7 +816,7 @@
 
     td {
       padding: 16px 20px;
-      border-bottom: 1px solid rgba(201,168,76,0.08);
+      border-bottom: 1px solid rgba(174,129,64,0.08);
       vertical-align: middle;
     }
 
@@ -877,14 +887,14 @@
 
     .priority-badge {
       display: inline-block;
-      background: rgba(201,168,76,0.15);
+      background: rgba(174,129,64,0.15);
       color: var(--gold);
       font-size: 0.68rem;
       padding: 2px 7px;
       border-radius: 4px;
       margin-left: 6px;
       font-weight: 700;
-      border: 1px solid rgba(201,168,76,0.3);
+      border: 1px solid rgba(174,129,64,0.3);
     }
 
     /* Progress bar visual for in-progress certs */
@@ -947,7 +957,7 @@
       width: 400px;
       height: 400px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(174,129,64,0.06) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -986,7 +996,7 @@
 
     .contact-card:hover {
       border-color: var(--gold);
-      background: rgba(201,168,76,0.06);
+      background: rgba(174,129,64,0.06);
       transform: translateX(4px);
     }
 
@@ -994,7 +1004,7 @@
       width: 44px;
       height: 44px;
       flex-shrink: 0;
-      background: rgba(201,168,76,0.12);
+      background: rgba(174,129,64,0.12);
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -1020,7 +1030,7 @@
     .contact-clearance-box {
       margin-top: 36px;
       padding: 24px;
-      background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.03));
+      background: linear-gradient(135deg, rgba(174,129,64,0.1), rgba(174,129,64,0.03));
       border: 1px solid var(--gold);
       border-radius: 12px;
     }
@@ -1126,7 +1136,7 @@
     .form-submit:hover {
       background: var(--gold-light);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(201,168,76,0.25);
+      box-shadow: 0 8px 24px rgba(174,129,64,0.25);
     }
 
     .form-success {
@@ -1319,7 +1329,7 @@
     }
 
     .blog-card:hover {
-      border-color: rgba(201,168,76,0.5);
+      border-color: rgba(174,129,64,0.5);
       transform: translateY(-4px);
       box-shadow: 0 16px 40px rgba(0,0,0,0.4);
     }
@@ -1396,7 +1406,7 @@
     }
 
     .endorsement-card:hover {
-      border-color: rgba(201,168,76,0.4);
+      border-color: rgba(174,129,64,0.4);
       transform: translateY(-3px);
     }
 
@@ -1478,7 +1488,7 @@
       margin-top: 24px;
       padding: 28px;
       background: var(--card-bg);
-      border: 1px solid rgba(201,168,76,0.3);
+      border: 1px solid rgba(174,129,64,0.3);
       border-radius: 12px;
       font-size: 0.9rem;
       color: var(--text-body);
@@ -1582,14 +1592,14 @@
   <!-- Business strip: one link to the company site. No services, no pricing, no rank adjacency. -->
   <div class="biz-strip">
     <div class="biz-strip-inner">
-      <span class="biz-mark">ButeraNet Solutions LLC</span>
+      <img class="biz-logo" src="/assets/brand/bns-mark-reversed.svg" alt="" width="50" height="14" aria-hidden="true"><span class="biz-mark">ButeraNet Solutions LLC</span>
       <span class="biz-sep" aria-hidden="true">&middot;</span>
       <span class="biz-note">my network design and installation business, Oahu</span>
       <a class="biz-link" href="https://net.buteranet.com/" target="_blank" rel="noopener">net.buteranet.com<span class="biz-chev" aria-hidden="true">&#8250;</span></a>
     </div>
   </div>
   <div class="nav-inner">
-    <div class="nav-logo">Travis<span>.</span>Butera</div>
+    <a class="nav-logo" href="/" aria-label="Travis D. Butera, home"><img class="nav-mark" src="/assets/brand/bns-mark-reversed.svg" alt="BNS" width="86" height="24"><b class="nav-name">Travis<span>.</span>Butera</b></a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
@@ -2548,6 +2558,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
+    <img class="footer-logo" src="/assets/brand/bns-logo-reversed.svg" alt="ButeraNet Solutions" width="180" height="93">
     <div class="footer-name">Travis D. Butera</div>
     <div class="footer-meta">IT &amp; Cybersecurity Operations Leader &nbsp;&middot;&nbsp; ISSM &nbsp;&middot;&nbsp; U.S. Navy Senior Chief</div>
     <div class="footer-meta" style="margin-top:4px;">Active TS Clearance &nbsp;&middot;&nbsp; Available February 2028</div>
