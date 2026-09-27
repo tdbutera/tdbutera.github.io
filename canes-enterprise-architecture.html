@@ -8,8 +8,8 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta name="theme-color" content="#001B31">
-  <title>What CANES Actually Is, And What Running It Taught Me About Enterprise Architecture | Travis D. Butera</title>
-  <meta name="description" content="The Consolidated Afloat Networks and Enterprise Services system is the most demanding enterprise IT environment most civilians have never heard of. Here is what 18+ years running it taught me." />
+  <title>CANES and Enterprise Architecture | Travis D. Butera</title>
+  <meta name="description" content="The Consolidated Afloat Networks and Enterprise Services system is the most demanding enterprise IT environment most civilians have never heard of.">
   <meta property="og:type"        content="article" />
   <meta property="og:url"         content="https://buteranet.com/canes-enterprise-architecture.html" />
   <meta property="og:title"       content="What CANES Actually Is, And What Running It Taught Me About Enterprise Architecture" />
@@ -163,6 +163,8 @@
       color: var(--off-white);
     }
 
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 2em 0; }
+    .table-scroll table { margin: 0; min-width: 560px; }
     .spec-table {
       width: 100%;
       border-collapse: collapse;
@@ -186,7 +188,7 @@
       vertical-align: top;
     }
     .spec-table tr:last-child td { border-bottom: none; }
-    .spec-table td:first-child { color: var(--off-white); font-weight: 600; white-space: nowrap; }
+    .spec-table td:first-child { color: var(--off-white); font-weight: 600; }
 
     .lesson-card {
       background: var(--card-bg);
@@ -262,11 +264,11 @@
     <p class="subtitle">Most enterprise architects have never heard of CANES. The ones who have usually have no idea how it works. Here is a field account from someone who has administered it across seven operational submarines.</p>
     <div class="meta-row">
       <span>
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         May 2026
       </span>
       <span>
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         10 min read
       </span>
       <span>Travis D. Butera</span>
@@ -276,7 +278,7 @@
   <article class="article-wrap">
 
     <a href="/" class="back-link">
-      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
       Back to buteranet.com
     </a>
 
@@ -384,7 +386,7 @@
       The NEC 735A credential signals that a candidate has completed formal Navy training on the CANES platform and has been certified to operate it at the administrator level. It is not a vendor certification. It is a military qualification that requires demonstrated proficiency in an operational environment. Candidates who hold it have administered real systems under real operational conditions.
     </p>
 
-    <table class="spec-table">
+    <div class="table-scroll"><table class="spec-table">
       <thead>
         <tr>
           <th>CANES Skill</th>
@@ -417,7 +419,7 @@
           <td>Automation-first infrastructure; self-healing system design; runbook-based operations</td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
 
     <h2>What It Does Not Translate To</h2>
 

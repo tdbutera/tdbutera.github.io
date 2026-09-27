@@ -8,8 +8,8 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta name="theme-color" content="#001B31">
-  <title>Air-Gapped AI: Why Your Most Sensitive Data Should Never Touch a Cloud Model | Travis D. Butera</title>
-  <meta name="description" content="Every prompt you send to a cloud AI model is a data-disclosure decision you are making by default. A Navy ISSM on what classified-network discipline teaches about running AI on-premises, who actually needs it, and the honest tradeoffs." />
+  <title>Air-Gapped AI: Who Actually Needs It | Travis D. Butera</title>
+  <meta name="description" content="Every prompt sent to a cloud AI model is a data-disclosure decision. What classified-network discipline teaches about running AI on-premises, and the tradeoffs.">
 
   <meta property="og:type"        content="article" />
   <meta property="og:url"         content="https://buteranet.com/air-gapped-ai.html" />
@@ -160,6 +160,8 @@
     }
     .callout p { margin: 0; }
 
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 2em 0; }
+    .table-scroll table { margin: 0; min-width: 560px; }
     .level-table {
       width: 100%;
       border-collapse: collapse;
@@ -193,7 +195,7 @@
       padding: 20px 24px;
       margin: 1em 0;
     }
-    .checklist-card h4 {
+    .checklist-card h3 {
       font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -362,7 +364,7 @@
     Here is the honest comparison across the dimensions that actually matter for a small organization handling sensitive information. Neither column is &ldquo;better&rdquo; in the abstract, the right choice depends entirely on the sensitivity of what you are processing.
   </p>
 
-  <table class="level-table">
+  <div class="table-scroll"><table class="level-table">
     <thead>
       <tr>
         <th>Dimension</th>
@@ -412,7 +414,7 @@
         <td>Keeps working, it never needed the internet</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h2>Who Actually Needs This</h2>
   <p>
@@ -440,7 +442,7 @@
   </p>
 
   <div class="checklist-card">
-    <h4>What you give up</h4>
+    <h3>What you give up</h3>
     <ul>
       <li><strong>Model ceiling.</strong> A model you run on a single on-premises box will not match the largest frontier cloud models on the hardest reasoning tasks. For document search, summarization, drafting, and question-answering over your own content, the actual work most organizations need, a well-chosen local model is more than capable. For frontier-level reasoning, it is not.</li>
       <li><strong>Up-front cost.</strong> You are buying hardware instead of renting compute. The tradeoff is that ongoing usage is effectively free, no per-query or per-seat metering, so heavy users reach break-even and keep going.</li>
@@ -454,7 +456,7 @@
 
   <h2>What I Built</h2>
   <p>
-    This is not a theoretical position for me. I run a production AI orchestrator on my own home infrastructure, I wrote about auditing it against the same Risk Management Framework (RMF) controls I enforce professionally, and that work became <strong>ButeraNet Intelligence</strong>: a private, offline AI appliance built specifically for small organizations that need to use AI without surrendering custody of their data. It runs in the client&rsquo;s building, loaded with the client&rsquo;s own documents, with no path for that data to leave. Each deployment is the organization&rsquo;s own, isolated, private, and not shaped by an outside provider&rsquo;s view of what their data is for.
+    This is not a theoretical position for me. I run a production AI orchestrator on my own home infrastructure, and I wrote about auditing it against the same Risk Management Framework (RMF) controls I enforce professionally. It runs on hardware I control, loaded with my own documents, with no path for that data to leave the building. The same pattern scales down to a small organization: one machine, the organization&rsquo;s own documents, and a boundary that is a physical fact rather than a contract clause.
   </p>
   <p>
     The architecture is not novel and that is the point. It is the same principle I have applied to sensitive systems for 18 years, pointed at a new class of tool. Decide where your data is allowed to live. Build the system so it stays there. Then use AI like everyone else, just without giving your most sensitive information to someone you will never meet.

@@ -69,7 +69,7 @@ Analyze the job description provided by the user and produce a structured match 
 4. **Top Talking Points**, 3–5 specific, concrete things Travis should lead with in an interview for this role
 5. **Suggested Resume Emphasis**, which of his resume versions or experiences to highlight for this specific role
 
-Keep the tone professional and direct. Be honest about gaps, this is for Travis's own use to prepare. Format with clear markdown headers and bullets. Do not pad the response.`;
+Keep the tone professional and direct. Be honest about gaps, this is for Travis's own use to prepare. Format with clear markdown headers and bullets. Do not pad the response. Do not use em dashes anywhere in the response; use commas, periods, or colons instead.`;
 
 export default {
   async fetch(request, env) {
