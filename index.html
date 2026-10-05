@@ -1481,6 +1481,13 @@
     }
 
 
+    /* Business banner (service lines) */
+    .bn-card { transition: background .18s ease, border-color .18s ease, transform .18s ease; }
+    .bn-card:hover { transform: translateY(-2px); }
+    .bn-card-msp:hover { background: rgba(46,117,182,0.26) !important; border-color: rgba(46,117,182,0.85) !important; }
+    .bn-card-int:hover { background: rgba(21,128,61,0.26) !important; border-color: rgba(21,128,61,0.85) !important; }
+    .bn-card:focus-visible { outline: 2px solid var(--gold, #c9a84c); outline-offset: 3px; }
+
     /* ===== PHASE 3: AI RESUME MATCHER ===== */
     #ai-matcher { background: var(--navy-dark); }
 
